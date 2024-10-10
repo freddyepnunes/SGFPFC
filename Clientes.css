@@ -1,0 +1,351 @@
+.form-menu-Complementar{
+    margin-top: -2rem;
+    margin-left: -2.5rem;
+    position: absolute;
+    background-color: #272727;
+    height: 65rem;
+    width: 12.5rem;
+}
+
+.LinhaCabCliente{
+    height: 0.0625rem;
+    width: 71.8375rem;
+    margin-top: 10rem;
+    margin-left: 10rem;
+    background-color: #e2e2e2;
+    position: absolute;
+}
+
+.Pessoas{
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    margin-left: 13rem;
+    margin-top: 5rem;
+    white-space: nowrap;
+    position: absolute;
+}
+
+.diretorio{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin-top: 8rem;
+    margin-left: 12.47rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.diretorioItem{
+    margin: 0 0.5625rem;
+    font-size: 15px;
+}
+
+.diretorioItem:nth-child(1){
+    cursor: pointer;
+}
+
+.diretorioItem:nth-child(3){
+    cursor: pointer;
+}
+
+.diretorioItem a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.btnNovoCli{
+    border: none;
+    background-color: #0CA293;
+    position: absolute;
+    color: white;
+    margin-top: 6rem;
+    margin-left: 70rem;
+    border-radius: 4px;
+    font-size: 13px;
+    height: 2rem;
+    width: 7rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.btnNovoCli:hover{
+    background-color: #0C7E68;
+}
+
+.btnNovoCli:active{
+    background-color: white;
+    color: #0CA293;
+}
+
+.TabelaCli{
+    width: 70rem;
+    height: 43.75rem;
+    background-color: #e2e2e2;
+    position: absolute;
+    margin-top: 12rem;
+    margin-left: 11rem;
+    border-radius: 10px;
+}
+
+.FormularioCli{
+    width: 70rem;
+    height: 49.375rem;
+    background-color: #e2e2e2;
+    position: absolute;
+    margin-top: 12rem;
+    margin-left: 11rem;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 17px;
+}
+
+.FormularioCli .input-text{
+    border: none;
+    width: 12.5rem;
+    height: 1.75rem;
+    position: absolute;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.label{
+    margin-bottom: 0.625rem;
+}
+
+.Codigo{
+    margin-top: 2.5rem;
+    margin-left: 2rem;
+}
+
+.Codigo .input-text{
+    width: 8.125rem;
+    background-color: #c0c0c0;
+}
+
+.tooltip {
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+.tooltip-box {
+    display: none;
+    position: absolute;
+    background-color: #292929;
+    color: #fff;
+    width: 7.5rem;
+    height: 2rem;
+    margin-top: -5rem;
+    text-align: center;
+    align-items: center;
+    padding: 0.3125rem;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 1;
+}
+
+.tooltip-box.show {
+    display: block;
+}
+
+.tooltip:hover + .tooltip-box {
+    display: block;
+}
+
+.Tipo{
+    margin-top: -2rem;
+    margin-left: 12rem;
+}
+
+#Tipo-dropbox{
+    border: none;
+    width: 11.5625rem;
+    height: 1.875rem;
+    position: absolute;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.CPF{
+    margin-top: -2rem;
+    margin-left: 27rem;
+}
+
+.CPF .input-text{
+    width: 14rem;
+}
+
+.NomeCli{
+    margin-top: 4rem;
+    margin-left: 2rem;
+}
+
+.NomeCli .input-text{
+    width: 21.25rem;
+}
+
+.TelCli{
+    margin-top: -2rem;
+    margin-left: 27rem;
+}
+
+.TelCli .input-text{
+    width: 14rem;
+}
+
+.EmailCli{
+    margin-top: -2rem;
+    margin-left: 44.3rem;
+}
+
+.EmailCli .input-text{
+    width: 23.125rem;
+}
+
+
+.NomeContato{
+    margin-top: 4rem;
+    margin-left: 2rem;
+}
+
+.NomeContato .input-text{
+    width: 340px;
+}
+
+.Observacao{
+    margin-top: 4rem;
+    margin-left: 2rem;
+}
+
+.Observacao .input-text{
+    width: 65.625rem;
+    height: 3.75rem;
+    background-color: white;
+    padding: 0.625rem;
+    box-sizing: border-box;
+    line-height: 1.5;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+.Endereco{
+    margin-top: 7rem;
+    margin-left: 2rem;
+}
+
+.LinhaEnd{
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+    width: 65.625rem;
+    height: 1px;
+    background-color: #646464;
+}
+
+.CEP .input-text,
+.Cidade .input-text,
+.UF .input-text,
+.Bairro .input-text,
+.Rua .input-text,
+.Numero .input-text,
+.Complemento .input-text{
+    width: 20rem;
+}
+
+.CEP{
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.Cidade{
+    margin-top: -2rem;
+    margin-left: 24.7rem;
+}
+
+.UF{
+    margin-top: -2rem;
+    margin-left: 47.3rem;
+}
+
+.Rua{
+    margin-top: 4rem;
+    margin-left: 2rem;
+}
+
+.Bairro{
+    margin-top: -2rem;
+    margin-left: 24.7rem;
+}
+
+.Numero{
+    margin-top: -2rem;
+    margin-left: 47.3rem;
+}
+
+.Complemento{
+    margin-top: 4rem;
+    margin-left: 2rem;
+}
+
+.NomeCli.input-label > div:first-child::after,
+.TelCli.input-label > div:first-child::after,
+.CPF.input-label > div:first-child::after {
+    content: "*";
+    color: rgb(255, 0, 0);
+    display: inline;
+    margin-left: 5px;
+}
+
+.Observacao.Opcional > div:first-child::after,
+.Complemento.Opcional > div:first-child::after {
+    content: "(Opcional)";
+    color: #818181;
+    display: inline;
+    margin-left: 0.5rem;
+    font-size: 12px;
+}
+
+.btnSalvar,
+.btnCancelar{
+    margin-top: 4rem;
+    margin-left: 2rem;
+}
+
+.btnSalvar{
+    border: none;
+    background-color: rgb(12, 162, 147);
+    color: white;
+    border-radius: 4px;
+    font-size: 13px;
+    height: 2rem;
+    width: 4rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.btnSalvar:hover{
+    background-color: #0C7E68;
+}
+
+.btnSalvar:active{
+    background-color: white;
+    color: #0CA293;
+}
+
+.btnCancelar{
+    border: none;
+    background-color: white;
+    color: rgb(46, 46, 46);
+    height: 2rem;
+    width: 5rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+.btnCancelar:hover{
+    background-color: #c7c7c7;
+}
+
+.btnCancelar:active{
+    color: white;
+    background-color: #838383;
+}

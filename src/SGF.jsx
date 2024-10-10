@@ -79,11 +79,10 @@ function SGF() {
 
       <div className="Gráfico1">
         <div className="Projecao">
-          <strong>Projeção para os próximos 15 dias</strong>
+          <strong>Realizado no ultimo Mês</strong>
         </div>
         <div className="SaldoProj">
-          Saldo projetado para os próximos 15 dias com base nas previsões de
-          recebimento e pagamento
+          Resuno de tudo o que foi realizado no Mês
         </div>
       </div>
 
@@ -92,7 +91,7 @@ function SGF() {
           <p className="ContasPagar">
             <strong>Contas a Pagar</strong>
           </p>
-          <p className="EmAbertoP">Em aberto para os próximos 15 dias</p>
+
           <p className="Fornecedor">
             <strong>Fornecedor</strong>
           </p>
@@ -108,7 +107,7 @@ function SGF() {
           <p className="ContasReceber">
             <strong>Contas a Receber</strong>
           </p>
-          <p className="EmAbertoR">Em aberto para os próximos 15 dias</p>
+
           <p className="Cliente">
             <strong>Cliente</strong>
           </p>

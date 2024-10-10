@@ -1,295 +1,312 @@
-.form-menu-Complementar{
-    margin-top: -2rem;
-    margin-left: -2.5rem;
-    position: absolute;
-    background-color: #272727;
-    height: 75rem;
-    width: 12.5rem;
+.form-menu-Complementar {
+  margin-top: -2rem;
+  margin-left: -2.5rem;
+  position: absolute;
+  background-color: #272727;
+  height: 75rem;
+  width: 12.5rem;
 }
 
-.ContasReceber{
-    font-family: "Montserrat", sans-serif;
-    font-size: 20px;
-    margin-left: 13rem;
-    margin-top: 5rem;
-    white-space: nowrap;
-    position: absolute;
+.ContasReceber {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  margin-left: 13rem;
+  margin-top: 5rem;
+  white-space: nowrap;
+  position: absolute;
 }
 
-.LinhaCabConRec{
-    height: 0.0625rem;
-    width: 71.8375rem;
-    margin-top: 10rem;
-    margin-left: 10rem;
-    background-color: #e2e2e2;
-    position: absolute;
+.LinhaCabConRec {
+  height: 0.0625rem;
+  width: 71.8375rem;
+  margin-top: 10rem;
+  margin-left: 10rem;
+  background-color: #e2e2e2;
+  position: absolute;
 }
 
-.diretorioRec{
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    margin-top: 8rem;
-    margin-left: 12.47rem;
-    font-family: "Montserrat", sans-serif;
+.diretorioRec {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin-top: 8rem;
+  margin-left: 12.47rem;
+  font-family: "Montserrat", sans-serif;
 }
 
-.diretorioItemRec{
-    margin: 0 0.5625rem;
-    font-size: 15px;
+.diretorioItemRec {
+  margin: 0 0.5625rem;
+  font-size: 15px;
 }
 
-.diretorioItemRec:nth-child(1){
-    cursor: pointer;
+.diretorioItemRec:nth-child(1) {
+  cursor: pointer;
 }
 
-.diretorioItemRec:nth-child(3){
-    cursor: pointer;
+.diretorioItemRec:nth-child(3) {
+  cursor: pointer;
 }
 
-.diretorioItemRec a{
-    text-decoration: none;
-    color: inherit;
+.diretorioItemRec a {
+  text-decoration: none;
+  color: inherit;
 }
 
-
-.CadastroContas{
-    position: absolute;
-    margin-left: 11rem;
-    margin-top: 12rem;
-    background-color: #e2e2e2;
-    width: 70rem;
-    height: 12rem;
-    border-radius: 10px;
-    font-size: 17px;
-    font-family: "Montserrat", sans-serif;
+.CadastroContas {
+  position: absolute;
+  margin-left: 11rem;
+  margin-top: 12rem;
+  background-color: #e2e2e2;
+  width: 70rem;
+  height: 12rem;
+  border-radius: 10px;
+  font-size: 17px;
+  font-family: "Montserrat", sans-serif;
 }
 
-.NumContas{
-    margin-top: 1.5rem;
-    margin-left: 2rem;
-    position: absolute;
+.NumContas {
+  margin-top: 1.5rem;
+  margin-left: 2rem;
+  position: absolute;
 }
 
-.NumContas .input-text{
-    border: none;
-    width: 12.5rem;
-    height: 1.75rem;
-    position: absolute;
-    font-family: "Montserrat", sans-serif;
-    border-radius: 5px;
-    font-size: 13px;
-    margin-top: 0.5rem;
+.NumContas .input-text {
+  border: none;
+  width: 12.5rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
 }
 
-.DataEmissao{
-    margin-top: 1.5rem;
-    margin-left: 17rem;
-    position: absolute;
+.DataEmissao {
+  margin-top: 1.5rem;
+  margin-left: 17rem;
+  position: absolute;
 }
 
-.DataEmissao .date-input{
-    border: none;
-    width: 7rem;
-    height: 1.75rem;
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-    margin-top: 0.5rem;
+.DataEmissao .date-input {
+  border: none;
+  width: 7rem;
+  height: 1.75rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  margin-top: 0.5rem;
 }
 
-.DataEmissao .start-date{
-    border-radius: 5px 0 0 5px;
+.DataEmissao .start-date {
+  border-radius: 5px 0 0 5px;
 }
 
-.DataEmissao .end-date{
-    border-radius: 0 5px 5px 0;
+.DataEmissao .end-date {
+  border-radius: 0 5px 5px 0;
 }
 
-.DataVenc{
-    margin-top: 1.5rem;
-    margin-left: 35.6rem;
-    position: absolute;
+.DataVenc {
+  margin-top: 1.5rem;
+  margin-left: 35.6rem;
+  position: absolute;
 }
 
-.DataVenc .date-input{
-    border: none;
-    width: 7rem;
-    height: 1.75rem;
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-    margin-top: 0.5rem;
+.DataVenc .date-input {
+  border: none;
+  width: 7rem;
+  height: 1.75rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  margin-top: 0.5rem;
 }
 
-.DataVenc .start-date{
-    border-radius: 5px 0 0 5px;
+.DataVenc .start-date {
+  border-radius: 5px 0 0 5px;
 }
 
-.DataVenc .end-date{
-    border-radius: 0 5px 5px 0;
+.DataVenc .end-date {
+  border-radius: 0 5px 5px 0;
 }
 
 .date-range-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .calendar-icon {
-    background-color: #0CA293;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    margin-top: 0.6rem;
-    width: 30px;
-    height: 30px;
+  background-color: #0ca293;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.6rem;
+  width: 30px;
+  height: 30px;
 }
 .calendar-icon i {
-    font-size: 12px;
-    margin-left: 10px;
-    margin-top: 9px;
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: 9px;
 }
 
-.StatusRec{
-    margin-left: 54.4rem;
-    margin-top: 1.5rem;
-    position: absolute;
+.plancontarec {
+  margin-left: 35.5rem;
+  margin-top: 1.5rem;
+  position: absolute;
 }
 
-#Status-dropbox{
-    border: none;
-    width: 13rem;
-    height: 1.875rem;
-    position: absolute;
-    font-family: "Montserrat", sans-serif;
-    border-radius: 5px;
-    font-size: 13px;
-    margin-top: 0.5rem;
+#plancontarec-dropbox {
+  border: none;
+  width: 13rem;
+  height: 1.875rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
 }
 
-.ClienteRec{
-    margin-top: 6.5rem;
-    margin-left: 2rem;
-    position: absolute;
+.tipodocrec {
+  margin-left: 52rem;
+  margin-top: 1.5rem;
+  position: absolute;
 }
 
-#Cliente-dropbox{
-    border: none;
-    width: 31.4rem;
-    height: 1.875rem;
-    position: absolute;
-    font-family: "Montserrat", sans-serif;
-    border-radius: 5px;
-    font-size: 13px;
-    margin-top: 0.5rem;
+#tipodocrec-dropbox {
+  border: none;
+  width: 13rem;
+  height: 1.875rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+  position: absolute;
 }
 
-.Filial{
-    margin-top: 6.5rem;
-    margin-left: 35.6rem;
-    position: absolute;
+.ClienteRec {
+  margin-top: 6.5rem;
+  margin-left: 2rem;
+  position: absolute;
 }
 
-.Filial .input-text{
-    border: none;
-    width: 16rem;
-    height: 1.75rem;
-    position: absolute;
-    font-family: "Montserrat", sans-serif;
-    border-radius: 5px;
-    font-size: 13px;
-    margin-top: 0.5rem;
+#Cliente-dropbox {
+  border: none;
+  width: 31.4rem;
+  height: 1.875rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
 }
 
-.btnBuscarRec{
-    margin-left: 54.4rem;
-    margin-top: 8.3rem;
-    position: absolute;
-    border: none;
-    background-color: #0CA293;
-    color: white;
-    border-radius: 4px;
-    font-size: 13px;
-    height: 1.9rem;
-    width: 4rem;
-    font-family: "Montserrat", sans-serif;
+.valor {
+  margin-top: 6.5rem;
+  margin-left: 35.6rem;
+  position: absolute;
 }
 
-.btnExportarRec{
-    margin-left: 60rem;
-    margin-top: 8.3rem;
-    position: absolute;
-    border: none;
-    background-color: rgb(115, 185, 176);
-    color: rgb(255, 255, 255);
-    height: 1.9rem;
-    width: 5rem;
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-    border-radius: 4px;
+.valor .input-text {
+  border: none;
+  width: 16rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
 }
 
-.btnBuscarRec:hover{
-    background-color: #0C7E68;
+.btnBuscarRec {
+  margin-left: 54.4rem;
+  margin-top: 8.3rem;
+  position: absolute;
+  border: none;
+  background-color: #0ca293;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 1.9rem;
+  width: 4rem;
+  font-family: "Montserrat", sans-serif;
 }
 
-.btnBuscarRec:active{
-    background-color: white;
-    color: #0CA293;
+.btnExportarRec {
+  margin-left: 60rem;
+  margin-top: 8.3rem;
+  position: absolute;
+  border: none;
+  background-color: rgb(115, 185, 176);
+  color: rgb(255, 255, 255);
+  height: 1.9rem;
+  width: 5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  border-radius: 4px;
 }
 
-.btnExportarRec:hover{
-    background-color: #60b3b9;
+.btnBuscarRec:hover {
+  background-color: #0c7e68;
 }
 
-.btnExportarRec:active{
-    color: rgb(115, 185, 176);
-    background-color: #ffffff;
+.btnBuscarRec:active {
+  background-color: white;
+  color: #0ca293;
 }
 
-.QuadroContas{
-    position: absolute;
-    margin-left: 11rem;
-    margin-top: 26rem;
-    background-color: #e2e2e2;
-    width: 70rem;
-    height: 43rem;
-    border-radius: 10px;
-    line-height: 1.5;
+.btnExportarRec:hover {
+  background-color: #60b3b9;
+}
+
+.btnExportarRec:active {
+  color: rgb(115, 185, 176);
+  background-color: #ffffff;
+}
+
+.QuadroContas {
+  position: absolute;
+  margin-left: 11rem;
+  margin-top: 26rem;
+  background-color: #e2e2e2;
+  width: 70rem;
+  height: 43rem;
+  border-radius: 10px;
+  line-height: 1.5;
 }
 
 .Titulos,
 .TotalPago,
-.TotalAberto{
-    width: 13rem;
-    height: 80px;
-    background-color: #f3f3f3;
-    color: #131313;
-    border: none;
-    border-radius: 7.5px;
-    margin-top: 36rem;
-    margin-left: 25rem;
-    display: flex;
-    font-size: 18px;
-    font-family: "Montserrat", sans-serif;
-    flex-direction: column;
-    align-items: flex-end;
+.TotalAberto {
+  width: 13rem;
+  height: 80px;
+  background-color: #f3f3f3;
+  color: #131313;
+  border: none;
+  border-radius: 7.5px;
+  margin-top: 36rem;
+  margin-left: 25rem;
+  display: flex;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-.TotalPago{
-    margin-top: -5rem;
-    margin-left: 40rem;
+.TotalPago {
+  margin-top: -5rem;
+  margin-left: 40rem;
 }
 
-.TotalAberto{
-    margin-top: -5rem;
-    margin-left: 55rem;
+.TotalAberto {
+  margin-top: -5rem;
+  margin-left: 55rem;
 }
 
 .Total {
-    padding-right: 10px;
-    padding-top: 7px;
+  padding-right: 10px;
+  padding-top: 7px;
 }
 
 .Valor {
-    padding-right: 10px;
-    font-size: 25px;
+  padding-right: 10px;
+  font-size: 25px;
 }

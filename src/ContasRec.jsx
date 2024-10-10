@@ -115,37 +115,32 @@ const ContasRec = () => {
             />
           </div>
         </div>
-        <div className="DataVenc">
-          <div className="label">Data Vencimento</div>
-          <div className="date-range-container">
-            <input
-              type="text"
-              className="date-input start-date"
-              maxLength="10"
-              placeholder="Inicial"
-            />
-            <div className="calendar-icon" onClick={showCalendar}>
-              <i className="fa fa-calendar"></i>
-            </div>
-            <input
-              type="text"
-              className="date-input end-date"
-              maxLength="10"
-              placeholder="Final"
-            />
-          </div>
-        </div>
-        <div className="StatusRec">
-          <div className="label">Status</div>
+
+        <div className="plancontarec">
+          <div className="label">Plano de Conta</div>
           <div className="input-text status">
-            <select name="Status" id="Status-dropbox">
-              <option value="Aberto">Aberto</option>
-              <option value="Pago">Pago</option>
-              <option value="PagoParcial">Pago Parcial</option>
-              <option value="Vencido">Vencido</option>
+            <select name="Status" id="plancontarec-dropbox">
+              <option value="recprod">Receita com Proddutos</option>
+              <option value="recserv">Receita com Serviços</option>
+              <option value="outras">Outras Receitas</option>
             </select>
           </div>
         </div>
+
+        <div className="tipodocrec">
+          <div className="label">Tipo de Documento</div>
+          <div className="input-text status">
+            <select name="plancontapag" id="tipodocrec-dropbox">
+              <option value="pix">Pix</option>
+              <option value="cred">Crédito</option>
+              <option value="deb">Débito </option>
+              <option value="nf">NF</option>
+              <option value="transf">Transferência</option>
+              <option value="fat">Fatura</option>
+            </select>
+          </div>
+        </div>
+
         <div className="ClienteRec">
           <div className="label">Clientes</div>
           <div className="input-text cliente">
@@ -162,8 +157,8 @@ const ContasRec = () => {
             </select>
           </div>
         </div>
-        <div className="Filial">
-          <div className="label">Filiais</div>
+        <div className="valor">
+          <div className="label">Valor (R$)</div>
           <div>
             <input type="text" className="input-text" />
           </div>

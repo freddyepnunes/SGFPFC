@@ -18,7 +18,6 @@ const FinanceControl = () => {
               <div className="Indicador2"></div>
             </button>
           </Link>
-
           <Link to="/ContasRec" className="link">
             <button
               type="button"

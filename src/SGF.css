@@ -198,11 +198,11 @@ body {
   cursor: pointer;
 }
 
-.Filiais {
+.Perfil {
   color: #757575;
   font-size: 1.125rem;
   margin-top: -2.75rem;
-  margin-left: 88.125rem;
+  margin-left: 90rem;
   position: relative;
   white-space: nowrap;
 }
@@ -348,9 +348,9 @@ body {
 
 .ContasPagar,
 .ContasReceber {
-  margin-top: 1.25rem;
-  margin-left: 1.25rem;
-  font-size: 1.25rem;
+  top: -3rem;
+  left: -11rem;
+  font-size: 25px;
   font-family: "Montserrat", sans-serif;
   color: #0a71c0;
 }

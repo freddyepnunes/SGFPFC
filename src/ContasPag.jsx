@@ -158,7 +158,6 @@ const ContasPag = () => {
             <strong>Exportar</strong>
           </button>
         </div>
-        aa
       </div>
 
       <div className="QuadroContas"></div>

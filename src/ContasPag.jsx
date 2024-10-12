@@ -120,7 +120,6 @@ const ContasPag = () => {
             </select>
           </div>
         </div>
-
         <div className="tipodocpag">
           <div className="label">Tipo de Documento</div>
           <div className="input-text status">
@@ -134,7 +133,6 @@ const ContasPag = () => {
             </select>
           </div>
         </div>
-
         <div className="fornpag">
           <div className="label">Fornecedor</div>
           <input type="text" className="input-text" required />
@@ -145,14 +143,12 @@ const ContasPag = () => {
             <input type="text" className="input-text" />
           </div>
         </div>
-
         <div className="desc">
           <div className="label">Descrição</div>
           <div>
             <input type="text" className="input-text" />
           </div>
         </div>
-
         <div className="BuscarPag">
           <button type="button" className="btnBuscarPag" id="btnBuscarPag">
             <strong>Buscar</strong>
@@ -163,15 +159,7 @@ const ContasPag = () => {
             <strong>Exportar</strong>
           </button>
         </div>
-        <div className="cadastrarPag">
-          <button
-            type="button"
-            className="btncadastrarPag"
-            id="btncadastrarPag"
-          >
-            <strong>Caastrar</strong>
-          </button>
-        </div>
+        aa
       </div>
 
       <div className="QuadroContas"></div>

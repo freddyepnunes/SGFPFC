@@ -16,18 +16,6 @@ function SGF() {
               <div className="Indicador2"></div>
             </button>
           </Link>
-          <Link to="/Clientes" className="link">
-            <button
-              type="button"
-              className="btn btn3 btn-sep btn-icon3"
-              id="button3"
-            >
-              <i className="fa-solid fa-user-group"></i>Clientes/
-              <br />
-              Fornecedores
-              <div className="Indicador2"></div>
-            </button>
-          </Link>
           <Link to="/ContasRec" className="link">
             <button
               type="button"
@@ -103,6 +91,7 @@ function SGF() {
           </p>
           <div className="DadosContasPagar"></div>
         </div>
+
         <div className="CardContasReceber">
           <p className="ContasReceber">
             <strong>Contas a Receber</strong>
@@ -126,8 +115,8 @@ function SGF() {
           <i className="fa-solid fa-bars"></i>
         </button>
         <div className="LinhaCab"></div>
-        <div className="Filiais">Filial: N/A</div>
-        <div className="BemVindo">Bem Vindo SGF HelpB</div>
+        <div className="Perfil">Perfil</div>
+        <div className="BemVindo">Bem Vindo ao SGF</div>
         <button type="button" className="Sair" id="btnSair">
           Sair
         </button>

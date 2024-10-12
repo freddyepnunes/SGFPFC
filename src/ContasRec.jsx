@@ -156,15 +156,6 @@ const ContasRec = () => {
             <strong>Exportar</strong>
           </button>
         </div>
-        <div className="cadastrarrec">
-          <button
-            type="button"
-            className="btncadastrarrec"
-            id="btncadastrarrec"
-          >
-            <strong>Caastrar</strong>
-          </button>
-        </div>
       </div>
 
       <div className="QuadroContas"></div>

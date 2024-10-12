@@ -8,34 +8,24 @@ const FinanceControl = () => {
   return (
     <div>
       {/* Menu */}
+      <div className="form-menu-Complementar"></div>
       <div className="form-menu">
         <img className="UMC_Logo" src={UMCLogo} alt="UMC Logo" />
         <div className="Botoes">
           <Link to="/" className="link">
             <button type="button" className="btn btn1 btn-sep" id="button1">
-              Home
+              <i className="fa-solid fa-house"></i>Home
               <div className="Indicador2"></div>
             </button>
           </Link>
-          <Link to="/Clientes" className="link">
-            <button
-              type="button"
-              className="btn btn3 btn-sep btn-icon3"
-              id="button3"
-            >
-              Clientes/
-              <br />
-              Fornecedores
-              <div className="Indicador2"></div>
-            </button>
-          </Link>
+
           <Link to="/ContasRec" className="link">
             <button
               type="button"
               className="btn btn5 btn-sep btn-icon5"
               id="button5"
             >
-              Contas a Receber
+              <i className="fa-solid fa-handshake"></i>Contas a Receber
               <div className="Indicador2"></div>
             </button>
           </Link>
@@ -45,7 +35,7 @@ const FinanceControl = () => {
               className="btn btn6 btn-sep btn-icon6"
               id="button6"
             >
-              Contas a Pagar
+              <i className="fa-solid fa-money-bill"></i>Contas a Pagar
               <div className="Indicador2"></div>
             </button>
           </Link>

@@ -29,18 +29,7 @@ const ContasPag = () => {
               <div className="Indicador2"></div>
             </button>
           </Link>
-          <Link to="/Clientes" className="link">
-            <button
-              type="button"
-              className="btn btn3 btn-sep btn-icon3"
-              id="button3"
-            >
-              <i className="fa-solid fa-user-group"></i>Clientes/
-              <br />
-              Fornecedores
-              <div className="Indicador2"></div>
-            </button>
-          </Link>
+
           <Link to="/ContasRec" className="link">
             <button
               type="button"
@@ -89,8 +78,8 @@ const ContasPag = () => {
         </div>
       </div>
       <div className="CadastroContas">
-        <div className="NumContas">
-          <div className="label">Número</div>
+        <div className="banco">
+          <div className="label">Banco</div>
           <div>
             <input type="text" className="input-text" required />
           </div>
@@ -146,21 +135,9 @@ const ContasPag = () => {
           </div>
         </div>
 
-        <div className="ClientePag">
-          <div className="label">Fornecedores</div>
-          <div className="input-text cliente">
-            <select name="Cliente" id="Cliente-dropbox">
-              <option value="Cliente1">Fornecedore1</option>
-              <option value="Cliente2">Fornecedore2</option>
-              <option value="Cliente3">Fornecedore3</option>
-              <option value="Cliente4">Fornecedore4</option>
-              <option value="Cliente5">Fornecedore5</option>
-              <option value="Cliente6">Fornecedore6</option>
-              <option value="Cliente7">Fornecedore7</option>
-              <option value="Cliente8">Fornecedore8</option>
-              <option value="Cliente9">Fornecedore9</option>
-            </select>
-          </div>
+        <div className="fornpag">
+          <div className="label">Fornecedor</div>
+          <input type="text" className="input-text" required />
         </div>
         <div className="valor">
           <div className="label">Valor (R$)</div>
@@ -168,6 +145,14 @@ const ContasPag = () => {
             <input type="text" className="input-text" />
           </div>
         </div>
+
+        <div className="desc">
+          <div className="label">Descrição</div>
+          <div>
+            <input type="text" className="input-text" />
+          </div>
+        </div>
+
         <div className="BuscarPag">
           <button type="button" className="btnBuscarPag" id="btnBuscarPag">
             <strong>Buscar</strong>
@@ -178,38 +163,18 @@ const ContasPag = () => {
             <strong>Exportar</strong>
           </button>
         </div>
+        <div className="cadastrarPag">
+          <button
+            type="button"
+            className="btncadastrarPag"
+            id="btncadastrarPag"
+          >
+            <strong>Caastrar</strong>
+          </button>
+        </div>
       </div>
 
-      <div className="QuadroContas">
-        <div className="Titulos">
-          <span className="Total">Total de Títulos</span>
-          <div className="Valor">
-            <strong>R$ 2.000,00</strong>
-          </div>
-          <div className="Titulo">Título</div>
-          <div className="DataVencimento">Data de Vencimento</div>
-          <div className="Status">Status</div>
-          <div className="Fornecedor">Fornecedor</div>
-          <div className="Acoes">Ações</div>
-        </div>
-        <div className="LinhaContas"></div>
-        <div className="DadosContas">
-          <div className="DataVencimentoDados">05/11/2023</div>
-          <div className="StatusDados">Aberto</div>
-          <div className="FornecedorDados">Fornecedor 1</div>
-          <div className="AcoesDados">
-            <button type="button" className="btnVisualizar">
-              <i className="fa-solid fa-eye"></i>Visualizar
-            </button>
-            <button type="button" className="btnEditar">
-              <i className="fa-solid fa-pen"></i>Editar
-            </button>
-            <button type="button" className="btnDeletar">
-              <i className="fa-solid fa-trash-can"></i>Deletar
-            </button>
-          </div>
-        </div>
-      </div>
+      <div className="QuadroContas"></div>
     </div>
   );
 };

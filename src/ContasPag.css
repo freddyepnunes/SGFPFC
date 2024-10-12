@@ -58,19 +58,19 @@
   margin-top: 12rem;
   background-color: #e2e2e2;
   width: 70rem;
-  height: 12rem;
+  height: 17rem;
   border-radius: 10px;
   font-size: 17px;
   font-family: "Montserrat", sans-serif;
 }
 
-.NumContas {
+.banco {
   margin-top: 1.5rem;
   margin-left: 2rem;
   position: absolute;
 }
 
-.NumContas .input-text {
+.banco .input-text {
   border: none;
   width: 12.5rem;
   height: 1.75rem;
@@ -183,15 +183,15 @@
   position: absolute;
 }
 
-.ClientePag {
+.fornpag {
   margin-top: 6.5rem;
   margin-left: 2rem;
   position: absolute;
 }
 
-#Cliente-dropbox {
+.fornpag .input-text {
   border: none;
-  width: 31.4rem;
+  width: 31rem;
   height: 1.875rem;
   position: absolute;
   font-family: "Montserrat", sans-serif;
@@ -217,6 +217,23 @@
   margin-top: 0.5rem;
 }
 
+.desc {
+  margin-top: 11.6rem;
+  margin-left: 2rem;
+  position: absolute;
+}
+
+.desc .input-text {
+  border: none;
+  width: 50rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
 .btnBuscarPag {
   margin-left: 54.4rem;
   margin-top: 8.3rem;
@@ -231,20 +248,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.btnExportarPag {
-  margin-left: 60rem;
-  margin-top: 8.3rem;
-  position: absolute;
-  border: none;
-  background-color: rgb(115, 185, 176);
-  color: rgb(255, 255, 255);
-  height: 1.9rem;
-  width: 5rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 13px;
-  border-radius: 4px;
-}
-
 .btnBuscarPag:hover {
   background-color: #0c7e68;
 }
@@ -254,60 +257,59 @@
   color: #0ca293;
 }
 
+.btnExportarPag {
+  margin-left: 60rem;
+  margin-top: 8.3rem;
+  position: absolute;
+  border: none;
+  background-color: #0ca293;
+  color: rgb(255, 255, 255);
+  height: 1.9rem;
+  width: 5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
 .btnExportarPag:hover {
   background-color: #60b3b9;
 }
 
 .btnExportarPag:active {
-  color: rgb(115, 185, 176);
+  color: #0ca293;
+  background-color: #ffffff;
+}
+
+.btncadastrarPag {
+  margin-left: 54.5rem;
+  margin-top: 13.7rem;
+  position: absolute;
+  border: none;
+  background-color: #0ca293;
+  color: rgb(255, 255, 255);
+  height: 1.9rem;
+  width: 5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+.btncaddastrarPag:hover {
+  background-color: #60b3b9;
+}
+
+.btncadastrarPag:active {
+  color: #0ca293;
   background-color: #ffffff;
 }
 
 .QuadroContas {
   position: absolute;
   margin-left: 11rem;
-  margin-top: 26rem;
+  margin-top: 30rem;
   background-color: #e2e2e2;
   width: 70rem;
   height: 43rem;
   border-radius: 10px;
   line-height: 1.5;
-}
-
-.Titulos,
-.TotalPago,
-.TotalAberto {
-  width: 13rem;
-  height: 80px;
-  background-color: #f3f3f3;
-  color: #131313;
-  border: none;
-  border-radius: 7.5px;
-  margin-top: 36rem;
-  margin-left: 25rem;
-  display: flex;
-  font-size: 18px;
-  font-family: "Montserrat", sans-serif;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.TotalPago {
-  margin-top: -rem;
-  margin-left: 40rem;
-}
-
-.TotalAberto {
-  margin-top: -5rem;
-  margin-left: 55rem;
-}
-
-.Total {
-  padding-right: 10px;
-  padding-top: 7px;
-}
-
-.Valor {
-  padding-right: 10px;
-  font-size: 25px;
 }

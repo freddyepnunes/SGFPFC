@@ -29,18 +29,7 @@ const ContasRec = () => {
               <div className="Indicador2"></div>
             </button>
           </Link>
-          <Link to="/Clientes" className="link">
-            <button
-              type="button"
-              className="btn btn3 btn-sep btn-icon3"
-              id="button3"
-            >
-              <i className="fa-solid fa-user-group"></i>Clientes/
-              <br />
-              Fornecedores
-              <div className="Indicador2"></div>
-            </button>
-          </Link>
+
           <Link to="/ContasRec" className="link">
             <button
               type="button"
@@ -141,24 +130,19 @@ const ContasRec = () => {
           </div>
         </div>
 
-        <div className="ClienteRec">
-          <div className="label">Clientes</div>
-          <div className="input-text cliente">
-            <select name="Cliente" id="Cliente-dropbox">
-              <option value="Cliente1">Cliente1</option>
-              <option value="Cliente2">Cliente2</option>
-              <option value="Cliente3">Cliente3</option>
-              <option value="Cliente4">Cliente4</option>
-              <option value="Cliente5">Cliente5</option>
-              <option value="Cliente6">Cliente6</option>
-              <option value="Cliente7">Cliente7</option>
-              <option value="Cliente8">Cliente8</option>
-              <option value="Cliente9">Cliente9</option>
-            </select>
-          </div>
+        <div className="clienterec">
+          <div className="label">Cliente</div>
+          <input type="text" className="input-text" required />
         </div>
         <div className="valor">
           <div className="label">Valor (R$)</div>
+          <div>
+            <input type="text" className="input-text" />
+          </div>
+        </div>
+
+        <div className="descrec">
+          <div className="label">Descrição</div>
           <div>
             <input type="text" className="input-text" />
           </div>
@@ -175,59 +159,13 @@ const ContasRec = () => {
         </div>
       </div>
 
-      <div className="QuadroContas">
-        <div className="Titulos">
-          <span className="Total">Total de Títulos</span>
-          <div className="Valor">
-            <strong>R$ 0,00</strong>
-          </div>
-        </div>
-        <div className="TotalPago">
-          <span className="Total">Total Pago</span>
-          <div className="Valor">
-            <strong>R$ 0,00</strong>
-          </div>
-        </div>
-        <div className="TotalVencido">
-          <span className="Total">Total Vencido</span>
-          <div className="Valor">
-            <strong>R$ 0,00</strong>
-          </div>
-        </div>
+      <div className="cadastrarrec">
+        <button type="button" className="btncadastrarrec" id="btncadastrarrec">
+          <strong>Caastrar</strong>
+        </button>
       </div>
 
-      <div className="tabelaContas">
-        <table>
-          <thead>
-            <tr>
-              <th>Número</th>
-              <th>Data de Emissão</th>
-              <th>Data de Vencimento</th>
-              <th>Status</th>
-              <th>Cliente</th>
-              <th>Filial</th>
-              <th>Valor</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>01/10/2024</td>
-              <td>31/10/2024</td>
-              <td>Aberto</td>
-              <td>Cliente1</td>
-              <td>Filial1</td>
-              <td>R$ 100,00</td>
-              <td>
-                <button className="btn-edit">Editar</button>
-                <button className="btn-delete">Excluir</button>
-              </td>
-            </tr>
-            {/* Adicione mais linhas conforme necessário */}
-          </tbody>
-        </table>
-      </div>
+      <div className="QuadroContas"></div>
     </div>
   );
 };

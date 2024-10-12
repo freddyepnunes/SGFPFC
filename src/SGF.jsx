@@ -16,18 +16,7 @@ function SGF() {
               <div className="Indicador2"></div>
             </button>
           </Link>
-          <Link to="/Clientes" className="link">
-            <button
-              type="button"
-              className="btn btn3 btn-sep btn-icon3"
-              id="button3"
-            >
-              <i className="fa-solid fa-user-group"></i>Clientes/
-              <br />
-              Fornecedores
-              <div className="Indicador2"></div>
-            </button>
-          </Link>
+
           <Link to="/ContasRec" className="link">
             <button
               type="button"

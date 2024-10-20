@@ -1,0 +1,979 @@
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  font-size: 20px;
+  position: relative;
+}
+
+.form-menu {
+  margin-top: -2rem;
+  margin-left: -2.5rem;
+  position: fixed;
+  background-color: #002945;
+  height: 265rem;
+  width: 12.5rem;
+  z-index: 2;
+}
+
+.form-menu img {
+  height: 5rem;
+  width: 3.75rem;
+  margin-left: 4.25rem;
+  margin-top: 2.5rem;
+  position: absolute;
+}
+
+.btn {
+  position: relative;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  border: 0.0625rem solid transparent;
+  font-size: 0.75rem;
+  font-family: "Montserrat", sans-serif;
+  background: none;
+  color: #ffffff;
+  margin: 0.3125rem 0.1875rem;
+  display: inline-block;
+  width: 12.3125rem;
+  height: 2.5rem;
+  text-align: left;
+  top: 10.875rem;
+  transition: none;
+}
+
+.btn:hover {
+  background-color: #323232;
+  color: #f0f0f0;
+}
+
+.btn:active {
+  color: #272727;
+  background-color: #ffffff;
+  transition: 0s ease-in-out;
+  border: none;
+  transform: translateY(0);
+}
+
+.btn:active .Indicador2 {
+  margin-top: -0.29rem;
+  margin-left: -1.4375rem;
+  background-color: #272727;
+}
+
+/* Alterável */
+.Indicador {
+  margin-top: -26rem;
+  height: 2.5rem;
+  width: 0.1875rem;
+  background-color: #ffffff;
+}
+
+.btn:hover .Indicador2 {
+  background-color: #bdbdbd;
+  display: block;
+}
+
+.Indicador2 {
+  margin-top: -0.35rem;
+  margin-left: -1.5rem;
+  transform: translateY(-50%);
+  height: 2.5rem;
+  width: 0.1875rem;
+  display: none;
+}
+
+.btn3:hover .Indicador2 {
+  margin-left: -8.8rem;
+  margin-top: 2.5rem;
+}
+
+.btn4:hover .Indicador2 {
+  margin-left: -9.2rem;
+  margin-top: 2.5rem;
+}
+
+.btn8:hover .Indicador2 {
+  margin-left: -10.3rem;
+  margin-top: 2.5rem;
+}
+
+.btn.btn3 {
+  padding: 0.625rem 1.25rem;
+}
+
+.btn i.fa-house {
+  margin-right: 1.25rem;
+}
+
+.btn i.fa-chart-simple {
+  margin-right: 1.4375rem;
+}
+
+.btn i.fa-user-group {
+  margin-right: 1.2rem;
+}
+
+.btn3 {
+  align-items: center;
+  display: flex;
+}
+
+.btn i.fa-coins {
+  margin-right: 1.35625rem;
+}
+
+.btn4 {
+  align-items: center;
+  display: flex;
+}
+
+.btn i.fa-handshake {
+  margin-right: 1.2rem;
+}
+
+.btn i.fa-money-bill {
+  margin-right: 1.25625rem;
+}
+
+.btn i.fa-wallet {
+  margin-right: 1.3125rem;
+}
+
+.btn i.fa-square-check {
+  margin-right: 1.40625rem;
+}
+
+.btn8 {
+  align-items: center;
+  display: flex;
+}
+
+.btn i.fa-file-invoice {
+  margin-right: 1.5rem;
+}
+
+.btn i.fa-gear {
+  margin-right: 1.325rem;
+}
+
+.btn i.fa-book {
+  margin-right: 1.4375rem;
+}
+
+.btn i.fa-phone {
+  margin-right: 1.3125rem;
+}
+
+.Cabeçalho {
+  position: absolute;
+}
+
+.LinhaCab {
+  height: 0.0625rem;
+  width: 107.3rem;
+  margin-top: 1.3rem;
+  margin-left: 10rem;
+  background-color: #e2e2e2;
+}
+
+.btnCab {
+  background-color: #188063;
+  height: 2rem;
+  width: 2.5rem;
+  top: 0.4rem;
+  margin-left: 11.875rem;
+  border: none;
+  border-radius: 0.46875rem;
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.Filiais {
+  color: #757575;
+  font-size: 1.125rem;
+  margin-top: -2.75rem;
+  margin-left: 88.125rem;
+  position: relative;
+  white-space: nowrap;
+}
+
+.BemVindo {
+  color: #999999;
+  font-size: 1.125rem;
+  margin-top: -1.3125rem;
+  margin-left: 97.5rem;
+  position: relative;
+  white-space: nowrap;
+}
+
+.Sair {
+  background-color: transparent;
+  border: none;
+  margin-top: -1.5625rem;
+  margin-left: 110.5rem;
+  font-size: 0.9375rem;
+  color: #757575;
+  position: absolute;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 1.875rem;
+  border-radius: 0.3125rem;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+.btnCab:hover {
+  background-color: #0c7e68;
+}
+
+.btnCab:active {
+  background-color: #ffffff;
+  color: #0ca293;
+}
+
+.Sair:active {
+  background-color: #e9e9e9;
+}
+
+.Card {
+  position: absolute;
+}
+
+.Forma1 {
+  background-color: #205f68;
+  margin-top: 5rem;
+  margin-left: 11.5625rem;
+  position: absolute;
+  width: 33rem;
+  height: 7.5rem;
+  border-radius: 0.46875rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.Forma2 {
+  background-color: #f18824;
+  margin-top: 5rem;
+  margin-left: 46.5rem;
+  position: absolute;
+  width: 33rem;
+  height: 7.5rem;
+  border-radius: 0.46875rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.Forma3 {
+  background-color: #116114;
+  margin-top: 5rem;
+  margin-left: 82rem;
+  position: absolute;
+  width: 33rem;
+  height: 7.5rem;
+  border-radius: 0.46875rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.Forma3 p {
+  font-size: 0.85rem;
+  top: 0.375rem;
+  right: 1.4375rem;
+  text-align: right;
+  color: #ffffff;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+}
+
+.Forma1 p {
+  font-size: 0.85rem;
+  top: 0.375rem;
+  right: 1.4375rem;
+  text-align: right;
+  color: #ffffff;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+}
+
+.Forma2 p {
+  font-size: 0.85rem;
+  top: 0.375rem;
+  right: 1.4375rem;
+  text-align: right;
+  color: #ffffff;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+}
+
+.quadrado1 {
+  height: 150px;
+  width: 1660px;
+  background-color: #ebebeb;
+  border: none;
+  border-radius: 10px;
+  margin-left: 180px;
+  margin-top: 14rem;
+  position: absolute;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.tipodocumentotxt {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 25px;
+  margin-left: 42px;
+}
+
+.datatxt {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: -24px;
+  margin-left: 542px;
+  position: absolute;
+}
+
+.banctxt {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: -23px;
+  margin-left: 1035px;
+  position: absolute;
+}
+
+.btnBuscar {
+  border: none;
+  background-color: #188063;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 4rem;
+  width: 6rem;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+  margin-left: 1500px;
+}
+.btnBuscar:hover {
+  background-color: #188063;
+}
+
+.btnBuscar:active {
+  background-color: white;
+  color: #188063;
+}
+
+.dropbtn {
+  background-color: #188063;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  margin-left: -97.5rem;
+  width: 340px;
+  height: 40px;
+  margin-top: 1rem;
+  font-size: 22px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: none;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  border: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  border: none;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+  border: none;
+}
+
+.dropbtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown2 {
+  position: absolute;
+  display: inline-block;
+  margin-left: -66.5rem;
+  width: 340px;
+  height: 40px;
+  margin-top: 1rem;
+  font-size: 22px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.dropdown2-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: none;
+}
+
+.dropdown2-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border: none;
+}
+
+.dropdown2-content a:hover {
+  background-color: #f1f1f1;
+  border: none;
+}
+
+.dropdown2:hover .dropdown2-content {
+  display: block;
+  border: none;
+}
+
+.dropdown2:hover .dropbtn {
+  background-color: #3e8e41;
+  border: none;
+}
+
+.dropbtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown3 {
+  position: absolute;
+  display: inline-block;
+  margin-left: -35.5rem;
+  width: 340px;
+  height: 40px;
+  margin-top: 1rem;
+  font-size: 22px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.dropdown3-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: none;
+}
+
+.dropdown3-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border: none;
+}
+
+.dropdown3-content a:hover {
+  background-color: #f1f1f1;
+  border: none;
+}
+
+.dropdown3:hover .dropdown2-content {
+  display: block;
+  border: none;
+}
+
+.dropdown3:hover .dropbtn {
+  background-color: #3e8e41;
+  border: none;
+}
+
+.quadrado2 {
+  height: 1200px;
+  width: 1660px;
+  background-color: #ebebeb;
+  border: none;
+  border-radius: 10px;
+  margin-left: 180px;
+  margin-top: 24rem;
+  position: absolute;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.VisaoFinanceiratxt {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 35px;
+}
+
+.gf1 {
+  width: 1600px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 30px;
+  margin-top: 30px;
+  position: absolute;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.FluxodeCaixatxt {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 30px;
+}
+
+.gf2 {
+  width: 780px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 30px;
+  margin-top: 560px;
+  position: absolute;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.saidaplanocontatxt {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 30px;
+}
+
+.gf3 {
+  width: 780px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 850px;
+  margin-top: 560px;
+  position: absolute;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.entradaplanocontatxt {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 30px;
+}
+
+.gf4 {
+  width: 780px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 30px;
+  margin-top: 1290px;
+  position: absolute;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.saldofinaltxt {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 30px;
+}
+
+.btnsaldofinal {
+  background: none;
+  height: 2rem;
+  width: 3.5rem;
+  top: 86.6rem;
+  margin-left: 45.875rem;
+  border: none;
+  border-radius: 0.46875rem;
+  color: #0a0a0a;
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+}
+
+.btnsaldofinal:hover {
+  background-color: #cecece;
+}
+
+.btnsaldofinal:active {
+  background-color: #8f8c8c;
+  color: #c5c5c5;
+}
+
+.gf5 {
+  width: 780px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 850px;
+  margin-top: 1290px;
+  position: absolute;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.bancotxt {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+
+.dropdown4 {
+  position: absolute;
+  display: inline-block;
+  color: #818181;
+  margin-left: 2rem;
+  width: 710px;
+  height: 35px;
+  margin-top: 2px;
+  font-size: 22px;
+  border-color: #c5c5c5;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.dropdown4-content {
+  color: #c5c5c5;
+  border: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(155, 154, 154, 0.2);
+  z-index: 1;
+  border: none;
+}
+
+.dropdown4-content a {
+  color: rgb(179, 179, 179);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border: none;
+}
+
+.dropdown4-content a:hover {
+  background-color: #f1f1f1;
+  border: none;
+}
+
+.saldofinalevolBancotxt {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 50px;
+  margin-top: 45px;
+}
+
+.btnsaldofinalbanco {
+  background: none;
+  height: 2rem;
+  width: 3.5rem;
+  top: 92.1rem;
+  margin-left: 96.875rem;
+  border: none;
+  border-radius: 0.46875rem;
+  color: #0a0a0a;
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+}
+
+.btnsaldofinalbanco:hover {
+  background-color: #cecece;
+}
+
+.btnsaldofinalbanco:active {
+  background-color: #8f8c8c;
+  color: #c5c5c5;
+}
+
+.gf6 {
+  width: 380px;
+  height: 150px;
+  background-color: #066e87;
+  border-radius: 10px;
+  margin-left: 30px;
+  margin-top: 1105px;
+  position: absolute;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.saldocaixaempresatxt {
+  color: white;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 140px;
+  margin-top: 25px;
+}
+
+.gf7 {
+  width: 380px;
+  height: 150px;
+  background-color: #066e87;
+  border-radius: 10px;
+  margin-left: 430px;
+  margin-top: 1105px;
+  position: absolute;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.saldocontacorrentetxt {
+  color: white;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 140px;
+  margin-top: 25px;
+}
+
+.gf8 {
+  width: 380px;
+  height: 150px;
+  background-color: #066e87;
+  border-radius: 10px;
+  margin-left: 850px;
+  margin-top: 1105px;
+
+  position: absolute;
+}
+
+.saldobanco1txt {
+  color: white;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 200px;
+  margin-top: 25px;
+}
+
+.gf9 {
+  width: 380px;
+  height: 150px;
+  background-color: #066e87;
+  border-radius: 10px;
+  margin-left: 1250px;
+  margin-top: 1105px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  position: absolute;
+}
+
+.saldobanco2txt {
+  color: white;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 200px;
+  margin-top: 25px;
+}
+
+.quadrado3 {
+  height: 820px;
+  width: 1660px;
+  background-color: #ebebeb;
+  border: none;
+  border-radius: 10px;
+  margin-left: 180px;
+  margin-top: 99.6rem;
+  position: absolute;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.VisaoEconomicatxt {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 35px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 35px;
+}
+
+.gf10 {
+  width: 380px;
+  height: 150px;
+  background-color: #205f68;
+  border-radius: 10px;
+  margin-left: 150px;
+  margin-top: 550px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  position: absolute;
+}
+
+.receitastotaistxt {
+  color: white;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 200px;
+  margin-top: 25px;
+}
+
+.gf11 {
+  width: 380px;
+  height: 150px;
+  background-color: #f18824;
+  border-radius: 10px;
+  margin-left: 630px;
+  margin-top: 550px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  position: absolute;
+}
+
+.custostotaistxt {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 200px;
+  margin-top: 25px;
+}
+
+.gf12 {
+  width: 380px;
+  height: 150px;
+  background-color: rgb(13, 121, 88);
+  border-radius: 10px;
+  margin-left: 1110px;
+  margin-top: 550px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  position: absolute;
+}
+
+.lucroliquidotxt {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 200px;
+  margin-top: 25px;
+}
+
+.gf13 {
+  width: 1600px;
+  height: 500px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  margin-left: 30px;
+  margin-top: 10px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  position: absolute;
+}
+
+.lucroregimecomptxt {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 30px;
+}
+
+.entradaplanotxt {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 45px;
+}
+
+.saidaplanotxt {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 45px;
+}
+
+.lucriliquidotxt {
+  color: white;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 105px;
+  margin-top: 20px;
+}
+
+.Valor1 {
+  position: absolute;
+  margin-top: -0.3rem;
+  margin-left: 24rem;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.Valor1 p {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.Valor2 {
+  position: absolute;
+  margin-top: -0.3rem;
+  margin-left: 24rem;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.Valor2 p {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.Valor3 {
+  position: absolute;
+  margin-top: -0.3rem;
+  margin-left: 24rem;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.Valor3 p {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 700;
+}

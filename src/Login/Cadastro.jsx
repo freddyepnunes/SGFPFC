@@ -62,80 +62,82 @@ const Login = () => {
   };
 
   return (
-    <div className="background-image">
-      <div className="wrapper">
-        <form onSubmit={handleSubmit}>
-          <h1>Criar conta</h1>
-          <div className="input-box">
-            <input
-              type="text"
-              placeholder="Nome"
-              value={nome}
-              maxLength={70}
-              onChange={(e) => setNome(e.target.value)}
-              required
-            />
-            <FontAwesomeIcon icon={faUser} className="icon" />
-          </div>
+    <div className="Cadastro-page">
+      <div className="background-image">
+        <div className="wrapper">
+          <form onSubmit={handleSubmit}>
+            <h1>Criar conta</h1>
+            <div className="input-box">
+              <input
+                type="text"
+                placeholder="Nome"
+                value={nome}
+                maxLength={70}
+                onChange={(e) => setNome(e.target.value)}
+                required
+              />
+              <FontAwesomeIcon icon={faUser} className="icon" />
+            </div>
 
-          <div className="input-box">
-            <input
-              type="email"
-              placeholder="E-mail"
-              value={username}
-              maxLength={50}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-            <FontAwesomeIcon icon={faAt} className="icon" />
-          </div>
+            <div className="input-box">
+              <input
+                type="email"
+                placeholder="E-mail"
+                value={username}
+                maxLength={50}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <FontAwesomeIcon icon={faAt} className="icon" />
+            </div>
 
-          <div className="input-box">
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Senha"
-              minLength={8}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <FontAwesomeIcon
-              icon={showPassword ? faEyeSlash : faEye}
-              className="icon"
-              onClick={() => setShowPassword(!showPassword)}
-              style={{ cursor: "pointer" }}
-            />
-          </div>
+            <div className="input-box">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Senha"
+                minLength={8}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <FontAwesomeIcon
+                icon={showPassword ? faEyeSlash : faEye}
+                className="icon"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{ cursor: "pointer" }}
+              />
+            </div>
 
-          <div className="input-box">
-            <input
-              type={showConfirmPassword ? "text" : "password"}
-              placeholder="Confirmar senha"
-              minLength={8}
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-            <FontAwesomeIcon
-              icon={showConfirmPassword ? faEyeSlash : faEye}
-              className="icon"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              style={{ cursor: "pointer" }}
-            />
-          </div>
+            <div className="input-box">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="Confirmar senha"
+                minLength={8}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+              <FontAwesomeIcon
+                icon={showConfirmPassword ? faEyeSlash : faEye}
+                className="icon"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                style={{ cursor: "pointer" }}
+              />
+            </div>
 
-          {errorMessage && <p className="error">{errorMessage}</p>}
+            {errorMessage && <p className="error">{errorMessage}</p>}
 
-          <button type="submit" className="btnLogin">
-            Cadastrar-se
-          </button>
+            <button type="submit" className="btnLogin">
+              Cadastrar-se
+            </button>
 
-          <button type="button" className="btnVoltar">
-            <a href="/Login">
-              <FontAwesomeIcon icon={faArrowLeft} className="icon" />
-            </a>
-          </button>
-        </form>
+            <div className="login-link">
+              <p>
+                Já possui uma conta ? <a href="/Login">Faça o Login aqui!</a>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

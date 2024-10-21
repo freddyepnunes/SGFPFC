@@ -58,7 +58,6 @@ const Login = () => {
         <div className="wrapper">
           <form onSubmit={handleSubmit}>
             <h1>Login</h1>
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
             <div className="input-box">
               <input
                 type="email"
@@ -86,6 +85,9 @@ const Login = () => {
                 style={{ cursor: "pointer" }}
               />
             </div>
+
+            {errorMessage && <p className="error">{errorMessage}</p>}
+
             <button type="submit" className="btnLogin">
               Login
             </button>

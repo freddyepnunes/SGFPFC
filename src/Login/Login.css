@@ -5,7 +5,8 @@ body {
   height: 100%; /* Garante que o body ocupe toda a altura */
 }
 
-.Login-page {
+.Login-page,
+.Cadastro-page {
   width: 100vw; /* Largura total da viewport */
   height: 100vh;
   background-repeat: no-repeat;
@@ -98,23 +99,24 @@ body {
   text-decoration: underline;
 }
 
-/* Tela de Cadastro */
-
-.btnVoltar {
-  border: none;
-  font-size: 25px;
-  background-color: transparent;
-  position: absolute;
-  top: 37px;
-  left: 45px;
-  z-index: 10;
+.wrapper .login-link {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 1.75rem 0 0.9375rem;
 }
 
-.btnVoltar .icon {
-  color: rgba(0, 0, 0, 0.7);
+.login-link p a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.error {
-  margin-left: 2.5rem;
-  padding-bottom: 1.5rem;
+.login-link p a:hover {
+  text-decoration: underline;
+}
+
+.Login-page .error,
+.Cadastro-page .error {
+  font-size: 18px;
+  text-align: center;
 }

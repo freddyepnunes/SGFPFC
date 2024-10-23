@@ -135,12 +135,8 @@ function SGF() {
       </div>
 
       <div className="Cabeçalho">
-        <button type="button" className="btnCab" id="btnCab">
-          <i className="fa-solid fa-bars"></i>
-        </button>
         <div className="LinhaCab"></div>
-        <div className="Filiais">Filial: N/A</div>
-        <div className="BemVindo">Bem Vindo SGF HelpB</div>
+        <div className="BemVindo">Bem Vindo SGF</div>
         <Link to="/Login" className="link">
           <button type="button" className="Sair" id="btnSair">
             Sair

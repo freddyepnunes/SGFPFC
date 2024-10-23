@@ -11,7 +11,7 @@ body {
 
 .form-menu {
   margin-top: -2rem;
-  margin-left: -2.5rem;
+  margin-left: -1rem;
   position: fixed;
   background-color: #002945;
   height: 265rem;
@@ -174,8 +174,8 @@ body {
 
 .LinhaCab {
   height: 0.0625rem;
-  width: 107.3rem;
-  margin-top: 1.3rem;
+  width: 83rem;
+  margin-top: 2.5rem;
   margin-left: 10rem;
   background-color: #e2e2e2;
 }
@@ -207,7 +207,7 @@ body {
   color: #999999;
   font-size: 1.125rem;
   margin-top: -1.3125rem;
-  margin-left: 97.5rem;
+  margin-left: 70rem;
   position: relative;
   white-space: nowrap;
 }
@@ -216,7 +216,7 @@ body {
   background-color: transparent;
   border: none;
   margin-top: -1.5625rem;
-  margin-left: 110.5rem;
+  margin-left: 90rem;
   font-size: 0.9375rem;
   color: #757575;
   position: absolute;
@@ -248,9 +248,10 @@ body {
 .Forma1 {
   background-color: #205f68;
   margin-top: 5rem;
-  margin-left: 11.5625rem;
+  margin-left: 13.5625rem;
   position: absolute;
-  width: 33rem;
+  text-align: center;
+  width: 25rem;
   height: 7.5rem;
   border-radius: 0.46875rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
@@ -259,9 +260,9 @@ body {
 .Forma2 {
   background-color: #f18824;
   margin-top: 5rem;
-  margin-left: 46.5rem;
+  margin-left: 40.7rem;
   position: absolute;
-  width: 33rem;
+  width: 25rem;
   height: 7.5rem;
   border-radius: 0.46875rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
@@ -270,9 +271,9 @@ body {
 .Forma3 {
   background-color: #116114;
   margin-top: 5rem;
-  margin-left: 82rem;
+  margin-left: 68.5rem;
   position: absolute;
-  width: 33rem;
+  width: 25rem;
   height: 7.5rem;
   border-radius: 0.46875rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
@@ -282,7 +283,7 @@ body {
   font-size: 0.85rem;
   top: 0.375rem;
   right: 1.4375rem;
-  text-align: right;
+  text-align: center;
   color: #ffffff;
   position: absolute;
   font-family: "Montserrat", sans-serif;
@@ -291,8 +292,9 @@ body {
 .Forma1 p {
   font-size: 0.85rem;
   top: 0.375rem;
+  margin: lef;
   right: 1.4375rem;
-  text-align: right;
+  text-align: center;
   color: #ffffff;
   position: absolute;
   font-family: "Montserrat", sans-serif;
@@ -310,11 +312,11 @@ body {
 
 .quadrado1 {
   height: 150px;
-  width: 1660px;
+  width: 80rem;
   background-color: #ebebeb;
   border: none;
   border-radius: 10px;
-  margin-left: 180px;
+  margin-left: 13.5rem;
   margin-top: 14rem;
   position: absolute;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
@@ -325,7 +327,7 @@ body {
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   margin-top: 25px;
-  margin-left: 42px;
+  margin-left: 35px;
 }
 
 .datatxt {
@@ -333,7 +335,7 @@ body {
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   margin-top: -24px;
-  margin-left: 542px;
+  margin-left: 21rem;
   position: absolute;
 }
 
@@ -342,7 +344,7 @@ body {
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   margin-top: -23px;
-  margin-left: 1035px;
+  margin-left: 47rem;
   position: absolute;
 }
 
@@ -352,11 +354,11 @@ body {
   color: white;
   border-radius: 4px;
   font-size: 13px;
-  height: 4rem;
+  height: 2rem;
   width: 6rem;
   font-family: "Montserrat", sans-serif;
-  margin-top: 10px;
-  margin-left: 1500px;
+  margin-left: 70rem;
+  position: absolute;
 }
 .btnBuscar:hover {
   background-color: #188063;
@@ -379,8 +381,8 @@ body {
 .dropdown {
   position: absolute;
   display: inline-block;
-  margin-left: -97.5rem;
-  width: 340px;
+  margin-left: 2rem;
+  width: 15rem;
   height: 40px;
   margin-top: 1rem;
   font-size: 22px;
@@ -434,7 +436,7 @@ body {
 .dropdown2 {
   position: absolute;
   display: inline-block;
-  margin-left: -66.5rem;
+  margin-left: 21rem;
   width: 340px;
   height: 40px;
   margin-top: 1rem;
@@ -489,8 +491,8 @@ body {
 .dropdown3 {
   position: absolute;
   display: inline-block;
-  margin-left: -35.5rem;
-  width: 340px;
+  margin-left: 47rem;
+  width: 15rem;
   height: 40px;
   margin-top: 1rem;
   font-size: 22px;
@@ -534,11 +536,11 @@ body {
 
 .quadrado2 {
   height: 1200px;
-  width: 1660px;
+  width: 80rem;
   background-color: #ebebeb;
   border: none;
   border-radius: 10px;
-  margin-left: 180px;
+  margin-left: 13.5rem;
   margin-top: 24rem;
   position: absolute;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
@@ -553,7 +555,7 @@ body {
 }
 
 .gf1 {
-  width: 1600px;
+  width: 76rem;
   height: 500px;
   background-color: white;
   border-radius: 10px;
@@ -572,7 +574,7 @@ body {
 }
 
 .gf2 {
-  width: 780px;
+  width: 37rem;
   height: 500px;
   background-color: white;
   border-radius: 10px;
@@ -591,11 +593,11 @@ body {
 }
 
 .gf3 {
-  width: 780px;
+  width: 37rem;
   height: 500px;
   background-color: white;
   border-radius: 10px;
-  margin-left: 850px;
+  margin-left: 41rem;
   margin-top: 560px;
   position: absolute;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
@@ -610,7 +612,7 @@ body {
 }
 
 .gf4 {
-  width: 780px;
+  width: 80rem;
   height: 500px;
   background-color: white;
   border-radius: 10px;
@@ -817,12 +819,12 @@ body {
 }
 
 .quadrado3 {
-  height: 820px;
-  width: 1660px;
+  height: 50rem;
+  width: 80rem;
   background-color: #ebebeb;
   border: none;
   border-radius: 10px;
-  margin-left: 180px;
+  margin-left: 13.5rem;
   margin-top: 99.6rem;
   position: absolute;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
@@ -837,11 +839,11 @@ body {
 }
 
 .gf10 {
-  width: 380px;
+  width: 24rem;
   height: 150px;
   background-color: #205f68;
   border-radius: 10px;
-  margin-left: 150px;
+  margin-left: 2rem;
   margin-top: 550px;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
   position: absolute;
@@ -856,14 +858,15 @@ body {
 }
 
 .gf11 {
-  width: 380px;
+  width: 24rem;
   height: 150px;
   background-color: #f18824;
   border-radius: 10px;
-  margin-left: 630px;
+  margin-left: 27.5rem;
   margin-top: 550px;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
   position: absolute;
+  text-align: center;
 }
 
 .custostotaistxt {
@@ -875,11 +878,11 @@ body {
 }
 
 .gf12 {
-  width: 380px;
+  width: 24rem;
   height: 150px;
   background-color: rgb(13, 121, 88);
   border-radius: 10px;
-  margin-left: 1110px;
+  margin-left: 53rem;
   margin-top: 550px;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
   position: absolute;
@@ -894,7 +897,7 @@ body {
 }
 
 .gf13 {
-  width: 1600px;
+  width: 75rem;
   height: 500px;
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
@@ -939,7 +942,7 @@ body {
 .Valor1 {
   position: absolute;
   margin-top: -0.3rem;
-  margin-left: 24rem;
+  margin-left: 19rem;
   z-index: 1000;
   white-space: nowrap;
 }
@@ -953,7 +956,7 @@ body {
 .Valor2 {
   position: absolute;
   margin-top: -0.3rem;
-  margin-left: 24rem;
+  margin-left: 19rem;
   z-index: 1000;
   white-space: nowrap;
 }
@@ -967,7 +970,7 @@ body {
 .Valor3 {
   position: absolute;
   margin-top: -0.3rem;
-  margin-left: 24rem;
+  margin-left: 19rem;
   z-index: 1000;
   white-space: nowrap;
 }

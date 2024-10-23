@@ -4,8 +4,8 @@ const sql = require("mssql");
 const dbConfig = {
   user: "sa", // seu nome de usuário do SQL Server
   password: "admin", // sua senha do SQL Server
-  server: "192.168.2.110", // Seu servidor SQL
-  database: "PFC", // Nome do banco de dados
+  server: "192.168.0.17", // Seu servidor SQL
+  database: "SQL_SGF", // Nome do banco de dados
   options: {
     encrypt: false, // Defina como true se estiver usando o Azure
     trustServerCertificate: true, // Pode precisar para conexões locais

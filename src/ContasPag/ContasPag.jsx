@@ -1,23 +1,20 @@
-import React from "react";
-import "./ContasPag.css";
-import "../SGF/SGF.css";
-import UMCLogo from "../Imagens/UMC.png";
-import { Link } from "react-router-dom";
+import React from "react"; //Import do pacote react com o nome React
+import "./ContasPag.css"; //Importação do arquivo ContasPag.css que está na mesma página
+import "../SGF/SGF.css"; //Importação do arquivo SGF.css que está dentro da pasta SGF
+import UMCLogo from "../Imagens/UMC.png"; //Importação de imagem com o nome UMCLogo
+import { Link } from "react-router-dom"; //Importe de Link do "react-router-dom" para o uso das funções Link para definir para onde "tal" botão de navegação levará o usuário
 
-const ContasPag = () => {
-  const toggleMenu = () => {
-    // Lógica para alternar o menu
+const ContasPag = () => { //Constante para atribuir todas as funções da página Contas a Pagar
+  const toggleMenu = () => { // Lógica para alternar o menu
   };
 
-  const selecionarOpcao = (opcao) => {
-    // Lógica para selecionar uma opção
+  const selecionarOpcao = (opcao) => {// Lógica para selecionar uma opção
   };
 
-  const showCalendar = () => {
-    // Lógica para mostrar o calendário
+  const showCalendar = () => {// Lógica para mostrar o calendário
   };
 
-  return (
+  return ( //Retorno dos elementos para a formatação visual, normalmente é semelhante ao HTML5
     <div>
       <div className="form-menu-Complementar"></div>
       <div className="form-menu">
@@ -135,4 +132,4 @@ const ContasPag = () => {
   );
 };
 
-export default ContasPag;
+export default ContasPag; //Exportação padrão da função ContasPag para que se possa ser usado em outros elementos do projeto em geral.

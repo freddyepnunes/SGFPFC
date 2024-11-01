@@ -1,7 +1,8 @@
-import React from "react";
-import "./ContasRec.css";
-import "../SGF/SGF.css";
-import UMCLogo from "../Imagens/UMC.png";
+//Página Contas a Receber que demonstra os valores que estão em abertos para a entrada na conta do usuário.
+import React from "react"; //Importe do pacote "react" com o nome de React
+import "./ContasRec.css"; //Importe do arquivo ContasRec.css para a formatação visual do arquivo ContasRec.jsx
+import "../SGF/SGF.css"; //Importe do visual SGF.css da pasta SGF
+import UMCLogo from "../Imagens/UMC.png"; //Importe de uma imagem com o nome de UMCLogo
 import { Link } from "react-router-dom";
 
 const ContasRec = () => {

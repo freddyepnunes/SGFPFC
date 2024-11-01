@@ -1,3 +1,4 @@
+//Página Contas a Pagar para o usuário conseguir visualizar suas despesas da melhor e mais clara possível (Ainda não finalizado)
 import React from "react"; //Import do pacote react com o nome React
 import "./ContasPag.css"; //Importação do arquivo ContasPag.css que está na mesma página
 import "../SGF/SGF.css"; //Importação do arquivo SGF.css que está dentro da pasta SGF

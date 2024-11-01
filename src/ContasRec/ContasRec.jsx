@@ -18,13 +18,13 @@ const ContasRec = () => {
     // Lógica para mostrar o calendário
   };
 
-  return (
+  return ( //Função de return para retornar os componentes visuais e funcionais do nosso código
     <div>
       <div className="form-menu-Complementar"></div>
       <div className="form-menu">
         <img className="UMC_Logo" src={UMCLogo} alt="UMC Logo" />
         <div className="Botoes">
-          <Link to="/Home" className="link">
+          <Link to="/Home" className="link"> //Usando a função Link para atribuir a navegação em button
             <button type="button" className="btn btn1 btn-sep" id="button1">
               <i className="fa-solid fa-house"></i>Home
               <div className="Indicador2"></div>
@@ -135,4 +135,4 @@ const ContasRec = () => {
   );
 };
 
-export default ContasRec;
+export default ContasRec; //Faz a exportação padrão de ContasRec para que se consiga usar em outros elementos de outros arquivos

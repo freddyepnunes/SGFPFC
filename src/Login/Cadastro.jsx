@@ -1,31 +1,38 @@
-import React, { useState } from "react";
-import "./Login.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react"; // Importa o React e o useState, que é uma função que permite adicionar e gerenciar dados dentro do componente
+import "./Login.css"; //Importa o arquivo Login.css para a personalização visual do projeto
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; //Importe do pacote FontAwesome para o uso de fontes e ícones personalizados
 import {
   faUser,
   faEye,
   faEyeSlash,
   faArrowLeft,
   faAt,
-} from "@fortawesome/free-solid-svg-icons";
+} from "@fortawesome/free-solid-svg-icons"; //Importe de diferentes tipos de icones da biblioteca FontAwesome
 
-const Login = () => {
-  const [nome, setNome] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+// Componente de login
+const Cadastro = () => {
+  // Variáveis para armazenar as informações digitadas pelo usuário
+  const [nome, setNome] = useState(""); // Nome do usuário
+  const [username, setUsername] = useState(""); // Nome de usuário ou email
+  const [password, setPassword] = useState(""); // Senha
+  const [confirmPassword, setConfirmPassword] = useState(""); // Confirmação da senha
+  const [errorMessage, setErrorMessage] = useState(""); // Variável para exibir mensagens de erro
+
+  // Variáveis para controlar a exibição das senhas
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  // Função chamada ao enviar o formulário
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Evita o recarregamento da página
 
+    // Verifica se as senhas coincidem
     if (password !== confirmPassword) {
-      setErrorMessage("As senhas não coincidem!");
+      setErrorMessage("As senhas não coincidem!"); // Exibe erro se as senhas não forem iguais
       return;
     }
 
+    //Mostra no console do navegador, dentro de inspecionar, o nome, email e senha colocados pelo usuário. Foi colocar no código apenas por depuração do código
     console.log({
       nome: nome,
       email: username,
@@ -33,31 +40,34 @@ const Login = () => {
     });
 
     try {
-      const response = await fetch("http://localhost:5000/api/usuario", {
-        method: "POST",
-        headers: {
+      // Envia os dados para o servidor
+      const response = await fetch("http://localhost:5000/api/usuario", { // Envia uma requisição ao servidor para criar um novo usuário
+        method: "POST", // Define o método da requisição como POST (usado para enviar dados)
+        // Define o cabeçalho da requisição para indicar que os dados estão em formato JSON
+        headers: { 
           "Content-Type": "application/json",
         },
+        // Converte os dados do usuário para uma string JSON e os envia no corpo da requisição
         body: JSON.stringify({
-          nome: nome,
-          email: username,
-          senha: password,
+          nome: nome, // Nome do usuário
+          email: username, // Email do usuário
+          senha: password, // Senha do usuário
         }),
       });
 
+      // Verifica se houve erro na resposta do servidor
       if (!response.ok) {
         const errorMessage = await response.text(); // Captura a mensagem de erro do servidor
         throw new Error(errorMessage); // Lança um erro com a mensagem recebida
       }
 
-      setErrorMessage("");
-      // Limpe os campos após o sucesso
+      setErrorMessage(""); // Limpe os campos após o sucesso
       setNome("");
       setUsername("");
       setPassword("");
       setConfirmPassword("");
     } catch (error) {
-      setErrorMessage(error.message);
+      setErrorMessage(error.message); // Exibe a mensagem de erro em caso de falha
     }
   };
 
@@ -73,7 +83,7 @@ const Login = () => {
                 placeholder="Nome"
                 value={nome}
                 maxLength={70}
-                onChange={(e) => setNome(e.target.value)}
+                onChange={(e) => setNome(e.target.value)} // Pega o valor atual do campo (e.target.value, que é o campo onde o usuário vai preencher) e armazena em 'setNome'
                 required
               />
               <FontAwesomeIcon icon={faUser} className="icon" />
@@ -85,7 +95,7 @@ const Login = () => {
                 placeholder="E-mail"
                 value={username}
                 maxLength={50}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setUsername(e.target.value)} // Pega o valor atual do campo (e.target.value, que é o campo onde o usuário vai preencher) e armazena em 'setUsername'
                 required
               />
               <FontAwesomeIcon icon={faAt} className="icon" />
@@ -97,7 +107,7 @@ const Login = () => {
                 placeholder="Senha"
                 minLength={8}
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)} // Pega o valor atual do campo (e.target.value, que é o campo onde o usuário vai preencher) e armazena em 'setPassword'
                 required
               />
               <FontAwesomeIcon
@@ -114,7 +124,7 @@ const Login = () => {
                 placeholder="Confirmar senha"
                 minLength={8}
                 value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                onChange={(e) => setConfirmPassword(e.target.value)} // Pega o valor atual do campo (e.target.value, que é o campo onde o usuário vai preencher) e armazena em 'setConfirmPassword'
                 required
               />
               <FontAwesomeIcon
@@ -143,4 +153,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Cadastro; // Faz o exporte padrão dos componentes de Cadastro, para que se possa ser usado em outro elemento de outro arquivo

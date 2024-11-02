@@ -9,11 +9,11 @@ import {
   faAt,
 } from "@fortawesome/free-solid-svg-icons"; //Importe de diferentes tipos de icones da biblioteca FontAwesome
 
-// Componente de login
+// Componente de Cadastro
 const Cadastro = () => {
   // Variáveis para armazenar as informações digitadas pelo usuário
   const [nome, setNome] = useState(""); // Nome do usuário
-  const [username, setUsername] = useState(""); // Nome de usuário ou email
+  const [username, setUsername] = useState(""); // E-mail do usuário
   const [password, setPassword] = useState(""); // Senha
   const [confirmPassword, setConfirmPassword] = useState(""); // Confirmação da senha
   const [errorMessage, setErrorMessage] = useState(""); // Variável para exibir mensagens de erro

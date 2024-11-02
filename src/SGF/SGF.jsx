@@ -1,52 +1,62 @@
-import React, { useState, useEffect } from "react";
-import "./SGF.css"; // Importando CSS
-import UMCLogo from "../Imagens/UMC.png";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react"; // Importa React e hooks useState e useEffect
+import "./SGF.css"; // Importa o arquivo CSS para estilos da página
+import UMCLogo from "../Imagens/UMC.png"; // Importa o logo da UMC
+import { Link } from "react-router-dom"; // Importa o componente Link para navegação entre páginas
 
 function SGF() {
   // Estado para armazenar os valores de contas a receber
-  const [contasReceber, setContasReceber] = useState([]);
-  const [contasPagar, setContasPagar] = useState([]);
+  const [contasReceber, setContasReceber] = useState([]); // Inicializa a lista de contas a receber como um array vazio
+  const [contasPagar, setContasPagar] = useState([]); // Inicializa a lista de contas a pagar como um array vazio
 
-  // useEffect para buscar os valores da API (ou qualquer fonte de dados)
+  // useEffect para buscar os valores das contas a receber da API
   useEffect(() => {
-    fetch("/api/dados/receita") // Atualize a URL de acordo com a rota definida no servidor
+    fetch("/api/dados/receita") // Faz uma requisição para a API na rota especificada
       .then((response) => {
+        // Verifica se a resposta da API é ok (status 200-299)
         if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
+          throw new Error(`HTTP error! Status: ${response.status}`); // Lança um erro se a resposta não for ok
         }
-        return response.json();
+        return response.json(); // Converte a resposta para JSON
       })
-      .then((data) => setContasReceber(data))
+      .then((data) => setContasReceber(data)) // Atualiza o estado com os dados recebidos
       .catch((error) => {
-        console.error("Erro ao buscar contas a receber:", error);
-        setContasReceber([]); // Caso de erro, definir um array vazio
+        // Trata erros na requisição
+        console.error("Erro ao buscar contas a receber:", error); // Exibe o erro no console
+        setContasReceber([]); // Define um array vazio em caso de erro
       });
-  }, []);
+  }, []); // O array vazio [] garante que a requisição ocorra apenas uma vez quando o componente é montado
 
+   // useEffect para buscar os valores das contas a pagar da API
   useEffect(() => {
-    fetch("/api/dados/despesa") // Atualize a URL de acordo com a rota definida no servidor
+    fetch("/api/dados/despesa") // Faz uma requisição para a API na rota especificada
       .then((response) => {
+        // Verifica se a resposta da API é ok
         if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
+          throw new Error(`HTTP error! Status: ${response.status}`); // Lança um erro se a resposta não for ok
         }
-        return response.json();
+        return response.json(); // Converte a resposta para JSON
       })
-      .then((data) => setContasPagar(data))
+      .then((data) => setContasPagar(data)) // Atualiza o estado com os dados recebidos
       .catch((error) => {
-        console.error("Erro ao buscar contas a receber:", error);
-        setContasPagar([]); // Caso de erro, definir um array vazio
+        // Trata erros na requisição
+        console.error("Erro ao buscar contas a receber:", error); // Exibe o erro no console
+        setContasPagar([]); // Define um array vazio em caso de erro
       });
-  }, []);
+  }, []); // O array vazio [] garante que a requisição ocorra apenas uma vez quando o componente é montado
 
+  // Calcula a soma total das contas a receber
   const somaTotalRec = contasReceber.reduce(
-    (acc, conta) => acc + conta.valor,
-    0
+    (acc, conta) => acc + conta.valor, // Soma os valores de cada conta
+    0 // Inicializa o acumulador em 0
   );
+
+  // Calcula a soma total das contas a pagar
   const somaTotalPag = contasPagar.reduce((acc, conta) => acc + conta.valor, 0);
+
+  // Calcula o lucro líquido subtraindo a soma das contas a pagar da soma das contas a receber
   const totalLucroLiquido = somaTotalRec - somaTotalPag;
 
-  return (
+  return ( //Faz um retorno do que vai aparecer nas telas, linhas de código bem semelhantes ao "HTML5".
     <div>
       <div className="form-menu">
         <img className="UMC_Logo" src={UMCLogo} alt="UMC Logo" />
@@ -223,4 +233,4 @@ function SGF() {
   );
 }
 
-export default SGF;
+export default SGF; // Faz o exporte padrão dos componentes do SGF, para que se possa ser usado em outro elemento de outro arquivo

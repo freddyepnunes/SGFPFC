@@ -46,7 +46,7 @@ body {
 }
 
 .btn:hover {
-  background-color: #323232;
+  background-color: #0f0f3a;
   color: #f0f0f0;
 }
 
@@ -174,7 +174,7 @@ body {
 
 .LinhaCab {
   height: 0.0625rem;
-  width: 83rem;
+  width: 108.8rem;
   margin-top: 2.5rem;
   margin-left: 10rem;
   background-color: #e2e2e2;
@@ -247,11 +247,11 @@ body {
 
 .Forma1 {
   background-color: #205f68;
-  margin-top: 5rem;
+  margin-top: 4rem;
   margin-left: 13.5625rem;
   position: absolute;
   text-align: center;
-  width: 25rem;
+  width: 33rem;
   height: 7.5rem;
   border-radius: 0.46875rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
@@ -259,10 +259,10 @@ body {
 
 .Forma2 {
   background-color: #f18824;
-  margin-top: 5rem;
-  margin-left: 40.7rem;
+  margin-top: 4rem;
+  margin-left: 48.5rem;
   position: absolute;
-  width: 25rem;
+  width: 33rem;
   height: 7.5rem;
   border-radius: 0.46875rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
@@ -270,10 +270,10 @@ body {
 
 .Forma3 {
   background-color: #116114;
-  margin-top: 5rem;
-  margin-left: 68.5rem;
+  margin-top: 4rem;
+  margin-left: 84rem;
   position: absolute;
-  width: 25rem;
+  width: 33rem;
   height: 7.5rem;
   border-radius: 0.46875rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
@@ -312,39 +312,40 @@ body {
 
 .quadrado1 {
   height: 150px;
-  width: 80rem;
+  width: 103rem;
   background-color: #ebebeb;
   border: none;
   border-radius: 10px;
   margin-left: 13.5rem;
-  margin-top: 14rem;
+  margin-top: 12rem;
   position: absolute;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
 }
 
 .tipodocumentotxt {
   color: rgb(0, 0, 0);
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Montserrat", sans-serif;
-  margin-top: 25px;
+  margin-top: -10px;
   margin-left: 35px;
+  position: absolute;
 }
 
 .datatxt {
   color: rgb(0, 0, 0);
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Montserrat", sans-serif;
-  margin-top: -24px;
-  margin-left: 21rem;
+  margin-top: -10px;
+  margin-left: 33rem;
   position: absolute;
 }
 
 .banctxt {
   color: rgb(0, 0, 0);
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Montserrat", sans-serif;
-  margin-top: -23px;
-  margin-left: 47rem;
+  margin-top: -10px;
+  margin-left: 66rem;
   position: absolute;
 }
 
@@ -357,7 +358,7 @@ body {
   height: 2rem;
   width: 6rem;
   font-family: "Montserrat", sans-serif;
-  margin-left: 70rem;
+  margin-left: 92rem;
   position: absolute;
 }
 .btnBuscar:hover {
@@ -383,9 +384,9 @@ body {
   display: inline-block;
   margin-left: 2rem;
   width: 15rem;
-  height: 40px;
-  margin-top: 1rem;
-  font-size: 22px;
+  height: 30px;
+  margin-top: 3rem;
+  font-size: 18px;
   border: none;
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
@@ -436,11 +437,11 @@ body {
 .dropdown2 {
   position: absolute;
   display: inline-block;
-  margin-left: 21rem;
+  margin-left: 33rem;
   width: 340px;
-  height: 40px;
-  margin-top: 1rem;
-  font-size: 22px;
+  height: 30px;
+  margin-top: 3rem;
+  font-size: 18px;
   border: none;
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
@@ -491,11 +492,11 @@ body {
 .dropdown3 {
   position: absolute;
   display: inline-block;
-  margin-left: 47rem;
+  margin-left: 66rem;
   width: 15rem;
-  height: 40px;
-  margin-top: 1rem;
-  font-size: 22px;
+  height: 30px;
+  margin-top: 3rem;
+  font-size: 18px;
   border: none;
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
@@ -535,13 +536,13 @@ body {
 }
 
 .quadrado2 {
-  height: 1200px;
-  width: 80rem;
+  height: 1160px;
+  width: 103rem;
   background-color: #ebebeb;
   border: none;
   border-radius: 10px;
   margin-left: 13.5rem;
-  margin-top: 24rem;
+  margin-top: 22rem;
   position: absolute;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
 }
@@ -555,7 +556,7 @@ body {
 }
 
 .gf1 {
-  width: 76rem;
+  width: 99.3rem;
   height: 500px;
   background-color: white;
   border-radius: 10px;
@@ -574,7 +575,7 @@ body {
 }
 
 .gf2 {
-  width: 37rem;
+  width: 48rem;
   height: 500px;
   background-color: white;
   border-radius: 10px;
@@ -593,11 +594,11 @@ body {
 }
 
 .gf3 {
-  width: 37rem;
+  width: 48rem;
   height: 500px;
   background-color: white;
   border-radius: 10px;
-  margin-left: 41rem;
+  margin-left: 53rem;
   margin-top: 560px;
   position: absolute;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
@@ -942,7 +943,7 @@ body {
 .Valor1 {
   position: absolute;
   margin-top: -0.3rem;
-  margin-left: 19rem;
+  margin-left: 22rem;
   z-index: 1000;
   white-space: nowrap;
 }
@@ -956,7 +957,7 @@ body {
 .Valor2 {
   position: absolute;
   margin-top: -0.3rem;
-  margin-left: 19rem;
+  margin-left: 22rem;
   z-index: 1000;
   white-space: nowrap;
 }
@@ -970,7 +971,7 @@ body {
 .Valor3 {
   position: absolute;
   margin-top: -0.3rem;
-  margin-left: 19rem;
+  margin-left: 22rem;
   z-index: 1000;
   white-space: nowrap;
 }

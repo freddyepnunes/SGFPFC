@@ -18,13 +18,14 @@ const ContasRec = () => {
     // Lógica para mostrar o calendário
   };
 
-  return ( //Função de return para retornar os componentes visuais e funcionais do nosso código
+  return (
+    //Função de return para retornar os componentes visuais e funcionais do nosso código
     <div>
       <div className="form-menu-Complementar"></div>
       <div className="form-menu">
         <img className="UMC_Logo" src={UMCLogo} alt="UMC Logo" />
         <div className="Botoes">
-          <Link to="/Home" className="link"> //Usando a função Link para atribuir a navegação em button
+          <Link to="/Home" className="link">
             <button type="button" className="btn btn1 btn-sep" id="button1">
               <i className="fa-solid fa-house"></i>Home
               <div className="Indicador2"></div>

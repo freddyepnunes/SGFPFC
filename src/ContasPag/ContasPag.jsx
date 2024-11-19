@@ -59,14 +59,10 @@ const ContasPag = () => {
       <div className="ContasPagar">Contas a Pagar</div>
       <div className="LinhaCabConPag"></div>
       <div className="diretorioPag">
-        <div className="diretorioItemPag">
-          <a href="C:/Users/lenovo/Documents/SGF - VS Code/SGF.html">Home</a>
-        </div>
+        <div className="diretorioItemPag">Home</div>
         <div className="diretorioItemPag">/</div>
         <div className="diretorioItemPag">
-          <a href="C:/Users/lenovo/Documents/SGF - VS Code/ContasPag.html">
-            <strong>Contas a Pagar</strong>
-          </a>
+          <strong>Contas a Pagar</strong>
         </div>
       </div>
       <div className="CadastroContas">

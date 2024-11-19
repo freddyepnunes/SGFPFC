@@ -21,7 +21,6 @@ const ContasRec = () => {
   return (
     //Função de return para retornar os componentes visuais e funcionais do nosso código
     <div>
-      <div className="form-menu-Complementar"></div>
       <div className="form-menu">
         <img className="UMC_Logo" src={UMCLogo} alt="UMC Logo" />
         <div className="Botoes">
@@ -68,14 +67,14 @@ const ContasRec = () => {
           </a>
         </div>
       </div>
-      <div className="CadastroContas">
-        <div className="banco">
+      <div className="CadastroContaS">
+        <div className="bancO">
           <div className="label">Banco</div>
           <div>
             <input type="text" className="input-text" required />
           </div>
         </div>
-        <div className="DataEmissao">
+        <div className="DataEmissaO">
           <div className="label">Data Emissão</div>
           <div>
             <input type="text" className="input-text" required />
@@ -111,7 +110,7 @@ const ContasRec = () => {
           <div className="label">Cliente</div>
           <input type="text" className="input-text" required />
         </div>
-        <div className="valor">
+        <div className="valoR">
           <div className="label">Valor (R$)</div>
           <div>
             <input type="text" className="input-text" />
@@ -131,7 +130,7 @@ const ContasRec = () => {
         </div>
       </div>
 
-      <div className="QuadroContas"></div>
+      <div className="QuadroContaS"></div>
     </div>
   );
 };

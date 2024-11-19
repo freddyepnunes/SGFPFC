@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"; // Importa React e hooks use
 import "./SGF.css"; // Importa o arquivo CSS para estilos da página
 import UMCLogo from "../Imagens/UMC.png"; // Importa o logo da UMC
 import { Link } from "react-router-dom"; // Importa o componente Link para navegação entre páginas
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function SGF() {
   // Estado para armazenar os valores de contas a receber
@@ -26,7 +27,7 @@ function SGF() {
       });
   }, []); // O array vazio [] garante que a requisição ocorra apenas uma vez quando o componente é montado
 
-   // useEffect para buscar os valores das contas a pagar da API
+  // useEffect para buscar os valores das contas a pagar da API
   useEffect(() => {
     fetch("/api/dados/despesa") // Faz uma requisição para a API na rota especificada
       .then((response) => {
@@ -56,7 +57,8 @@ function SGF() {
   // Calcula o lucro líquido subtraindo a soma das contas a pagar da soma das contas a receber
   const totalLucroLiquido = somaTotalRec - somaTotalPag;
 
-  return ( //Faz um retorno do que vai aparecer nas telas, linhas de código bem semelhantes ao "HTML5".
+  return (
+    //Faz um retorno do que vai aparecer nas telas, linhas de código bem semelhantes ao "HTML5".
     <div>
       <div className="form-menu">
         <img className="UMC_Logo" src={UMCLogo} alt="UMC Logo" />

@@ -1,0 +1,77 @@
+Implementando o SGF no Visual Code.
+
+Antes de tudo fazer a instalação do Node na sua máquina, instalação feita pelo navegador.
+https://nodejs.org/pt
+
+
+Em seguida, abra o VS Code e abra uma janela do terminal e navegue até o diretório onde você quer clonar o repositório, usando o comando:
+cd C:/Diretorio/ProjetoPFC
+
+
+Assim que estiver dentro do diretório use o comando o:
+git clone https://github.com/freddyepnunes/SGFPFC.git
+
+
+Após a clonagem, abra a pasta do repositório no VS Code com o comando:
+code nome-da-pasta
+
+
+Para saber se está funcionando é só escrever no terminal:
+git pull origin master
+E
+git checkout master
+
+
+Logo em seguida insira o código "npm install" para fazer a instalação de todos os módulos e independências do node.js.
+Com este código deve aparecer uma pasta chamada "node_module".
+
+
+Para saber se o código está funcionando, precisaremos inserir o código "npm run dev" para fazer o FrontEnd (React.js) funcionar, aparecerá uma mensagem com um link, é só apertar no link com o botão esquerdo do mouse enquanto segura o "Ctrl".
+
+Agora para fazermos o BackEnd funcionar precisa ser inserido o código "node server.cjs". Deve aparecer algo como:
+"Servidor rodando em http://localhost:5000"
+
+Se estiver tudo conectado com o banco de dados, vai aparecer os valores e o código vai estar 100% pronto e funcional.
+
+Só será necessário alterar as informações do banco de dados e o IP no arquivo dbConfig.js, bem nesta parte:
+user: "user", // seu nome de usuário do SQL Server
+password: "password", // sua senha do SQL Server
+server: "XXX.XXX.X.XX", // Seu servidor SQL
+database: "SQL_SGF", // Nome do banco de dados
+
+
+PS: Caso tenha se conectado ao banco pode usar todos os botões tranquilamente, caso contrário será necessário trocar na URL para navegar entre as paginas:
+/Login
+/Cadastro
+/Home
+/ContasPag
+/ContasRec
+
+
+
+
+Instalação SQL Server Management Studio.
+
+Como INSTALAR e CONFIGURAR o SQL Server - O Guia Completo
+https://youtu.be/Lc3yclqM8rQ?si=MLZD4-1ix9J-GnoW
+
+
+Pode haver um problema com o a porta 1433 do IPv4 da rede em que está conectado, para saber se funciona tente abrir o cmd e usar o comando:
+telnet XXX.XXX.X.XX 1433
+
+Se ficar uma tela totalmente preta é porque ele está funcionando e assim aparecerá os valores na aplicação.
+
+
+
+
+
+O que falta sobre o SGF:
+
+Mudar o banco de dados SQL Server para o Mongo DB Atlas.
+
+Usar as bibliotecas AG-Grid e AG-Charts para colocar gráficos e tabelas na aplicação.
+
+Mudança no Cadastrar-se
+Cadastrar-se > Popup "Conta criada com sucesso, voltar a página de login"
+
+Funcionalidade nos botões e drop-down

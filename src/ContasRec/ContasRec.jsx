@@ -4,21 +4,9 @@ import "./ContasRec.css"; //Importe do arquivo ContasRec.css para a formatação
 import "../SGF/SGF.css"; //Importe do visual SGF.css da pasta SGF
 import UMCLogo from "../Imagens/UMC.png"; //Importe de uma imagem com o nome de UMCLogo
 import { Link } from "react-router-dom";
-import ContasRecGrid from "./ContasRecgrid.jsx";
+import ContasRecGrid from "./ContasRecGrid.jsx";
 
 const ContasRec = () => {
-  const toggleMenu = () => {
-    // Lógica para alternar o menu
-  };
-
-  const selecionarOpcao = (opcao) => {
-    // Lógica para selecionar uma opção do menu
-  };
-
-  const showCalendar = () => {
-    // Lógica para mostrar o calendário
-  };
-
   return (
     //Função de return para retornar os componentes visuais e funcionais do nosso código
     <div>

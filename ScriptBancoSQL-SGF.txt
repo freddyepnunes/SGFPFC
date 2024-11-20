@@ -184,7 +184,7 @@ CREATE TABLE despesa (
     User_idUser INT NOT NULL,  
     tipo_banco VARCHAR(45),
     FOREIGN KEY (User_idUser) REFERENCES usuario(id_usuario)  
-
+);
 
 
 

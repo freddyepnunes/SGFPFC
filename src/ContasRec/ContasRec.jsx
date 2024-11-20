@@ -4,6 +4,7 @@ import "./ContasRec.css"; //Importe do arquivo ContasRec.css para a formatação
 import "../SGF/SGF.css"; //Importe do visual SGF.css da pasta SGF
 import UMCLogo from "../Imagens/UMC.png"; //Importe de uma imagem com o nome de UMCLogo
 import { Link } from "react-router-dom";
+import ContasRecGrid from "./ContasRecgrid.jsx";
 
 const ContasRec = () => {
   const toggleMenu = () => {
@@ -130,7 +131,9 @@ const ContasRec = () => {
         </div>
       </div>
 
-      <div className="QuadroContaS"></div>
+      <div className="QuadroContaS">
+        <ContasRecGrid />
+      </div>
     </div>
   );
 };

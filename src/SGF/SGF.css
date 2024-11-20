@@ -239,7 +239,7 @@ body {
 }
 
 .Forma1 {
-  background-color: #205f68;
+  background-color: #27ae60;
   margin-top: 3.5rem;
   margin-left: 13.5625rem;
   position: absolute;
@@ -251,7 +251,7 @@ body {
 }
 
 .Forma2 {
-  background-color: #f18824;
+  background-color: #c0392b;
   margin-top: 3.5rem;
   margin-left: 48.5rem;
   position: absolute;
@@ -262,7 +262,7 @@ body {
 }
 
 .Forma3 {
-  background-color: #116114;
+  background-color: #2980b9;
   margin-top: 3.5rem;
   margin-left: 84rem;
   position: absolute;
@@ -640,9 +640,10 @@ body {
 
 .receitastotaistxt {
   color: white;
-  font-size: 20px;
+  font-size: 17px;
+  font-weight: 600;
   font-family: "Montserrat", sans-serif;
-  margin-left: 17.5rem;
+  margin-left: 18.5rem;
   margin-top: 25px;
 }
 
@@ -660,7 +661,8 @@ body {
 
 .custostotaistxt {
   color: rgb(255, 255, 255);
-  font-size: 20px;
+  font-size: 17px;
+  font-weight: 600;
   font-family: "Montserrat", sans-serif;
   margin-left: 16rem;
   margin-top: 25px;
@@ -679,9 +681,10 @@ body {
 
 .lucroliquidotxt {
   color: rgb(255, 255, 255);
-  font-size: 20px;
+  font-size: 17px;
+  font-weight: 600;
   font-family: "Montserrat", sans-serif;
-  margin-left: 18rem;
+  margin-left: 19rem;
   margin-top: 25px;
 }
 
@@ -744,6 +747,21 @@ body {
   color: #ffffff;
   font-size: 40px;
   font-weight: 700;
+}
+
+.receitastotaistxt .Valor1 {
+  margin-left: -7.5rem;
+  margin-top: -1.5rem;
+}
+
+.custostotaistxt .Valor2 {
+  margin-left: -5rem;
+  margin-top: -1.5rem;
+}
+
+.lucroliquidotxt .Valor3 {
+  margin-left: -8rem;
+  margin-top: -1.5rem;
 }
 
 /* Responsividade para telas de resolução de 1366x768 píxels */

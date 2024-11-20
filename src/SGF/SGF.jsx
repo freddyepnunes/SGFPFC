@@ -3,62 +3,57 @@ import "./SGF.css"; // Importa o arquivo CSS para estilos da página
 import UMCLogo from "../Imagens/UMC.png"; // Importa o logo da UMC
 import { Link } from "react-router-dom"; // Importa o componente Link para navegação entre páginas
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import FinanceGraph from "./FluxoCaixa";
+import SaidaPlano from "./SaidasPlanoContas";
+import EntradaPlano from "./EntradasPlanoContas";
+import LucroLiqGraph from "./LucroLiquido";
 
 function SGF() {
   // Estado para armazenar os valores de contas a receber
   const [contasReceber, setContasReceber] = useState([]); // Inicializa a lista de contas a receber como um array vazio
   const [contasPagar, setContasPagar] = useState([]); // Inicializa a lista de contas a pagar como um array vazio
 
+  // Função para buscar dados de uma API
+  const fetchData = async (url, setData) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      console.error(`Erro ao buscar dados de ${url}:`, error);
+      setData([]); // Define um array vazio em caso de erro
+    }
+  };
+
   // useEffect para buscar os valores das contas a receber da API
   useEffect(() => {
-    fetch("/api/dados/receita") // Faz uma requisição para a API na rota especificada
-      .then((response) => {
-        // Verifica se a resposta da API é ok (status 200-299)
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`); // Lança um erro se a resposta não for ok
-        }
-        return response.json(); // Converte a resposta para JSON
-      })
-      .then((data) => setContasReceber(data)) // Atualiza o estado com os dados recebidos
-      .catch((error) => {
-        // Trata erros na requisição
-        console.error("Erro ao buscar contas a receber:", error); // Exibe o erro no console
-        setContasReceber([]); // Define um array vazio em caso de erro
-      });
-  }, []); // O array vazio [] garante que a requisição ocorra apenas uma vez quando o componente é montado
+    fetchData("/api/dados/receita", setContasReceber);
+  }, []);
 
   // useEffect para buscar os valores das contas a pagar da API
   useEffect(() => {
-    fetch("/api/dados/despesa") // Faz uma requisição para a API na rota especificada
-      .then((response) => {
-        // Verifica se a resposta da API é ok
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`); // Lança um erro se a resposta não for ok
-        }
-        return response.json(); // Converte a resposta para JSON
-      })
-      .then((data) => setContasPagar(data)) // Atualiza o estado com os dados recebidos
-      .catch((error) => {
-        // Trata erros na requisição
-        console.error("Erro ao buscar contas a receber:", error); // Exibe o erro no console
-        setContasPagar([]); // Define um array vazio em caso de erro
-      });
-  }, []); // O array vazio [] garante que a requisição ocorra apenas uma vez quando o componente é montado
+    fetchData("/api/dados/despesa", setContasPagar);
+  }, []);
 
   // Calcula a soma total das contas a receber
   const somaTotalRec = contasReceber.reduce(
-    (acc, conta) => acc + conta.valor, // Soma os valores de cada conta
+    (acc, conta) => acc + (conta.valor || 0), // Soma os valores de cada conta, tratando undefined ou null
     0 // Inicializa o acumulador em 0
   );
 
   // Calcula a soma total das contas a pagar
-  const somaTotalPag = contasPagar.reduce((acc, conta) => acc + conta.valor, 0);
+  const somaTotalPag = contasPagar.reduce(
+    (acc, conta) => acc + (conta.valor || 0), // Soma os valores de cada conta, tratando undefined ou null
+    0
+  );
 
   // Calcula o lucro líquido subtraindo a soma das contas a pagar da soma das contas a receber
   const totalLucroLiquido = somaTotalRec - somaTotalPag;
 
   return (
-    //Faz um retorno do que vai aparecer nas telas, linhas de código bem semelhantes ao "HTML5".
     <div>
       <div className="form-menu">
         <img className="UMC_Logo" src={UMCLogo} alt="UMC Logo" />
@@ -97,7 +92,6 @@ function SGF() {
           <p>
             <strong>Contas a receber</strong>
           </p>
-          {/* Exibindo os valores recebidos na div Valor1 */}
           <div className="Valor1" id="Valores">
             {contasReceber.length > 0 ? (
               <p>
@@ -132,7 +126,7 @@ function SGF() {
         </div>
         <div className="Forma3">
           <p>
-            <strong>Lucro Liquído</strong>
+            <strong>Lucro Líquido</strong>
           </p>
           <div className="Valor3" id="Valores">
             <p>
@@ -199,35 +193,80 @@ function SGF() {
         <div className="gf1">
           <div className="FluxodeCaixatxt">
             <strong>Fluxo de Caixa</strong>
+            <FinanceGraph />
           </div>
         </div>
         <div className="gf2">
           <div className="saidaplanocontatxt">
             <strong>Saídas por Plano de Contas</strong>
+            <SaidaPlano />
           </div>
         </div>
         <div className="gf3">
           <div className="entradaplanocontatxt">
             <strong>Entradas por Plano de Contas</strong>
+            <EntradaPlano />
           </div>
         </div>
       </div>
 
       {/* Quadrado 3 */}
       <div className="quadrado3">
-        <div className="VisaoEconomicatxt">Visao Econômica</div>
+        <div className="VisaoEconomicatxt">Visão Econômica</div>
         <div className="gf10">
-          <div className="receitastotaistxt">Receitas Totais</div>
+          <div className="receitastotaistxt">
+            Receitas Totais
+            <div className="Valor1" id="Valores">
+              {contasReceber.length > 0 ? (
+                <p>
+                  R${" "}
+                  {somaTotalRec.toLocaleString("pt-BR", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </p>
+              ) : (
+                <p>R$ 0,00</p>
+              )}
+            </div>
+          </div>
         </div>
         <div className="gf11">
-          <div className="custostotaistxt">Custos Totais</div>
+          <div className="custostotaistxt">
+            Custos Totais
+            <div className="Valor2" id="Valores">
+              {contasPagar.length > 0 ? (
+                <p>
+                  R${" "}
+                  {somaTotalPag.toLocaleString("pt-BR", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </p>
+              ) : (
+                <p>R$ 0,00</p>
+              )}
+            </div>
+          </div>
         </div>
         <div className="gf12">
-          <div className="lucroliquidotxt">Lucro Líquido</div>
+          <div className="lucroliquidotxt">
+            Lucro Líquido
+            <div className="Valor3" id="Valores">
+              <p>
+                R${" "}
+                {totalLucroLiquido.toLocaleString("pt-BR", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </p>
+            </div>
+          </div>
         </div>
         <div className="gf13">
           <div className="lucroregimecomptxt">
             Lucro Líquido (Regime de Competência)
+            <LucroLiqGraph />
           </div>
         </div>
       </div>

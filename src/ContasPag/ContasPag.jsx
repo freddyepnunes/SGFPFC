@@ -4,6 +4,7 @@ import "./ContasPag.css"; //Importação do arquivo ContasPag.css que está na m
 import "../SGF/SGF.css"; //Importação do arquivo SGF.css que está dentro da pasta SGF
 import UMCLogo from "../Imagens/UMC.png"; //Importação de imagem com o nome UMCLogo
 import { Link } from "react-router-dom"; //Importe de Link do "react-router-dom" para o uso das funções Link para definir para onde "tal" botão de navegação levará o usuário
+import ContasPagGrid from "./ContasPagGrid.jsx";
 
 const ContasPag = () => {
   //Constante para atribuir todas as funções da página Contas a Pagar
@@ -129,7 +130,9 @@ const ContasPag = () => {
           </button>
         </div>
       </div>
-      <div className="QuadroContas"></div>
+      <div className="QuadroContas">
+        <ContasPagGrid />
+      </div>
     </div>
   );
 };

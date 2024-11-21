@@ -29,11 +29,21 @@ function EntradaPlano() {
       groupedData[plano] += item.valor || 0;
     });
 
+    const totalValue = Object.values(groupedData).reduce(
+      (acc, val) => acc + val,
+      0
+    );
+
     // Transforma os dados agrupados em um array para o gráfico e ordena por valor em ordem decrescente
     const processedData = Object.keys(groupedData)
       .map((key) => ({
         category: key,
         value: groupedData[key],
+        formattedValue: new Intl.NumberFormat("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        }).format(groupedData[key]),
+        percentage: ((groupedData[key] / totalValue) * 100).toFixed(2), // Calcula a porcentagem
       }))
       .sort((a, b) => b.value - a.value); // Ordena em ordem decrescente com base no valor
 
@@ -44,7 +54,7 @@ function EntradaPlano() {
     fetchData();
   }, []);
 
-  // Opções básicas do gráfico
+  // Opções do gráfico com tooltip formatado
   const options = {
     width: 700, // Largura específica
     height: 420, // Altura específica
@@ -56,6 +66,13 @@ function EntradaPlano() {
         calloutLabelKey: "category", // Chave para os rótulos
         innerRadiusOffset: -40, // Define a "rosca" do gráfico de donut
         fills: ["#673AB7", "#3F51B5", "#2196F3"],
+        tooltip: {
+          renderer: ({ datum }) => {
+            return {
+              content: `<b>${datum.category}</b><br>Valor: ${datum.formattedValue}<br>Porcentagem: ${datum.percentage}%`,
+            };
+          },
+        },
       },
     ],
     legend: {

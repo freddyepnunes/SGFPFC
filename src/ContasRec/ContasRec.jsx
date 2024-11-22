@@ -5,6 +5,8 @@ import "../SGF/SGF.css"; //Importe do visual SGF.css da pasta SGF
 import UMCLogo from "../Imagens/UMC.png"; //Importe de uma imagem com o nome de UMCLogo
 import { Link } from "react-router-dom";
 import ContasRecGrid from "./ContasRecGrid.jsx";
+import AlterarDespesaModal from "../ContasPag/ModalAltContasPag.jsx"; // Ajuste o caminho conforme a localização do componente
+import DeletarReceitaModal from "./ModalDelContasRec.jsx";
 
 const ContasRec = () => {
   return (
@@ -117,6 +119,8 @@ const ContasRec = () => {
             <strong>Cadastrar</strong>
           </button>
         </div>
+        <AlterarDespesaModal />
+        <DeletarReceitaModal />
       </div>
 
       <div className="QuadroContaS">

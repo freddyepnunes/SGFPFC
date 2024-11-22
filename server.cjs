@@ -101,41 +101,135 @@ app.post("/api/usuario", (req, res) => {
 
 // Rota para efetuar login
 app.post("/api/login", (req, res) => {
-  const { email, senha } = req.body; // Extrai os dados do corpo da requisição
+  const { email, senha } = req.body;
 
-  // Validação básica para verificar se os campos foram preenchidos
   if (!email || !senha) {
     return res.status(400).json({ error: "E-mail e senha são obrigatórios." });
   }
 
-  const db = connectDB(); // Conecta ao banco de dados
+  const db = connectDB(); // Conecta ao banco de dados SQLite
 
-  // Verifica se o e-mail existe
-  const userCheckQuery = `SELECT * FROM usuario WHERE email = ?`;
-  db.get(userCheckQuery, [email], (err, row) => {
+  const query = `SELECT id_usuario FROM usuario WHERE email = ? AND senha = ?`;
+
+  db.get(query, [email, senha], (err, row) => {
     if (err) {
-      res.status(500).json({ error: "Erro ao efetuar login: " + err.message });
+      res.status(500).json({ error: "Erro no servidor: " + err.message });
       db.close();
       return;
     }
 
     if (!row) {
-      res.status(404).json({ error: "E-mail não cadastrado." });
-      db.close();
-      return;
+      res.status(404).json({ error: "E-mail ou senha incorretos." });
+    } else {
+      res.status(200).json({ id_usuario: row.id_usuario }); // Retorna o id_usuario ao frontend
     }
 
-    // Verifica se a senha está correta
-    if (row.senha !== senha) {
-      res.status(401).json({ error: "Senha incorreta." });
-      db.close();
-      return;
-    }
-
-    // Se o e-mail e a senha estão corretos, retorna sucesso
-    res.status(200).json({ message: "Login efetuado." });
     db.close(); // Fecha a conexão
   });
+});
+
+// Inicializa o servidor e escuta na porta definida
+app.delete("/api/despesa/:id", (req, res) => {
+  console.log(`Recebendo requisição DELETE para id_despesa: ${req.params.id}`);
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).send("ID da despesa é obrigatório.");
+  }
+
+  const db = connectDB(); // Conecta ao banco de dados SQLite
+  const deleteQuery = "DELETE FROM despesa WHERE id_despesa = ?"; // Consulta SQL para exclusão
+
+  db.run(deleteQuery, [id], function (err) {
+    if (err) {
+      res.status(500).send("Erro ao excluir a despesa: " + err.message);
+    } else if (this.changes === 0) {
+      res.status(404).send("Despesa não encontrada.");
+    } else {
+      res.status(200).send("Despesa excluída com sucesso.");
+    }
+    db.close(); // Fecha a conexão após a execução
+  });
+});
+
+// Inicializa o servidor e escuta na porta definida
+app.delete("/api/receita/:id", (req, res) => {
+  console.log(`Recebendo requisição DELETE para id_receita: ${req.params.id}`);
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).send("ID da receita é obrigatório.");
+  }
+
+  const db = connectDB(); // Conecta ao banco de dados SQLite
+  const deleteQuery = "DELETE FROM receita WHERE id_receita = ?"; // Corrige a tabela para 'receita'
+
+  db.run(deleteQuery, [id], function (err) {
+    if (err) {
+      res.status(500).send("Erro ao excluir a receita: " + err.message);
+    } else if (this.changes === 0) {
+      res.status(404).send("Receita não encontrada.");
+    } else {
+      res.status(200).send("Receita excluída com sucesso.");
+    }
+    db.close(); // Fecha a conexão após a execução
+  });
+});
+
+app.post("/api/despesa", (req, res) => {
+  const {
+    dataEmissao,
+    valor,
+    tipoDocumento,
+    planoConta,
+    descricao,
+    fornecedor,
+    banco,
+    id_usuario, // Adicione o ID do usuário logado
+  } = req.body;
+
+  // Validação para verificar se todos os campos necessários foram preenchidos
+  if (
+    !dataEmissao ||
+    !valor ||
+    !tipoDocumento ||
+    !planoConta ||
+    !descricao ||
+    !fornecedor ||
+    !banco ||
+    !id_usuario
+  ) {
+    return res.status(400).send("Todos os campos são obrigatórios.");
+  }
+
+  const db = connectDB(); // Conecta ao banco de dados SQLite
+
+  const insertQuery = `
+    INSERT INTO despesa (data, valor, documento, plano_conta, descricao, fornecedor, tipo_banco, User_idUser)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  db.run(
+    insertQuery,
+    [
+      dataEmissao,
+      valor,
+      tipoDocumento,
+      planoConta,
+      descricao,
+      fornecedor,
+      banco,
+      id_usuario, // Inclua o ID do usuário
+    ],
+    function (err) {
+      if (err) {
+        res.status(500).send("Erro ao cadastrar a despesa: " + err.message);
+      } else {
+        res.status(201).send("Despesa cadastrada com sucesso!");
+      }
+      db.close(); // Fecha a conexão após a execução
+    }
+  );
 });
 
 // Inicializa o servidor e escuta na porta definida

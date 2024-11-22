@@ -175,7 +175,7 @@
 }
 
 .btncadPag {
-  margin-left: 59rem;
+  margin-left: 58rem;
   margin-top: 13.1rem;
   position: absolute;
   border: none;
@@ -184,7 +184,7 @@
   border-radius: 4px;
   font-size: 13px;
   height: 2rem;
-  width: 6rem;
+  width: 8rem;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -197,15 +197,276 @@
   color: #0ca293;
 }
 
-.QuadroContas {
+.btnAltPag {
+  margin-left: 71rem;
+  margin-top: 13.1rem;
+  position: absolute;
+  border: none;
+  background-color: #2311c2;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.btnAltPag:hover {
+  background-color: #170c7e;
+}
+
+.btnAltPag:active {
+  background-color: #0c0741;
+  color: #ffffff;
+}
+
+.btnDelPag {
+  margin-left: 84rem;
+  margin-top: 13.1rem;
+  position: absolute;
+  border: none;
+  background-color: #bd1010;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.btnDelPag:hover {
+  background-color: #830c0c;
+}
+
+.btnDelPag:active {
+  background-color: #3a0505;
+  color: #ffffff;
+}
+
+.QuadroContaS {
   position: absolute;
   margin-left: 13rem;
   margin-top: 25rem;
   background-color: #e2e2e2;
   width: 104.5rem;
-  height: 35rem;
+  height: 32rem;
   border-radius: 10px;
   line-height: 1.5;
+}
+
+.FecharModalPag {
+  position: absolute;
+  margin-top: -4rem;
+  margin-left: 32rem;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  background-color: transparent;
+}
+
+.modalBanco {
+  margin-top: 0.5rem;
+  position: absolute;
+}
+
+.modalBanco .input-text {
+  border: none;
+  width: 10rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.modalDataEmissao {
+  margin-top: 0.5rem;
+  margin-left: 11.5rem;
+  position: absolute;
+}
+
+.modalDataEmissao .input-text {
+  border: none;
+  width: 10rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.modalPlancontapag {
+  margin-left: 23rem;
+  margin-top: 0.5rem;
+  position: absolute;
+  white-space: nowrap;
+}
+
+#modalPlancontapag-dropbox {
+  border: none;
+  width: 10rem;
+  height: 1.875rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.modalTipodocpag {
+  margin-top: 5.5rem;
+  position: absolute;
+}
+
+#modalTipodocpag-dropbox {
+  border: none;
+  width: 16rem;
+  height: 1.875rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.modalFornpag {
+  margin-top: 10.5rem;
+  position: absolute;
+}
+
+.modalFornpag .input-text {
+  border: none;
+  width: 33rem;
+  height: 1.875rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.modalValor {
+  margin-top: 5.5rem;
+  margin-left: 17rem;
+  position: absolute;
+}
+
+.modalValor .input-text {
+  border: none;
+  width: 16rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.modalDesc {
+  margin-top: 15.5rem;
+  position: absolute;
+}
+
+.modalDesc .input-text {
+  border: none;
+  width: 33rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.AlterarDadosPag {
+  margin-top: 21.5rem;
+  position: absolute;
+  border: none;
+  background-color: #2311c2;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+}
+
+.CancelarDadosPag {
+  margin-left: 25rem;
+  margin-top: 21.5rem;
+  position: absolute;
+  border: none;
+  background-color: #c21111;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+}
+
+.modalIdDespesa {
+  margin-top: 1.5rem;
+  margin-left: 3rem;
+  position: absolute;
+}
+
+.modalIdDespesa .input-text {
+  border: none;
+  width: 14rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.DelFecharModalPag {
+  position: absolute;
+  margin-top: -4rem;
+  margin-left: 20rem;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  background-color: transparent;
+}
+
+.ExcluirDadosPag {
+  margin-top: 9rem;
+  position: absolute;
+  border: none;
+  background-color: #2311c2;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+}
+
+.DelCancelarDadosPag {
+  margin-left: 12rem;
+  margin-top: 9rem;
+  position: absolute;
+  border: none;
+  background-color: #c21111;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
 }
 
 @media (max-width: 1366px) {
@@ -317,13 +578,13 @@
     color: #0ca293;
   }
 
-  .QuadroContas {
+  .QuadroContaS {
     position: absolute;
     margin-left: 13rem;
     margin-top: 24rem;
     background-color: #e2e2e2;
     width: 71rem;
-    height: 43rem;
+    height: 25rem;
     border-radius: 10px;
     line-height: 1.5;
   }

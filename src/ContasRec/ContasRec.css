@@ -184,7 +184,7 @@
   border-radius: 4px;
   font-size: 13px;
   height: 2rem;
-  width: 6rem;
+  width: 8rem;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -206,6 +206,64 @@
   height: 35rem;
   border-radius: 10px;
   line-height: 1.5;
+}
+
+.modalIdReceita {
+  margin-top: 1.5rem;
+  margin-left: 3rem;
+  position: absolute;
+}
+
+.modalIdReceita .input-text {
+  border: none;
+  width: 14rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.DelFecharModalRec {
+  position: absolute;
+  margin-top: -4rem;
+  margin-left: 20rem;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  background-color: transparent;
+}
+
+.ExcluirDadosRec {
+  margin-top: 9rem;
+  position: absolute;
+  border: none;
+  background-color: #2311c2;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+}
+
+.DelCancelarDadosRec {
+  margin-left: 12rem;
+  margin-top: 9rem;
+  position: absolute;
+  border: none;
+  background-color: #c21111;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
 }
 
 @media (max-width: 1366px) {

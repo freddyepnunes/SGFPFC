@@ -1,27 +1,71 @@
-//Página Contas a Pagar para o usuário conseguir visualizar suas despesas da melhor e mais clara possível (Ainda não finalizado)
-import React from "react"; //Import do pacote react com o nome React
+import React, { useState } from "react"; //Import do pacote react com o nome React
 import "./ContasPag.css"; //Importação do arquivo ContasPag.css que está na mesma página
 import "../SGF/SGF.css"; //Importação do arquivo SGF.css que está dentro da pasta SGF
 import UMCLogo from "../Imagens/UMC.png"; //Importação de imagem com o nome UMCLogo
 import { Link } from "react-router-dom"; //Importe de Link do "react-router-dom" para o uso das funções Link para definir para onde "tal" botão de navegação levará o usuário
 import ContasPagGrid from "./ContasPagGrid.jsx";
+import AlterarDespesaModal from "./ModalAltContasPag.jsx";
+import DeletarDespesaModal from "./ModalDelContasPag.jsx";
 
 const ContasPag = () => {
-  //Constante para atribuir todas as funções da página Contas a Pagar
-  const toggleMenu = () => {
-    // Lógica para alternar o menu
+  // Estado para armazenar os valores do formulário
+  const [formData, setFormData] = useState({
+    banco: "",
+    dataEmissao: "",
+    dataVencimento: "",
+    planoConta: "",
+    tipoDocumento: "",
+    fornecedor: "",
+    valor: "",
+    descricao: "",
+  });
+
+  // Atualiza os valores do estado ao digitar nas caixas de texto
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const selecionarOpcao = (opcao) => {
-    // Lógica para selecionar uma opção
-  };
+  // Função para enviar os dados ao servidor
+  const handleSubmit = async () => {
+    const id_usuario = localStorage.getItem("id_usuario"); // Recupere o id_usuario do localStorage
 
-  const showCalendar = () => {
-    // Lógica para mostrar o calendário
+    if (!id_usuario) {
+      alert("Usuário não identificado. Faça login novamente.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/api/despesa", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...formData, id_usuario }), // Inclua o id_usuario no corpo da requisição
+      });
+
+      if (response.ok) {
+        alert("Despesa cadastrada com sucesso!");
+        setFormData({
+          banco: "",
+          dataEmissao: "",
+          dataVencimento: "",
+          planoConta: "",
+          tipoDocumento: "",
+          fornecedor: "",
+          valor: "",
+          descricao: "",
+        }); // Limpa o formulário
+      } else {
+        const errorText = await response.text();
+        alert(`Erro ao cadastrar a despesa: ${errorText}`);
+      }
+    } catch (error) {
+      alert(`Erro ao cadastrar a despesa: ${error.message}`);
+    }
   };
 
   return (
-    //Retorno dos elementos para a formatação visual, normalmente é semelhante ao HTML5
     <div>
       <div className="form-menu-Complementar"></div>
       <div className="form-menu">
@@ -69,72 +113,108 @@ const ContasPag = () => {
       <div className="CadastroContas">
         <div className="banco">
           <div className="label">Banco</div>
-          <div>
-            <input type="text" className="input-text" required />
-          </div>
+          <input
+            type="text"
+            name="banco"
+            value={formData.banco}
+            onChange={handleChange}
+            className="input-text"
+            required
+          />
         </div>
         <div className="DataEmissao">
           <div className="label">Data Emissão</div>
-          <div>
-            <input type="text" className="input-text" required />
-          </div>
-        </div>
-        <div className="DataVenc">
-          <div className="date-range-container"></div>
+          <input
+            type="date"
+            name="dataEmissao"
+            value={formData.dataEmissao}
+            onChange={handleChange}
+            className="input-text"
+            required
+          />
         </div>
         <div className="plancontapag">
           <div className="label">Plano de Conta</div>
-          <div className="input-text status">
-            <select name="plancontapag" id="plancontapag-dropbox">
-              <option value="ocup">Despesas com Ocupação</option>
-              <option value="Serv">Despesas com Serviços</option>
-              <option value="pessoal">Despesas com Pessoal </option>
-              <option value="outras">Outras Despesas</option>
-              <option value="imposto">Impostos</option>
-              <option value="variaveis">Custos Variáveis</option>
-            </select>
-          </div>
+          <select
+            name="planoConta"
+            value={formData.planoConta}
+            onChange={handleChange}
+            className="input-text"
+            id="plancontapag-dropbox"
+          >
+            <option value="">Selecione</option>
+            <option value="ocup">Despesas com Ocupação</option>
+            <option value="serv">Despesas com Serviços</option>
+            <option value="pessoal">Despesas com Pessoal</option>
+            <option value="outras">Outras Despesas</option>
+            <option value="imposto">Impostos</option>
+            <option value="variaveis">Custos Variáveis</option>
+          </select>
         </div>
         <div className="tipodocpag">
           <div className="label">Tipo de Documento</div>
-          <div className="input-text status">
-            <select name="plancontapag" id="tipodocpag-dropbox">
-              <option value="pix">Pix</option>
-              <option value="cred">Crédito</option>
-              <option value="deb">Débito </option>
-              <option value="nf">NF</option>
-              <option value="transf">Transferência</option>
-              <option value="fat">Fatura</option>
-            </select>
-          </div>
+          <select
+            name="tipoDocumento"
+            value={formData.tipoDocumento}
+            onChange={handleChange}
+            className="input-text"
+            id="tipodocpag-dropbox"
+          >
+            <option value="">Selecione</option>
+            <option value="pix">Pix</option>
+            <option value="cred">Crédito</option>
+            <option value="deb">Débito</option>
+            <option value="nf">NF</option>
+            <option value="transf">Transferência</option>
+            <option value="fat">Fatura</option>
+          </select>
         </div>
         <div className="fornpag">
           <div className="label">Fornecedor</div>
-          <input type="text" className="input-text" required />
+          <input
+            type="text"
+            name="fornecedor"
+            value={formData.fornecedor}
+            onChange={handleChange}
+            className="input-text"
+            required
+          />
         </div>
         <div className="valor">
           <div className="label">Valor (R$)</div>
-          <div>
-            <input type="text" className="input-text" />
-          </div>
+          <input
+            type="number"
+            name="valor"
+            value={formData.valor}
+            onChange={handleChange}
+            className="input-text"
+            required
+          />
         </div>
         <div className="desc">
           <div className="label">Descrição</div>
-          <div>
-            <input type="text" className="input-text" />
-          </div>
+          <input
+            type="text"
+            name="descricao"
+            value={formData.descricao}
+            onChange={handleChange}
+            className="input-text"
+            required
+          />
         </div>
         <div className="cadPag">
-          <button type="button" className="btncadPag" id="btncadPag">
+          <button type="button" className="btncadPag" onClick={handleSubmit}>
             <strong>Cadastrar</strong>
           </button>
         </div>
+        <AlterarDespesaModal />
+        <DeletarDespesaModal />
       </div>
-      <div className="QuadroContas">
+      <div className="QuadroContaS">
         <ContasPagGrid />
       </div>
     </div>
   );
 };
 
-export default ContasPag; //Exportação padrão da função ContasPag para que se possa ser usado em outros elementos do projeto em geral.
+export default ContasPag;

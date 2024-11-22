@@ -5,7 +5,6 @@ import { AgCharts } from "ag-charts-react";
 function FinanceGraph() {
   const [chartData, setChartData] = useState([]);
 
-  // Função para buscar dados das APIs de receita e despesa
   async function fetchData() {
     try {
       const receitaResponse = await fetch("/api/dados/receita");
@@ -19,11 +18,9 @@ function FinanceGraph() {
     }
   }
 
-  // Função para processar os dados e agrupar valores por mês
   function processChartData(receitaData, despesaData) {
     const dataMap = {};
 
-    // Função auxiliar para extrair o mês de uma data no formato "YYYY-MM-DD" e formatar como "Jan", "Fev", etc.
     function extractMonthYear(dateString) {
       if (!dateString) return "";
       const date = new Date(dateString);
@@ -31,11 +28,10 @@ function FinanceGraph() {
         month: "short",
       });
       const formattedMonth = monthFormatter.format(date);
-      const monthNumber = date.getMonth(); // Extrai o número do mês (0 = Janeiro, 1 = Fevereiro, etc.)
+      const monthNumber = date.getMonth();
       return { formattedMonth, monthNumber };
     }
 
-    // Processa os dados de receita
     receitaData.forEach((item) => {
       const { formattedMonth, monthNumber } = extractMonthYear(item.data);
       if (!dataMap[monthNumber]) {
@@ -44,13 +40,12 @@ function FinanceGraph() {
             formattedMonth.charAt(0).toUpperCase() + formattedMonth.slice(1),
           monthNumber: monthNumber,
           receitas: 0,
-          despesas: 0,
+          lucroLiquido: 0,
         };
       }
       dataMap[monthNumber].receitas += item.valor || 0;
     });
 
-    // Processa os dados de despesa
     despesaData.forEach((item) => {
       const { formattedMonth, monthNumber } = extractMonthYear(item.data);
       if (!dataMap[monthNumber]) {
@@ -59,13 +54,14 @@ function FinanceGraph() {
             formattedMonth.charAt(0).toUpperCase() + formattedMonth.slice(1),
           monthNumber: monthNumber,
           receitas: 0,
-          despesas: 0,
+          lucroLiquido: 0,
         };
       }
-      dataMap[monthNumber].despesas += item.valor || 0;
+      // Calcula o lucro líquido
+      dataMap[monthNumber].lucroLiquido =
+        (dataMap[monthNumber].receitas || 0) - (item.valor || 0);
     });
 
-    // Converte o mapa de dados em um array para o gráfico e ordena pelos números dos meses
     const processedData = Object.values(dataMap).sort(
       (a, b) => a.monthNumber - b.monthNumber
     );
@@ -87,8 +83,8 @@ function FinanceGraph() {
     {
       type: "line",
       xKey: "month",
-      yKey: "despesas",
-      yName: "Despesas",
+      yKey: "lucroLiquido",
+      yName: "Lucro Líquido",
       strokeWidth: 2.5,
       marker: {
         enabled: true,
@@ -118,7 +114,6 @@ function FinanceGraph() {
         position: "left",
         label: {
           formatter: (params) => {
-            // Formata os valores com separador de milhar e pontos decimais
             return params.value.toLocaleString("pt-BR", {
               minimumFractionDigits: 0,
               maximumFractionDigits: 2,

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { createRoot } from "react-dom/client";
 import { AgCharts } from "ag-charts-react";
 
-function SaidaPlano() {
+function SaidaPlano({ selectedDocumentType, selectedMonth, selectedBank }) {
   const [chartData, setChartData] = useState([]);
 
   // Função para buscar dados da API de despesas
@@ -16,12 +15,23 @@ function SaidaPlano() {
     }
   }
 
-  // Processa os dados para agrupar valores por plano de conta
+  // Processa os dados para agrupar valores por plano de conta e aplicar filtros
   function processChartData(despesaData) {
     const groupedData = {};
 
+    // Aplica filtros
+    const filteredData = despesaData.filter((item) => {
+      const itemDate = new Date(item.data);
+      const itemMonth = itemDate.getMonth();
+      return (
+        (!selectedDocumentType || item.documento === selectedDocumentType) &&
+        (!selectedMonth || itemMonth === selectedMonth) &&
+        (!selectedBank || item.tipo_banco === selectedBank)
+      );
+    });
+
     // Agrupa os valores por plano_conta
-    despesaData.forEach((item) => {
+    filteredData.forEach((item) => {
       const plano = item.plano_conta;
       if (!groupedData[plano]) {
         groupedData[plano] = 0;
@@ -52,7 +62,7 @@ function SaidaPlano() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [selectedDocumentType, selectedMonth, selectedBank]);
 
   // Opções do gráfico com tooltip formatado
   const options = {
@@ -90,8 +100,5 @@ function SaidaPlano() {
   // Renderizando o gráfico
   return <AgCharts options={options} />;
 }
-
-const root = createRoot(document.getElementById("root"));
-root.render(<SaidaPlano />);
 
 export default SaidaPlano;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import "./ContasPag.css";
+import "./ContasRec.css";
 
 const style = {
   position: "absolute",
@@ -17,36 +17,24 @@ const style = {
   borderRadius: 2.5,
 };
 
-export default function AlterarDespesaModal() {
-  const [open, setOpen] = useState(false); // Controla o estado do modal
+export default function AlterarReceitaModal() {
+  const [open, setOpen] = useState(false); // Controle do modal
   const [formData, setFormData] = useState({
-    idDespesa: "",
+    idReceita: "",
     banco: "",
     dataEmissao: "",
     planoConta: "",
     tipoDocumento: "",
-    fornecedor: "",
+    cliente: "",
     valor: "",
     descricao: "",
   });
 
-  const handleCancel = () => {
-    setFormData({
-      idDespesa: "",
-      banco: "",
-      dataEmissao: "",
-      planoConta: "",
-      tipoDocumento: "",
-      fornecedor: "",
-      valor: "",
-      descricao: "",
-    });
-  };
-
+  // Abre e fecha o modal
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  // Atualiza os campos do formulário ao alterar os valores
+  // Atualiza os valores do formulário ao digitar
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -57,19 +45,19 @@ export default function AlterarDespesaModal() {
     if (e.key === "Enter") {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/despesa/${formData.idDespesa}`
+          `http://localhost:5000/api/receita/${formData.idReceita}`
         );
         if (!response.ok) {
-          throw new Error("Despesa não encontrada.");
+          throw new Error("Receita não encontrada.");
         }
         const data = await response.json();
         setFormData({
-          idDespesa: data.id_despesa,
+          idReceita: data.id_receita,
           banco: data.tipo_banco,
           dataEmissao: data.data,
-          planoConta: data.plano_conta,
+          planoConta: data.plano_conta_receita,
           tipoDocumento: data.documento,
-          fornecedor: data.fornecedor,
+          cliente: data.cliente,
           valor: data.valor,
           descricao: data.descricao,
         });
@@ -79,39 +67,61 @@ export default function AlterarDespesaModal() {
     }
   };
 
-  // Função para alterar a despesa
+  // Envia as alterações para o servidor
   const handleUpdate = async () => {
+    if (!formData.idReceita) {
+      alert("Por favor, insira o ID da receita.");
+      return;
+    }
+
     try {
-      const response = await fetch("http://localhost:5000/api/despesa", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `http://localhost:5000/api/receita/${formData.idReceita}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         window.location.reload();
         handleClose();
       } else {
         const errorText = await response.text();
-        alert(`Erro ao alterar a despesa: ${errorText}`);
+        alert(`Erro ao alterar a receita: ${errorText}`);
       }
     } catch (error) {
-      alert(`Erro ao alterar a despesa: ${error.message}`);
+      console.error("Erro ao alterar a receita:", error);
+      alert("Erro ao alterar a receita.");
     }
+  };
+
+  const handleCancel = () => {
+    setFormData({
+      idReceita: "",
+      banco: "",
+      dataEmissao: "",
+      planoConta: "",
+      tipoDocumento: "",
+      cliente: "",
+      valor: "",
+      descricao: "",
+    });
   };
 
   return (
     <div>
-      <div className="AltPag">
+      <div className="AltRec">
         <button
           type="button"
-          className="btnAltPag"
-          id="btnAltPag"
+          className="btnAltRec"
+          id="btnAltRec"
           onClick={handleOpen}
         >
-          <strong>Alterar Despesa</strong>
+          <strong>Alterar Receita</strong>
         </button>
       </div>
       <Modal
@@ -127,15 +137,15 @@ export default function AlterarDespesaModal() {
             component="h2"
             sx={{ ml: 25 }}
           >
-            Alterar Despesa
+            Alterar Receita
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <div className="modalIdDesp">
-              <div className="label">ID Despesa</div>
+            <div className="modalIdRec">
+              <div className="label">ID Receita</div>
               <input
                 type="text"
-                name="idDespesa"
-                value={formData.idDespesa}
+                name="idReceita"
+                value={formData.idReceita}
                 onChange={handleChange}
                 onKeyDown={handleSearch}
                 className="input-text"
@@ -153,7 +163,7 @@ export default function AlterarDespesaModal() {
                 required
               />
             </div>
-            <div className="modalDataEmissao">
+            <div className="modalDataEmissaO">
               <div className="label">Data Emissão</div>
               <input
                 type="date"
@@ -164,38 +174,35 @@ export default function AlterarDespesaModal() {
                 required
               />
             </div>
-            <div className="modalPlancontapag">
+            <div className="modalPlanoConta">
               <div className="label">Plano de Conta</div>
               <select
                 name="planoConta"
                 value={formData.planoConta}
                 onChange={handleChange}
                 className="input-text"
-                id="modalPlancontapag-dropbox"
+                id="modalPlanContaRec-dropbox"
               >
-                <option value="Despesas com Ocupação">
-                  Despesas com Ocupação
+                <option value="">Selecione</option>
+                <option value="Receita com Produtos">
+                  Receita com Produtos
                 </option>
-                <option value="Despesas com Serviços">
-                  Despesas com Serviços
+                <option value="Receita com Serviços">
+                  Receita com Serviços
                 </option>
-                <option value="Despesas com Pessoal">
-                  Despesas com Pessoal
-                </option>
-                <option value="Outras Despesas">Outras Despesas</option>
-                <option value="Impostos">Impostos</option>
-                <option value="Custos Variáveis">Custos Variáveis</option>
+                <option value="Outras Receitas">Outras Receitas</option>
               </select>
             </div>
-            <div className="modalTipodocpag">
+            <div className="modalTipoDocRec">
               <div className="label">Tipo de Documento</div>
               <select
                 name="tipoDocumento"
                 value={formData.tipoDocumento}
                 onChange={handleChange}
                 className="input-text"
-                id="modalTipodocpag-dropbox"
+                id="modalTipoDocRec-dropbox"
               >
+                <option value="">Selecione</option>
                 <option value="Pix">Pix</option>
                 <option value="Crédito">Crédito</option>
                 <option value="Débito">Débito</option>
@@ -204,18 +211,18 @@ export default function AlterarDespesaModal() {
                 <option value="Fatura">Fatura</option>
               </select>
             </div>
-            <div className="modalFornpag">
-              <div className="label">Fornecedor</div>
+            <div className="modalCliente">
+              <div className="label">Cliente</div>
               <input
                 type="text"
-                name="fornecedor"
-                value={formData.fornecedor}
+                name="cliente"
+                value={formData.cliente}
                 onChange={handleChange}
                 className="input-text"
                 required
               />
             </div>
-            <div className="modalValor">
+            <div className="modalValoR">
               <div className="label">Valor (R$)</div>
               <input
                 type="number"
@@ -226,7 +233,7 @@ export default function AlterarDespesaModal() {
                 required
               />
             </div>
-            <div className="modalDesc">
+            <div className="modalDescricao">
               <div className="label">Descrição</div>
               <input
                 type="text"
@@ -234,21 +241,20 @@ export default function AlterarDespesaModal() {
                 value={formData.descricao}
                 onChange={handleChange}
                 className="input-text"
-                required
               />
             </div>
           </Typography>
-          <button onClick={handleClose} className="FecharModalPag">
+          <button onClick={handleClose} className="FecharModalRec">
             X
           </button>
-          <button onClick={handleUpdate} className="AlterarDadosPag">
-            Alterar Despesa
+          <button onClick={handleUpdate} className="AlterarDadosRec">
+            Alterar Receita
           </button>
           <button
             onClick={() => {
               handleCancel();
             }}
-            className="CancelarDadosPag"
+            className="CancelarDadosRec"
           >
             Cancelar Alteração
           </button>

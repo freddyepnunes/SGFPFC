@@ -1,14 +1,68 @@
-//Página Contas a Receber que demonstra os valores que estão em abertos para a entrada na conta do usuário.
-import React from "react"; //Importe do pacote "react" com o nome de React
+import React, { useState } from "react"; //Importe do pacote "react" com o nome de React
 import "./ContasRec.css"; //Importe do arquivo ContasRec.css para a formatação visual do arquivo ContasRec.jsx
 import "../SGF/SGF.css"; //Importe do visual SGF.css da pasta SGF
 import UMCLogo from "../Imagens/UMC.png"; //Importe de uma imagem com o nome de UMCLogo
 import { Link } from "react-router-dom";
 import ContasRecGrid from "./ContasRecGrid.jsx";
-import AlterarDespesaModal from "../ContasPag/ModalAltContasPag.jsx"; // Ajuste o caminho conforme a localização do componente
+import AlterarReceitaModal from "./ModalAltContasRec.jsx"; // Ajuste o caminho conforme a localização do componente
 import DeletarReceitaModal from "./ModalDelContasRec.jsx";
 
 const ContasRec = () => {
+  // Estado para armazenar os valores do formulário
+  const [formData, setFormData] = useState({
+    banco: "",
+    dataEmissao: "",
+    planoConta: "",
+    tipoDocumento: "",
+    cliente: "",
+    valor: "",
+    descricao: "",
+  });
+
+  // Atualiza os valores do estado ao digitar nas caixas de texto
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Função para enviar os dados ao servidor
+  const handleSubmit = async () => {
+    const id_usuario = localStorage.getItem("id_usuario"); // Recupere o id_usuario do localStorage
+
+    if (!id_usuario) {
+      alert("Usuário não identificado. Faça login novamente.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/api/receita", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...formData, id_usuario }), // Inclua o id_usuario no corpo da requisição
+      });
+
+      if (response.ok) {
+        window.location.reload();
+        setFormData({
+          banco: "",
+          dataEmissao: "",
+          planoConta: "",
+          tipoDocumento: "",
+          cliente: "",
+          valor: "",
+          descricao: "",
+        }); // Limpa o formulário
+      } else {
+        const errorText = await response.text();
+        alert(`Erro ao cadastrar a receita: ${errorText}`);
+      }
+    } catch (error) {
+      alert(`Erro ao cadastrar a receita: ${error.message}`);
+    }
+  };
+
   return (
     //Função de return para retornar os componentes visuais e funcionais do nosso código
     <div>
@@ -48,81 +102,109 @@ const ContasRec = () => {
       <div className="ContasReceber">Contas a Receber</div>
       <div className="LinhaCabConRec"></div>
       <div className="diretorioRec">
-        <div className="diretorioItemRec">
-          <a href="C:/Users/lenovo/Documents/SGF - VS Code/SGF.html">Home</a>
-        </div>
+        <div className="diretorioItemRec">Home</div>
         <div className="diretorioItemRec">/</div>
         <div className="diretorioItemRec">
-          <a href="C:/Users/lenovo/Documents/SGF - VS Code/ContasRec.html">
-            <strong>Contas a Receber</strong>
-          </a>
+          <strong>Contas a Receber</strong>
         </div>
       </div>
       <div className="CadastroContaS">
         <div className="bancO">
           <div className="label">Banco</div>
-          <div>
-            <input type="text" className="input-text" required />
-          </div>
+          <input
+            type="text"
+            name="banco"
+            value={formData.banco}
+            onChange={handleChange}
+            className="input-text"
+            required
+          />
         </div>
         <div className="DataEmissaO">
           <div className="label">Data Emissão</div>
-          <div>
-            <input type="text" className="input-text" required />
-          </div>
+          <input
+            type="date"
+            name="dataEmissao"
+            value={formData.dataEmissao}
+            onChange={handleChange}
+            className="input-text"
+            required
+          />
         </div>
-
         <div className="plancontarec">
           <div className="label">Plano de Conta</div>
-          <div className="input-text status">
-            <select name="Status" id="plancontarec-dropbox">
-              <option value="recprod">Receita com Proddutos</option>
-              <option value="recserv">Receita com Serviços</option>
-              <option value="outras">Outras Receitas</option>
-            </select>
-          </div>
+          <select
+            name="planoConta"
+            value={formData.planoConta}
+            onChange={handleChange}
+            className="input-text"
+            id="plancontapag-dropbox"
+          >
+            <option value="">Selecione</option>
+            <option value="Receita com Produtos">Receita com Produtos</option>
+            <option value="Receita com Serviços">Receita com Serviços</option>
+            <option value="Outras Receitas">Outras Receitas</option>
+          </select>
         </div>
-
         <div className="tipodocrec">
           <div className="label">Tipo de Documento</div>
-          <div className="input-text status">
-            <select name="plancontapag" id="tipodocrec-dropbox">
-              <option value="pix">Pix</option>
-              <option value="cred">Crédito</option>
-              <option value="deb">Débito </option>
-              <option value="nf">NF</option>
-              <option value="transf">Transferência</option>
-              <option value="fat">Fatura</option>
-            </select>
-          </div>
+          <select
+            name="tipoDocumento"
+            value={formData.tipoDocumento}
+            onChange={handleChange}
+            className="input-text"
+            id="tipodocpag-dropbox"
+          >
+            <option value="">Selecione</option>
+            <option value="Pix">Pix</option>
+            <option value="Crédito">Crédito</option>
+            <option value="Débito">Débito</option>
+            <option value="NF">NF</option>
+            <option value="Transferência">Transferência</option>
+            <option value="Fatura">Fatura</option>
+          </select>
         </div>
-
         <div className="clienterec">
           <div className="label">Cliente</div>
-          <input type="text" className="input-text" required />
+          <input
+            type="text"
+            name="cliente"
+            value={formData.cliente}
+            onChange={handleChange}
+            className="input-text"
+            required
+          />
         </div>
         <div className="valoR">
           <div className="label">Valor (R$)</div>
-          <div>
-            <input type="text" className="input-text" />
-          </div>
+          <input
+            type="number"
+            name="valor"
+            value={formData.valor}
+            onChange={handleChange}
+            className="input-text"
+            required
+          />
         </div>
-
         <div className="descrec">
           <div className="label">Descrição</div>
-          <div>
-            <input type="text" className="input-text" />
-          </div>
+          <input
+            type="text"
+            name="descricao"
+            value={formData.descricao}
+            onChange={handleChange}
+            className="input-text"
+            required
+          />
         </div>
         <div className="BcadRec">
-          <button type="button" className="btncadRec" id="btncadRec">
-            <strong>Cadastrar</strong>
+          <button type="button" className="btncadRec" onClick={handleSubmit}>
+            <strong>Cadastrar Receita</strong>
           </button>
         </div>
-        <AlterarDespesaModal />
+        <AlterarReceitaModal />
         <DeletarReceitaModal />
       </div>
-
       <div className="QuadroContaS">
         <ContasRecGrid />
       </div>

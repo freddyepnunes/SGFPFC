@@ -30,10 +30,6 @@ export default function DeletarReceitaModal() {
       return;
     }
 
-    console.log(
-      `Enviando DELETE para http://localhost:5000/api/receita/${receitaId}`
-    );
-
     try {
       const response = await fetch(
         `http://localhost:5000/api/receita/${receitaId}`,

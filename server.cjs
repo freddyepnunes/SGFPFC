@@ -232,6 +232,200 @@ app.post("/api/despesa", (req, res) => {
   );
 });
 
+app.post("/api/receita", (req, res) => {
+  const {
+    dataEmissao,
+    valor,
+    tipoDocumento,
+    planoConta,
+    descricao,
+    cliente,
+    banco,
+    id_usuario, // Adicione o ID do usuário logado
+  } = req.body;
+
+  // Validação para verificar se todos os campos necessários foram preenchidos
+  if (
+    !dataEmissao ||
+    !valor ||
+    !tipoDocumento ||
+    !planoConta ||
+    !descricao ||
+    !cliente ||
+    !banco ||
+    !id_usuario
+  ) {
+    return res.status(400).send("Todos os campos são obrigatórios.");
+  }
+
+  const db = connectDB(); // Conecta ao banco de dados SQLite
+
+  const insertQuery = `
+    INSERT INTO receita (data, valor, documento, plano_conta_receita, descricao, cliente, tipo_banco, User_idUser)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  db.run(
+    insertQuery,
+    [
+      dataEmissao,
+      valor,
+      tipoDocumento,
+      planoConta,
+      descricao,
+      cliente,
+      banco,
+      id_usuario, // Inclua o ID do usuário
+    ],
+    function (err) {
+      if (err) {
+        res.status(500).send("Erro ao cadastrar a receita: " + err.message);
+      } else {
+        res.status(201).send("Receita cadastrada com sucesso!");
+      }
+      db.close(); // Fecha a conexão após a execução
+    }
+  );
+});
+
+app.get("/api/despesa/:id", (req, res) => {
+  const { id } = req.params;
+  const db = connectDB();
+
+  const query = `SELECT * FROM despesa WHERE id_despesa = ?`;
+
+  db.get(query, [id], (err, row) => {
+    if (err) {
+      res.status(500).send("Erro ao buscar a despesa: " + err.message);
+    } else if (!row) {
+      res.status(404).send("Despesa não encontrada.");
+    } else {
+      res.json(row);
+    }
+    db.close();
+  });
+});
+
+app.put("/api/despesa", (req, res) => {
+  const {
+    idDespesa,
+    banco,
+    dataEmissao,
+    planoConta,
+    tipoDocumento,
+    fornecedor,
+    valor,
+    descricao,
+  } = req.body;
+
+  const db = connectDB();
+
+  const query = `
+    UPDATE despesa
+    SET tipo_banco = ?, data = ?, plano_conta = ?, documento = ?, fornecedor = ?, valor = ?, descricao = ?
+    WHERE id_despesa = ?
+  `;
+
+  db.run(
+    query,
+    [
+      banco,
+      dataEmissao,
+      planoConta,
+      tipoDocumento,
+      fornecedor,
+      valor,
+      descricao,
+      idDespesa,
+    ],
+    function (err) {
+      if (err) {
+        res.status(500).send("Erro ao atualizar a despesa: " + err.message);
+      } else {
+        res.status(200).send("Despesa atualizada com sucesso!");
+      }
+      db.close();
+    }
+  );
+});
+
+// Rota para buscar uma receita pelo ID
+app.get("/api/receita/:id", (req, res) => {
+  const { id } = req.params; // Extrai o ID dos parâmetros da URL
+
+  const db = connectDB(); // Conecta ao banco de dados SQLite
+  const query = "SELECT * FROM receita WHERE id_receita = ?";
+
+  db.get(query, [id], (err, row) => {
+    if (err) {
+      res.status(500).send("Erro ao buscar a receita: " + err.message);
+    } else if (!row) {
+      res.status(404).send("Receita não encontrada.");
+    } else {
+      res.json(row); // Retorna os dados da receita
+    }
+    db.close(); // Fecha a conexão após a consulta
+  });
+});
+
+// Rota para atualizar uma receita pelo ID
+app.put("/api/receita/:id", (req, res) => {
+  const { id } = req.params; // Extrai o ID dos parâmetros da URL
+  const {
+    dataEmissao,
+    valor,
+    tipoDocumento,
+    planoConta,
+    descricao,
+    cliente,
+    banco,
+  } = req.body; // Extrai os dados do corpo da requisição
+
+  // Validação para verificar se todos os campos necessários foram preenchidos
+  if (
+    !dataEmissao ||
+    !valor ||
+    !tipoDocumento ||
+    !planoConta ||
+    !descricao ||
+    !cliente ||
+    !banco
+  ) {
+    return res.status(400).send("Todos os campos são obrigatórios.");
+  }
+
+  const db = connectDB(); // Conecta ao banco de dados SQLite
+  const updateQuery = `
+    UPDATE receita
+    SET data = ?, valor = ?, documento = ?, plano_conta_receita = ?, descricao = ?, cliente = ?, tipo_banco = ?
+    WHERE id_receita = ?
+  `;
+
+  db.run(
+    updateQuery,
+    [
+      dataEmissao,
+      valor,
+      tipoDocumento,
+      planoConta,
+      descricao,
+      cliente,
+      banco,
+      id,
+    ],
+    function (err) {
+      if (err) {
+        res.status(500).send("Erro ao atualizar a receita: " + err.message);
+      } else if (this.changes === 0) {
+        res.status(404).send("Receita não encontrada.");
+      } else {
+        res.status(200).send("Receita atualizada com sucesso!");
+      }
+      db.close(); // Fecha a conexão após a execução
+    }
+  );
+});
+
 // Inicializa o servidor e escuta na porta definida
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`); // Mensagem indicando que o servidor está ativo

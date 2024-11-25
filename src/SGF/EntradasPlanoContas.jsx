@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { createRoot } from "react-dom/client";
 import { AgCharts } from "ag-charts-react";
 
-function EntradaPlano() {
+function EntradaPlano({ selectedDocumentType, selectedMonth, selectedBank }) {
   const [chartData, setChartData] = useState([]);
 
   // Função para buscar dados da API de receita
@@ -16,12 +15,23 @@ function EntradaPlano() {
     }
   }
 
-  // Função para processar os dados de receita
+  // Função para processar os dados de receita e aplicar filtros
   function processChartData(receitaData) {
     const groupedData = {};
 
-    // Agrupa os valores por plano_conta
-    receitaData.forEach((item) => {
+    // Aplica filtros
+    const filteredData = receitaData.filter((item) => {
+      const itemDate = new Date(item.data);
+      const itemMonth = itemDate.getMonth();
+      return (
+        (!selectedDocumentType || item.documento === selectedDocumentType) &&
+        (!selectedMonth || itemMonth === selectedMonth) &&
+        (!selectedBank || item.tipo_banco === selectedBank)
+      );
+    });
+
+    // Agrupa os valores por plano_conta_receita
+    filteredData.forEach((item) => {
       const plano = item.plano_conta_receita;
       if (!groupedData[plano]) {
         groupedData[plano] = 0;
@@ -52,7 +62,7 @@ function EntradaPlano() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [selectedDocumentType, selectedMonth, selectedBank]);
 
   // Opções do gráfico com tooltip formatado
   const options = {
@@ -83,8 +93,5 @@ function EntradaPlano() {
   // Renderizando o gráfico
   return <AgCharts options={options} />;
 }
-
-const root = createRoot(document.getElementById("root"));
-root.render(<EntradaPlano />);
 
 export default EntradaPlano;

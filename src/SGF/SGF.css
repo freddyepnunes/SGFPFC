@@ -320,16 +320,7 @@ body {
   font-size: 18px;
   font-family: "Montserrat", sans-serif;
   margin-top: 20px;
-  margin-left: 35px;
-  position: absolute;
-}
-
-.datatxt {
-  color: rgb(0, 0, 0);
-  font-size: 18px;
-  font-family: "Montserrat", sans-serif;
-  margin-top: 20px;
-  margin-left: 33rem;
+  margin-left: 25rem;
   position: absolute;
 }
 
@@ -338,30 +329,8 @@ body {
   font-size: 18px;
   font-family: "Montserrat", sans-serif;
   margin-top: 20px;
-  margin-left: 64.5rem;
+  margin-left: 60rem;
   position: absolute;
-}
-
-.btnBuscar {
-  border: none;
-  background-color: #188063;
-  color: white;
-  border-radius: 4px;
-  font-size: 13px;
-  height: 2rem;
-  width: 6rem;
-  font-family: "Montserrat", sans-serif;
-  margin-left: 92rem;
-  margin-top: 45px;
-  position: absolute;
-}
-.btnBuscar:hover {
-  background-color: #188063;
-}
-
-.btnBuscar:active {
-  background-color: white;
-  color: #188063;
 }
 
 .dropbtn {
@@ -376,7 +345,7 @@ body {
 .dropdown {
   position: absolute;
   display: inline-block;
-  margin-left: 2rem;
+  margin-left: 25rem;
   width: 18rem;
   height: 30px;
   margin-top: 3rem;
@@ -428,65 +397,10 @@ body {
   cursor: pointer;
 }
 
-.dropdown2 {
-  position: absolute;
-  display: inline-block;
-  margin-left: 33rem;
-  width: 18rem;
-  height: 30px;
-  margin-top: 3rem;
-  font-size: 18px;
-  border: none;
-  border-radius: 5px;
-  font-family: "Montserrat", sans-serif;
-}
-
-.dropdown2-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border: none;
-}
-
-.dropdown2-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  border: none;
-}
-
-.dropdown2-content a:hover {
-  background-color: #f1f1f1;
-  border: none;
-}
-
-.dropdown2:hover .dropdown2-content {
-  display: block;
-  border: none;
-}
-
-.dropdown2:hover .dropbtn {
-  background-color: #3e8e41;
-  border: none;
-}
-
-.dropbtn {
-  background-color: #4caf50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
 .dropdown3 {
   position: absolute;
   display: inline-block;
-  margin-left: 64.5rem;
+  margin-left: 60rem;
   width: 18rem;
   height: 30px;
   margin-top: 3rem;
@@ -1062,15 +976,6 @@ body {
     font-family: "Montserrat", sans-serif;
     margin-top: 20px;
     margin-left: 35px;
-    position: absolute;
-  }
-
-  .datatxt {
-    color: rgb(0, 0, 0);
-    font-size: 18px;
-    font-family: "Montserrat", sans-serif;
-    margin-top: 20px;
-    margin-left: 23.5rem;
     position: absolute;
   }
 

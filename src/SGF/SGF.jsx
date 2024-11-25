@@ -6,12 +6,16 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import FinanceGraph from "./FluxoCaixa";
 import SaidaPlano from "./SaidasPlanoContas";
 import EntradaPlano from "./EntradasPlanoContas";
-import LucroLiqGraph from "./LucroLiquido";
+import LucroLiquido from "./LucroLiquido";
 
 function SGF() {
-  // Estado para armazenar os valores de contas a receber
-  const [contasReceber, setContasReceber] = useState([]); // Inicializa a lista de contas a receber como um array vazio
-  const [contasPagar, setContasPagar] = useState([]); // Inicializa a lista de contas a pagar como um array vazio
+  // Estados para armazenar os valores dos selects
+  const [tipoDocumento, setTipoDocumento] = useState("");
+  const [mes, setMes] = useState("");
+  const [banco, setBanco] = useState("");
+  const [contasReceber, setContasReceber] = useState([]); // Inicializa a lista de contas a receber
+  const [contasPagar, setContasPagar] = useState([]); // Inicializa a lista de contas a pagar
+  const [bancos, setBancos] = useState([]); // Estado para armazenar os bancos únicos
 
   // Função para buscar dados de uma API
   const fetchData = async (url, setData) => {
@@ -38,15 +42,34 @@ function SGF() {
     fetchData("/api/dados/despesa", setContasPagar);
   }, []);
 
+  // useEffect para buscar os valores de contas e bancos
+  useEffect(() => {
+    fetchData("/api/dados/receita", setContasReceber);
+    fetchData("/api/dados/despesa", setContasPagar);
+  }, []);
+
+  useEffect(() => {
+    // Combinar os bancos de receita e despesa
+    const bancosReceita = contasReceber.map((conta) => conta.tipo_banco);
+    const bancosDespesa = contasPagar.map((conta) => conta.tipo_banco);
+
+    // Criar um array único de bancos
+    const bancosUnicos = Array.from(
+      new Set([...bancosReceita, ...bancosDespesa])
+    );
+
+    setBancos(bancosUnicos);
+  }, [contasReceber, contasPagar]);
+
   // Calcula a soma total das contas a receber
   const somaTotalRec = contasReceber.reduce(
-    (acc, conta) => acc + (conta.valor || 0), // Soma os valores de cada conta, tratando undefined ou null
-    0 // Inicializa o acumulador em 0
+    (acc, conta) => acc + (conta.valor || 0), // Soma os valores de cada conta
+    0
   );
 
   // Calcula a soma total das contas a pagar
   const somaTotalPag = contasPagar.reduce(
-    (acc, conta) => acc + (conta.valor || 0), // Soma os valores de cada conta, tratando undefined ou null
+    (acc, conta) => acc + (conta.valor || 0), // Soma os valores de cada conta
     0
   );
 
@@ -155,35 +178,31 @@ function SGF() {
         <div className="tipodocumentotxt">
           <strong>Tipo de Documento</strong>
         </div>
-        <div className="datatxt">
-          <strong>Data</strong>
-        </div>
         <div className="banctxt">
           <strong>Banco</strong>
         </div>
-        <button className="btnBuscar">
-          <strong>Buscar</strong>
-        </button>
-        <select className="dropdown">
-          <option value="pix">Pix</option>
-          <option value="cred">Crédito</option>
-          <option value="deb">Débito </option>
-          <option value="nf">NF</option>
-          <option value="transf">Transferência</option>
-          <option value="fat">Fatura</option>
+        <select
+          className="dropdown"
+          onChange={(e) => setTipoDocumento(e.target.value)}
+        >
+          <option value="">Selecione</option>
+          <option value="Pix">Pix</option>
+          <option value="Crédito">Crédito</option>
+          <option value="Débito">Débito</option>
+          <option value="NF">NF</option>
+          <option value="Transferência">Transferência</option>
+          <option value="Fatura">Fatura</option>
         </select>
-        <select className="dropdown2">
-          <option value="2023">2023</option>
-          <option value="2024">2024</option>
-          <option value="2025">2025</option>
-          <option value="2026">2026</option>
-        </select>
-        <select className="dropdown3">
-          <option value="banc 1">Banco 1</option>
-          <option value="banc 2">Banco 2</option>
-          <option value="banc 3">Banco 3</option>
-          <option value="banc 4">Banco 4</option>
-          <option value="banc 5">Banco 5</option>
+        <select
+          className="dropdown3"
+          onChange={(e) => setBanco(e.target.value)}
+        >
+          <option value="">Selecione</option>
+          {bancos.map((banco, index) => (
+            <option key={index} value={banco}>
+              {banco}
+            </option>
+          ))}
         </select>
       </div>
 
@@ -193,19 +212,31 @@ function SGF() {
         <div className="gf1">
           <div className="FluxodeCaixatxt">
             <strong>Fluxo de Caixa</strong>
-            <FinanceGraph />
+            <FinanceGraph
+              selectedDocumentType={tipoDocumento}
+              selectedMonth={mes}
+              selectedBank={banco}
+            />
           </div>
         </div>
         <div className="gf2">
           <div className="saidaplanocontatxt">
             <strong>Saídas por Plano de Contas</strong>
-            <SaidaPlano />
+            <SaidaPlano
+              selectedDocumentType={tipoDocumento}
+              selectedMonth={mes}
+              selectedBank={banco}
+            />
           </div>
         </div>
         <div className="gf3">
           <div className="entradaplanocontatxt">
             <strong>Entradas por Plano de Contas</strong>
-            <EntradaPlano />
+            <EntradaPlano
+              selectedDocumentType={tipoDocumento}
+              selectedMonth={mes}
+              selectedBank={banco}
+            />
           </div>
         </div>
       </div>
@@ -266,7 +297,11 @@ function SGF() {
         <div className="gf13">
           <div className="lucroregimecomptxt">
             Lucro Líquido (Regime de Competência)
-            <LucroLiqGraph />
+            <LucroLiquido
+              selectedDocumentType={tipoDocumento}
+              selectedMonth={mes}
+              selectedBank={banco}
+            />
           </div>
         </div>
       </div>
@@ -274,4 +309,4 @@ function SGF() {
   );
 }
 
-export default SGF; // Faz o exporte padrão dos componentes do SGF, para que se possa ser usado em outro elemento de outro arquivo
+export default SGF;

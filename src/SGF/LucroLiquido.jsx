@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { createRoot } from "react-dom/client";
 import { AgCharts } from "ag-charts-react";
 
-function FinanceGraph() {
+function LucroLiquido({ selectedDocumentType, selectedMonth, selectedBank }) {
   const [chartData, setChartData] = useState([]);
 
   async function fetchData() {
@@ -32,34 +31,58 @@ function FinanceGraph() {
       return { formattedMonth, monthNumber };
     }
 
-    receitaData.forEach((item) => {
-      const { formattedMonth, monthNumber } = extractMonthYear(item.data);
-      if (!dataMap[monthNumber]) {
-        dataMap[monthNumber] = {
-          month:
-            formattedMonth.charAt(0).toUpperCase() + formattedMonth.slice(1),
-          monthNumber: monthNumber,
-          receitas: 0,
-          lucroLiquido: 0,
-        };
-      }
-      dataMap[monthNumber].receitas += item.valor || 0;
-    });
+    // Aplica filtros e agrupa receitas
+    receitaData
+      .filter((item) => {
+        const itemDate = new Date(item.data);
+        const itemMonth = itemDate.getMonth();
+        return (
+          (!selectedDocumentType || item.documento === selectedDocumentType) &&
+          (!selectedMonth || itemMonth === selectedMonth) &&
+          (!selectedBank || item.tipo_banco === selectedBank)
+        );
+      })
+      .forEach((item) => {
+        const { formattedMonth, monthNumber } = extractMonthYear(item.data);
+        if (!dataMap[monthNumber]) {
+          dataMap[monthNumber] = {
+            month:
+              formattedMonth.charAt(0).toUpperCase() + formattedMonth.slice(1),
+            monthNumber: monthNumber,
+            receitas: 0,
+            lucroLiquido: 0,
+          };
+        }
+        dataMap[monthNumber].receitas += item.valor || 0;
+      });
 
-    despesaData.forEach((item) => {
-      const { formattedMonth, monthNumber } = extractMonthYear(item.data);
-      if (!dataMap[monthNumber]) {
-        dataMap[monthNumber] = {
-          month:
-            formattedMonth.charAt(0).toUpperCase() + formattedMonth.slice(1),
-          monthNumber: monthNumber,
-          receitas: 0,
-          lucroLiquido: 0,
-        };
-      }
-      // Calcula o lucro líquido
-      dataMap[monthNumber].lucroLiquido =
-        (dataMap[monthNumber].receitas || 0) - (item.valor || 0);
+    // Aplica filtros e agrupa despesas
+    despesaData
+      .filter((item) => {
+        const itemDate = new Date(item.data);
+        const itemMonth = itemDate.getMonth();
+        return (
+          (!selectedDocumentType || item.documento === selectedDocumentType) &&
+          (!selectedMonth || itemMonth === selectedMonth) &&
+          (!selectedBank || item.tipo_banco === selectedBank)
+        );
+      })
+      .forEach((item) => {
+        const { monthNumber } = extractMonthYear(item.data);
+        if (!dataMap[monthNumber]) {
+          dataMap[monthNumber] = {
+            month: "",
+            monthNumber: monthNumber,
+            receitas: 0,
+            lucroLiquido: 0,
+          };
+        }
+        dataMap[monthNumber].lucroLiquido -= item.valor || 0;
+      });
+
+    // Calcula o lucro líquido final
+    Object.keys(dataMap).forEach((monthNumber) => {
+      dataMap[monthNumber].lucroLiquido += dataMap[monthNumber].receitas;
     });
 
     const processedData = Object.values(dataMap).sort(
@@ -70,7 +93,7 @@ function FinanceGraph() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [selectedDocumentType, selectedMonth, selectedBank]);
 
   const series = [
     {
@@ -85,6 +108,7 @@ function FinanceGraph() {
       xKey: "month",
       yKey: "lucroLiquido",
       yName: "Lucro Líquido",
+      stroke: "#2980b9",
       strokeWidth: 2.5,
       marker: {
         enabled: true,
@@ -127,7 +151,4 @@ function FinanceGraph() {
   return <AgCharts options={options} />;
 }
 
-const root = createRoot(document.getElementById("root"));
-root.render(<FinanceGraph />);
-
-export default FinanceGraph;
+export default LucroLiquido;

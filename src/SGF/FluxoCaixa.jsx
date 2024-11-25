@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { AgCharts } from "ag-charts-react";
 
-function FinanceGraph() {
+function FinanceGraph({ selectedDocumentType, selectedMonth, selectedBank }) {
   const [chartData, setChartData] = useState([]);
 
   // Função para buscar dados das APIs de receita e despesa
@@ -23,7 +23,6 @@ function FinanceGraph() {
   function processChartData(receitaData, despesaData) {
     const dataMap = {};
 
-    // Função auxiliar para extrair o mês de uma data no formato "YYYY-MM-DD" e formatar como "Jan", "Fev", etc.
     function extractMonthYear(dateString) {
       if (!dateString) return "";
       const date = new Date(dateString);
@@ -35,35 +34,48 @@ function FinanceGraph() {
       return { formattedMonth, monthNumber };
     }
 
-    // Processa os dados de receita
-    receitaData.forEach((item) => {
-      const { formattedMonth, monthNumber } = extractMonthYear(item.data);
-      if (!dataMap[monthNumber]) {
-        dataMap[monthNumber] = {
-          month:
-            formattedMonth.charAt(0).toUpperCase() + formattedMonth.slice(1),
-          receitas: 0,
-          despesas: 0,
-        };
-      }
-      dataMap[monthNumber].receitas += item.valor || 0;
-    });
+    receitaData
+      .filter(
+        (item) =>
+          (!selectedDocumentType || item.documento === selectedDocumentType) &&
+          (!selectedMonth ||
+            new Date(item.data).getMonth() === selectedMonth) &&
+          (!selectedBank || item.tipo_banco === selectedBank)
+      )
+      .forEach((item) => {
+        const { formattedMonth, monthNumber } = extractMonthYear(item.data);
+        if (!dataMap[monthNumber]) {
+          dataMap[monthNumber] = {
+            month:
+              formattedMonth.charAt(0).toUpperCase() + formattedMonth.slice(1),
+            receitas: 0,
+            despesas: 0,
+          };
+        }
+        dataMap[monthNumber].receitas += item.valor || 0;
+      });
 
-    // Processa os dados de despesa
-    despesaData.forEach((item) => {
-      const { formattedMonth, monthNumber } = extractMonthYear(item.data);
-      if (!dataMap[monthNumber]) {
-        dataMap[monthNumber] = {
-          month:
-            formattedMonth.charAt(0).toUpperCase() + formattedMonth.slice(1),
-          receitas: 0,
-          despesas: 0,
-        };
-      }
-      dataMap[monthNumber].despesas += item.valor || 0;
-    });
+    despesaData
+      .filter(
+        (item) =>
+          (!selectedDocumentType || item.documento === selectedDocumentType) &&
+          (!selectedMonth ||
+            new Date(item.data).getMonth() === selectedMonth) &&
+          (!selectedBank || item.tipo_banco === selectedBank)
+      )
+      .forEach((item) => {
+        const { formattedMonth, monthNumber } = extractMonthYear(item.data);
+        if (!dataMap[monthNumber]) {
+          dataMap[monthNumber] = {
+            month:
+              formattedMonth.charAt(0).toUpperCase() + formattedMonth.slice(1),
+            receitas: 0,
+            despesas: 0,
+          };
+        }
+        dataMap[monthNumber].despesas += item.valor || 0;
+      });
 
-    // Converte o mapa de dados em um array para o gráfico e ordena pelos números dos meses
     const processedData = Object.values(dataMap).sort(
       (a, b) => a.monthNumber - b.monthNumber
     );
@@ -72,7 +84,7 @@ function FinanceGraph() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [selectedDocumentType, selectedMonth, selectedBank]);
 
   const series = [
     {
@@ -111,7 +123,6 @@ function FinanceGraph() {
         position: "left",
         label: {
           formatter: (params) => {
-            // Formata os valores com separador de milhar e pontos decimais
             return params.value.toLocaleString("pt-BR", {
               minimumFractionDigits: 0,
               maximumFractionDigits: 2,

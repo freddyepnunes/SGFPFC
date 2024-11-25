@@ -175,7 +175,7 @@
 }
 
 .btncadRec {
-  margin-left: 59rem;
+  margin-left: 58rem;
   margin-top: 13.1rem;
   position: absolute;
   border: none;
@@ -184,7 +184,7 @@
   border-radius: 4px;
   font-size: 13px;
   height: 2rem;
-  width: 8rem;
+  width: 8.5rem;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -208,21 +208,224 @@
   line-height: 1.5;
 }
 
-.modalIdReceita {
-  margin-top: 1.5rem;
-  margin-left: 3rem;
+.FecharModalRec {
+  position: absolute;
+  margin-top: -4rem;
+  margin-left: 32rem;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  background-color: transparent;
+}
+
+.modalIdRec {
+  margin-top: 0.5rem;
   position: absolute;
 }
 
-.modalIdReceita .input-text {
+.modalIdRec .input-text {
   border: none;
-  width: 14rem;
+  width: 10rem;
   height: 1.75rem;
   position: absolute;
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
   font-size: 13px;
   margin-top: 0.5rem;
+}
+
+.modalBanco {
+  margin-top: 0.5rem;
+  margin-left: 11.5rem;
+  position: absolute;
+}
+
+.modalBanco .input-text {
+  border: none;
+  width: 10rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.modalDataEmissaO {
+  margin-top: 0.5rem;
+  margin-left: 23rem;
+  position: absolute;
+}
+
+.modalDataEmissaO .input-text {
+  border: none;
+  width: 10rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.modalPlanoConta {
+  margin-top: 5.5rem;
+  position: absolute;
+  white-space: nowrap;
+}
+
+#modalPlanContaRec-dropbox {
+  border: none;
+  width: 10rem;
+  height: 1.875rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.modalTipoDocRec {
+  margin-top: 5.5rem;
+  margin-left: 11.5rem;
+  position: absolute;
+}
+
+#modalTipoDocRec-dropbox {
+  border: none;
+  width: 10rem;
+  height: 1.875rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.modalCliente {
+  margin-top: 10.5rem;
+  position: absolute;
+}
+
+.modalCliente .input-text {
+  border: none;
+  width: 33rem;
+  height: 1.875rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.modalValoR {
+  margin-top: 5.5rem;
+  margin-left: 23rem;
+  position: absolute;
+}
+
+.modalValoR .input-text {
+  border: none;
+  width: 10rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.modalDescricao {
+  margin-top: 15.5rem;
+  position: absolute;
+}
+
+.modalDescricao .input-text {
+  border: none;
+  width: 33rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.btnAltRec {
+  margin-left: 71rem;
+  margin-top: 13.1rem;
+  position: absolute;
+  border: none;
+  background-color: #2311c2;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.btnAltRec:hover {
+  background-color: #170c7e;
+}
+
+.btnAltRec:active {
+  background-color: #0c0741;
+  color: #ffffff;
+}
+
+.AlterarDadosRec {
+  margin-top: 21.5rem;
+  position: absolute;
+  border: none;
+  background-color: #2311c2;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+}
+
+.CancelarDadosRec {
+  margin-left: 25rem;
+  margin-top: 21.5rem;
+  position: absolute;
+  border: none;
+  background-color: #c21111;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+}
+
+.btnDelRec {
+  margin-left: 84rem;
+  margin-top: 13.1rem;
+  position: absolute;
+  border: none;
+  background-color: #bd1010;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.btnDelRec:hover {
+  background-color: #830c0c;
+}
+
+.btnDelRec:active {
+  background-color: #3a0505;
+  color: #ffffff;
 }
 
 .DelFecharModalRec {
@@ -264,6 +467,23 @@
   width: 8rem;
   font-family: "Montserrat", sans-serif;
   white-space: nowrap;
+}
+
+.modalIdReceita {
+  margin-top: 1.5rem;
+  margin-left: 3rem;
+  position: absolute;
+}
+
+.modalIdReceita .input-text {
+  border: none;
+  width: 14rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
 }
 
 @media (max-width: 1366px) {

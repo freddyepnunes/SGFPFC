@@ -1,71 +1,69 @@
-import React, { useState } from "react"; // Importa o React e o useState, que é uma função que permite adicionar e gerenciar dados dentro do componente
-import "./Login.css"; //Importa o arquivo Login.css para a personalização visual do projeto
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; //Importe do pacote FontAwesome para o uso de fontes e ícones personalizados
+import React, { useState } from "react"; // Importa o React e o useState
+import "./Login.css"; // Importa os estilos da página
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Importa ícones do FontAwesome
 import {
   faUser,
   faEye,
   faEyeSlash,
-  faArrowLeft,
   faAt,
-} from "@fortawesome/free-solid-svg-icons"; //Importe de diferentes tipos de icones da biblioteca FontAwesome
+} from "@fortawesome/free-solid-svg-icons"; // Ícones específicos
+import { useNavigate } from "react-router-dom"; // Importa o hook useNavigate para redirecionar
+import Swal from "sweetalert2"; // Importa a biblioteca SweetAlert2
+import "sweetalert2/dist/sweetalert2.min.css"; // Importa os estilos do SweetAlert2
 
-// Componente de Cadastro
 const Cadastro = () => {
-  // Variáveis para armazenar as informações digitadas pelo usuário
+  const navigate = useNavigate(); // Hook para redirecionar
   const [nome, setNome] = useState(""); // Nome do usuário
   const [username, setUsername] = useState(""); // E-mail do usuário
   const [password, setPassword] = useState(""); // Senha
   const [confirmPassword, setConfirmPassword] = useState(""); // Confirmação da senha
-  const [errorMessage, setErrorMessage] = useState(""); // Variável para exibir mensagens de erro
-
-  // Variáveis para controlar a exibição das senhas
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(""); // Mensagem de erro
+  const [showPassword, setShowPassword] = useState(false); // Controle da exibição da senha
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Controle da exibição da confirmação da senha
 
   // Função chamada ao enviar o formulário
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Evita o recarregamento da página
+    e.preventDefault();
 
-    // Verifica se as senhas coincidem
     if (password !== confirmPassword) {
-      setErrorMessage("As senhas não coincidem!"); // Exibe erro se as senhas não forem iguais
+      setErrorMessage("As senhas não coincidem!"); // Validação de senha
       return;
     }
 
-    //Mostra no console do navegador, dentro de inspecionar, o nome, email e senha colocados pelo usuário. Foi colocar no código apenas por depuração do código
-    console.log({
-      nome: nome,
-      email: username,
-      senha: password,
-    });
-
     try {
-      // Envia os dados para o servidor
-      const response = await fetch("http://localhost:5000/api/usuario", { // Envia uma requisição ao servidor para criar um novo usuário
-        method: "POST", // Define o método da requisição como POST (usado para enviar dados)
-        // Define o cabeçalho da requisição para indicar que os dados estão em formato JSON
-        headers: { 
+      const response = await fetch("http://localhost:5000/api/usuario", {
+        method: "POST",
+        headers: {
           "Content-Type": "application/json",
         },
-        // Converte os dados do usuário para uma string JSON e os envia no corpo da requisição
         body: JSON.stringify({
-          nome: nome, // Nome do usuário
-          email: username, // Email do usuário
-          senha: password, // Senha do usuário
+          nome: nome,
+          email: username,
+          senha: password,
         }),
       });
 
-      // Verifica se houve erro na resposta do servidor
       if (!response.ok) {
-        const errorMessage = await response.text(); // Captura a mensagem de erro do servidor
-        throw new Error(errorMessage); // Lança um erro com a mensagem recebida
+        const errorMessage = await response.text();
+        throw new Error(errorMessage);
       }
 
-      setErrorMessage(""); // Limpe os campos após o sucesso
+      // Exibe mensagem de sucesso com SweetAlert2
+      Swal.fire({
+        title: "Usuário cadastrado!",
+        text: "Redirecionando para a página de login.",
+        icon: "success",
+        confirmButtonText: "OK",
+      }).then(() => {
+        navigate("/Login"); // Redireciona para a página de login
+      });
+
+      // Limpa os campos do formulário
       setNome("");
       setUsername("");
       setPassword("");
       setConfirmPassword("");
+      setErrorMessage("");
     } catch (error) {
       setErrorMessage(error.message); // Exibe a mensagem de erro em caso de falha
     }
@@ -83,7 +81,7 @@ const Cadastro = () => {
                 placeholder="Nome"
                 value={nome}
                 maxLength={70}
-                onChange={(e) => setNome(e.target.value)} // Pega o valor atual do campo (e.target.value, que é o campo onde o usuário vai preencher) e armazena em 'setNome'
+                onChange={(e) => setNome(e.target.value)}
                 required
               />
               <FontAwesomeIcon icon={faUser} className="icon" />
@@ -95,7 +93,7 @@ const Cadastro = () => {
                 placeholder="E-mail"
                 value={username}
                 maxLength={50}
-                onChange={(e) => setUsername(e.target.value)} // Pega o valor atual do campo (e.target.value, que é o campo onde o usuário vai preencher) e armazena em 'setUsername'
+                onChange={(e) => setUsername(e.target.value)}
                 required
               />
               <FontAwesomeIcon icon={faAt} className="icon" />
@@ -107,7 +105,7 @@ const Cadastro = () => {
                 placeholder="Senha"
                 minLength={8}
                 value={password}
-                onChange={(e) => setPassword(e.target.value)} // Pega o valor atual do campo (e.target.value, que é o campo onde o usuário vai preencher) e armazena em 'setPassword'
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
               <FontAwesomeIcon
@@ -124,7 +122,7 @@ const Cadastro = () => {
                 placeholder="Confirmar senha"
                 minLength={8}
                 value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)} // Pega o valor atual do campo (e.target.value, que é o campo onde o usuário vai preencher) e armazena em 'setConfirmPassword'
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
               <FontAwesomeIcon
@@ -153,4 +151,4 @@ const Cadastro = () => {
   );
 };
 
-export default Cadastro; // Faz o exporte padrão dos componentes de Cadastro, para que se possa ser usado em outro elemento de outro arquivo
+export default Cadastro;

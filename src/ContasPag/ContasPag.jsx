@@ -12,7 +12,6 @@ const ContasPag = () => {
   const [formData, setFormData] = useState({
     banco: "",
     dataEmissao: "",
-    dataVencimento: "",
     planoConta: "",
     tipoDocumento: "",
     fornecedor: "",
@@ -45,11 +44,10 @@ const ContasPag = () => {
       });
 
       if (response.ok) {
-        alert("Despesa cadastrada com sucesso!");
+        window.location.reload();
         setFormData({
           banco: "",
           dataEmissao: "",
-          dataVencimento: "",
           planoConta: "",
           tipoDocumento: "",
           fornecedor: "",
@@ -143,12 +141,12 @@ const ContasPag = () => {
             id="plancontapag-dropbox"
           >
             <option value="">Selecione</option>
-            <option value="ocup">Despesas com Ocupação</option>
-            <option value="serv">Despesas com Serviços</option>
-            <option value="pessoal">Despesas com Pessoal</option>
-            <option value="outras">Outras Despesas</option>
-            <option value="imposto">Impostos</option>
-            <option value="variaveis">Custos Variáveis</option>
+            <option value="Despesas com Ocupação">Despesas com Ocupação</option>
+            <option value="Despesas com Serviços">Despesas com Serviços</option>
+            <option value="Despesas com Pessoal">Despesas com Pessoal</option>
+            <option value="Outras Despesas">Outras Despesas</option>
+            <option value="Impostos">Impostos</option>
+            <option value="Custos Variáveis">Custos Variáveis</option>
           </select>
         </div>
         <div className="tipodocpag">
@@ -161,12 +159,12 @@ const ContasPag = () => {
             id="tipodocpag-dropbox"
           >
             <option value="">Selecione</option>
-            <option value="pix">Pix</option>
-            <option value="cred">Crédito</option>
-            <option value="deb">Débito</option>
-            <option value="nf">NF</option>
-            <option value="transf">Transferência</option>
-            <option value="fat">Fatura</option>
+            <option value="Pix">Pix</option>
+            <option value="Crédito">Crédito</option>
+            <option value="Débito">Débito</option>
+            <option value="NF">NF</option>
+            <option value="Transferência">Transferência</option>
+            <option value="Fatura">Fatura</option>
           </select>
         </div>
         <div className="fornpag">
@@ -203,8 +201,8 @@ const ContasPag = () => {
           />
         </div>
         <div className="cadPag">
-          <button type="button" className="btncadPag" onClick={handleSubmit}>
-            <strong>Cadastrar</strong>
+          <button type="button" className="btnCadPag" onClick={handleSubmit}>
+            <strong>Cadastrar Despesa</strong>
           </button>
         </div>
         <AlterarDespesaModal />

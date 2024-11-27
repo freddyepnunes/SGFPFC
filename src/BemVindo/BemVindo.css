@@ -1,29 +1,86 @@
-/* src/Welcome.css */
-.welcome-container {
+/* BemVindo.css */
+
+/* Contêiner principal */
+.bemvindo-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f3f9f6, #e0f2fe); /* Fundo claro */
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 1s ease-in-out;
+}
+
+/* Meia-lua com curvas suaves */
+.bemvindo-half-moon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, #d9f7e4, #c8eefa);
+  border-radius: 0 40% 40% 0; /* Curvas suaves ajustadas */
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f0f8ff;
-  font-family: Arial, sans-serif;
+  transition: width 1s ease-in-out, border-radius 1s ease-in-out;
 }
 
-h1 {
-  color: #333;
+/* Texto da meia-lua */
+.bemvindo-text {
+  position: relative;
+  text-align: center;
+  max-width: 80%; /* Limita o tamanho horizontal */
+  line-height: 1.6;
+  padding: 20px;
+  margin: 0 auto;
+  transition: transform 1s ease-in-out; /* Anima o movimento do texto */
 }
 
-.redirect-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.bemvindo-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #1d4e89;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
-.redirect-button:hover {
-  background-color: #0056b3;
+.bemvindo-description {
+  font-size: 1.2rem;
+  color: #4a8073;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.bemvindo-description .highlight {
+  font-weight: bold;
+  color: #1d4e89; /* Azul escuro para destaque */
+}
+
+/* Estado expandido */
+.bemvindo-container.expanded .bemvindo-half-moon {
+  width: 100%; /* A meia-lua se expande para toda a tela */
+  border-radius: 0; /* Remove as curvas */
+}
+
+.bemvindo-container.expanded .bemvindo-text {
+  transform: translateX(50%); /* Move o texto suavemente para o centro */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .bemvindo-half-moon {
+    width: 60%;
+    border-radius: 0 35% 35% 0;
+  }
+
+  .bemvindo-title {
+    font-size: 2.2rem;
+  }
+
+  .bemvindo-description {
+    font-size: 1rem;
+  }
 }

@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { AgCharts } from "ag-charts-react";
 
-function EntradaPlano({ selectedDocumentType, selectedMonth, selectedBank }) {
+function EntradaPlano({
+  selectedDocumentType,
+  selectedMonth,
+  selectedBank,
+  selectedPlanoConta,
+}) {
   const [chartData, setChartData] = useState([]);
 
   // Função para buscar dados da API de receita
@@ -26,7 +31,8 @@ function EntradaPlano({ selectedDocumentType, selectedMonth, selectedBank }) {
       return (
         (!selectedDocumentType || item.documento === selectedDocumentType) &&
         (!selectedMonth || itemMonth === selectedMonth) &&
-        (!selectedBank || item.tipo_banco === selectedBank)
+        (!selectedBank || item.tipo_banco === selectedBank) &&
+        (!selectedPlanoConta || item.plano_conta_receita === selectedPlanoConta)
       );
     });
 
@@ -62,7 +68,7 @@ function EntradaPlano({ selectedDocumentType, selectedMonth, selectedBank }) {
 
   useEffect(() => {
     fetchData();
-  }, [selectedDocumentType, selectedMonth, selectedBank]);
+  }, [selectedDocumentType, selectedMonth, selectedBank, selectedPlanoConta]);
 
   // Opções do gráfico com tooltip formatado
   const options = {

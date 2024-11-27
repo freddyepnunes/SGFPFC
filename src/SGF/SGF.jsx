@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"; // Importa React e hooks useState e useEffect
 import "./SGF.css"; // Importa o arquivo CSS para estilos da página
-import UMCLogo from "../Imagens/UMC.png"; // Importa o logo da UMC
+import SGFLogo from "../Imagens/10.png"; // Importa o logo da UMC
 import { Link } from "react-router-dom"; // Importa o componente Link para navegação entre páginas
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import FinanceGraph from "./FluxoCaixa";
@@ -15,7 +15,9 @@ function SGF() {
   const [banco, setBanco] = useState("");
   const [contasReceber, setContasReceber] = useState([]); // Inicializa a lista de contas a receber
   const [contasPagar, setContasPagar] = useState([]); // Inicializa a lista de contas a pagar
+  const [planoConta, setPlanoConta] = useState("");
   const [bancos, setBancos] = useState([]); // Estado para armazenar os bancos únicos
+  const [planoContas, setPlanoContas] = useState([]); // Estado para armazenar planos combinados
 
   // Função para buscar dados de uma API
   const fetchData = async (url, setData) => {
@@ -61,29 +63,60 @@ function SGF() {
     setBancos(bancosUnicos);
   }, [contasReceber, contasPagar]);
 
+  // Combinar planos de contas de receitas e despesas
+  useEffect(() => {
+    const planosReceita = contasReceber.map(
+      (conta) => conta.plano_conta_receita
+    );
+    const planosDespesa = contasPagar.map((conta) => conta.plano_conta);
+    const planosUnicos = Array.from(
+      new Set([...planosReceita, ...planosDespesa])
+    );
+    setPlanoContas(planosUnicos);
+  }, [contasReceber, contasPagar]);
+
   // Calcula a soma total das contas a receber
   const somaTotalRec = contasReceber.reduce(
-    (acc, conta) => acc + (conta.valor || 0), // Soma os valores de cada conta
+    (acc, conta) =>
+      acc + // Aplica todos os filtros
+      ((planoConta === "" || conta.plano_conta_receita === planoConta) &&
+      (banco === "" || conta.tipo_banco === banco) &&
+      (tipoDocumento === "" || conta.documento === tipoDocumento)
+        ? conta.valor
+        : 0),
     0
   );
 
   // Calcula a soma total das contas a pagar
   const somaTotalPag = contasPagar.reduce(
-    (acc, conta) => acc + (conta.valor || 0), // Soma os valores de cada conta
+    (acc, conta) =>
+      acc + // Aplica todos os filtros
+      ((planoConta === "" || conta.plano_conta === planoConta) &&
+      (banco === "" || conta.tipo_banco === banco) &&
+      (tipoDocumento === "" || conta.documento === tipoDocumento)
+        ? conta.valor
+        : 0),
     0
   );
 
   // Calcula o lucro líquido subtraindo a soma das contas a pagar da soma das contas a receber
   const totalLucroLiquido = somaTotalRec - somaTotalPag;
 
+  const handleClear = () => {
+    setBanco("");
+    setTipoDocumento("");
+    setPlanoConta("");
+  };
+
   return (
     <div>
       <div className="form-menu">
-        <img className="UMC_Logo" src={UMCLogo} alt="UMC Logo" />
+        <img className="SGF_Logo" src={SGFLogo} alt="SGF Logo" />
         <div className="Botoes">
           <Link to="/Home" className="link">
             <button type="button" className="btn btn1 btn-sep" id="button1">
-              <i className="fa-solid fa-house"></i>Home
+              <i className="fa-solid fa-house"></i>
+              <strong>Iniciar</strong>
               <div className="Indicador2"></div>
             </button>
           </Link>
@@ -93,7 +126,8 @@ function SGF() {
               className="btn btn5 btn-sep btn-icon5"
               id="button5"
             >
-              <i className="fa-solid fa-handshake"></i>Contas a Receber
+              <i className="fa-solid fa-handshake"></i>
+              <strong>Contas a Receber</strong>
               <div className="Indicador2"></div>
             </button>
           </Link>
@@ -103,7 +137,8 @@ function SGF() {
               className="btn btn6 btn-sep btn-icon6"
               id="button6"
             >
-              <i className="fa-solid fa-money-bill"></i>Contas a Pagar
+              <i className="fa-solid fa-money-bill"></i>
+              <strong>Contas a Pagar</strong>
               <div className="Indicador2"></div>
             </button>
           </Link>
@@ -181,8 +216,12 @@ function SGF() {
         <div className="banctxt">
           <strong>Banco</strong>
         </div>
+        <div className="plantxt">
+          <strong>Plano de Contas</strong>
+        </div>
         <select
           className="dropdown"
+          value={tipoDocumento}
           onChange={(e) => setTipoDocumento(e.target.value)}
         >
           <option value="">Selecione</option>
@@ -195,6 +234,7 @@ function SGF() {
         </select>
         <select
           className="dropdown3"
+          value={banco}
           onChange={(e) => setBanco(e.target.value)}
         >
           <option value="">Selecione</option>
@@ -204,6 +244,21 @@ function SGF() {
             </option>
           ))}
         </select>
+        <select
+          className="dropdown4"
+          value={planoConta}
+          onChange={(e) => setPlanoConta(e.target.value)}
+        >
+          <option value="">Selecione</option>
+          {planoContas.map((plano, index) => (
+            <option key={index} value={plano}>
+              {plano}
+            </option>
+          ))}
+        </select>
+        <button onClick={handleClear} className="BtnLimparFiltros">
+          Limpar Filtros
+        </button>
       </div>
 
       {/* Quadrado 2 */}
@@ -216,6 +271,7 @@ function SGF() {
               selectedDocumentType={tipoDocumento}
               selectedMonth={mes}
               selectedBank={banco}
+              selectedPlanoConta={planoConta}
             />
           </div>
         </div>
@@ -226,6 +282,7 @@ function SGF() {
               selectedDocumentType={tipoDocumento}
               selectedMonth={mes}
               selectedBank={banco}
+              selectedPlanoConta={planoConta}
             />
           </div>
         </div>
@@ -236,6 +293,7 @@ function SGF() {
               selectedDocumentType={tipoDocumento}
               selectedMonth={mes}
               selectedBank={banco}
+              selectedPlanoConta={planoConta}
             />
           </div>
         </div>
@@ -301,6 +359,7 @@ function SGF() {
               selectedDocumentType={tipoDocumento}
               selectedMonth={mes}
               selectedBank={banco}
+              selectedPlanoConta={planoConta}
             />
           </div>
         </div>

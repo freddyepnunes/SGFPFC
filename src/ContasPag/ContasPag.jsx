@@ -1,7 +1,7 @@
 import React, { useState } from "react"; //Import do pacote react com o nome React
 import "./ContasPag.css"; //Importação do arquivo ContasPag.css que está na mesma página
 import "../SGF/SGF.css"; //Importação do arquivo SGF.css que está dentro da pasta SGF
-import UMCLogo from "../Imagens/UMC.png"; //Importação de imagem com o nome UMCLogo
+import SGFLogo from "../Imagens/10.png"; //Importação de imagem com o nome UMCLogo
 import { Link } from "react-router-dom"; //Importe de Link do "react-router-dom" para o uso das funções Link para definir para onde "tal" botão de navegação levará o usuário
 import ContasPagGrid from "./ContasPagGrid.jsx";
 import AlterarDespesaModal from "./ModalAltContasPag.jsx";
@@ -63,15 +63,29 @@ const ContasPag = () => {
     }
   };
 
+  // Função para limpar todos os campos do formulário
+  const handleReset = () => {
+    setFormData({
+      banco: "",
+      dataEmissao: "",
+      planoConta: "",
+      tipoDocumento: "",
+      fornecedor: "",
+      valor: "",
+      descricao: "",
+    });
+  };
+
   return (
     <div>
       <div className="form-menu-Complementar"></div>
       <div className="form-menu">
-        <img className="UMC_Logo" src={UMCLogo} alt="UMC Logo" />
+        <img className="SGF_Logo" src={SGFLogo} alt="SGF Logo" />
         <div className="Botoes">
           <Link to="/Home" className="link">
             <button type="button" className="btn btn1 btn-sep" id="button1">
-              <i className="fa-solid fa-house"></i>Home
+              <i className="fa-solid fa-house"></i>
+              <strong>Iniciar</strong>
               <div className="Indicador2"></div>
             </button>
           </Link>
@@ -81,7 +95,8 @@ const ContasPag = () => {
               className="btn btn5 btn-sep btn-icon5"
               id="button5"
             >
-              <i className="fa-solid fa-handshake"></i>Contas a Receber
+              <i className="fa-solid fa-handshake"></i>
+              <strong>Contas a Receber</strong>
               <div className="Indicador2"></div>
             </button>
           </Link>
@@ -91,7 +106,8 @@ const ContasPag = () => {
               className="btn btn6 btn-sep btn-icon6"
               id="button6"
             >
-              <i className="fa-solid fa-money-bill"></i>Contas a Pagar
+              <i className="fa-solid fa-money-bill"></i>
+              <strong>Contas a Pagar</strong>
               <div className="Indicador2"></div>
             </button>
           </Link>
@@ -200,6 +216,9 @@ const ContasPag = () => {
             required
           />
         </div>
+        <button type="button" className="BtnLimparCadPag" onClick={handleReset}>
+          <strong>Limpar Cadastro</strong>
+        </button>
         <div className="cadPag">
           <button type="button" className="btnCadPag" onClick={handleSubmit}>
             <strong>Cadastrar Despesa</strong>

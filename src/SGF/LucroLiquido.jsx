@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { AgCharts } from "ag-charts-react";
 
-function LucroLiquido({ selectedDocumentType, selectedMonth, selectedBank }) {
+function LucroLiquido({
+  selectedDocumentType,
+  selectedMonth,
+  selectedBank,
+  selectedPlanoConta,
+}) {
   const [chartData, setChartData] = useState([]);
 
   async function fetchData() {
@@ -39,7 +44,9 @@ function LucroLiquido({ selectedDocumentType, selectedMonth, selectedBank }) {
         return (
           (!selectedDocumentType || item.documento === selectedDocumentType) &&
           (!selectedMonth || itemMonth === selectedMonth) &&
-          (!selectedBank || item.tipo_banco === selectedBank)
+          (!selectedBank || item.tipo_banco === selectedBank) &&
+          (!selectedPlanoConta ||
+            item.plano_conta_receita === selectedPlanoConta)
         );
       })
       .forEach((item) => {
@@ -64,7 +71,8 @@ function LucroLiquido({ selectedDocumentType, selectedMonth, selectedBank }) {
         return (
           (!selectedDocumentType || item.documento === selectedDocumentType) &&
           (!selectedMonth || itemMonth === selectedMonth) &&
-          (!selectedBank || item.tipo_banco === selectedBank)
+          (!selectedBank || item.tipo_banco === selectedBank) &&
+          (!selectedPlanoConta || item.plano_conta === selectedPlanoConta)
         );
       })
       .forEach((item) => {
@@ -93,7 +101,7 @@ function LucroLiquido({ selectedDocumentType, selectedMonth, selectedBank }) {
 
   useEffect(() => {
     fetchData();
-  }, [selectedDocumentType, selectedMonth, selectedBank]);
+  }, [selectedDocumentType, selectedMonth, selectedBank, selectedPlanoConta]);
 
   const series = [
     {
@@ -137,12 +145,10 @@ function LucroLiquido({ selectedDocumentType, selectedMonth, selectedBank }) {
         type: "number",
         position: "left",
         label: {
-          formatter: (params) => {
-            return params.value.toLocaleString("pt-BR", {
-              minimumFractionDigits: 0,
-              maximumFractionDigits: 2,
-            });
-          },
+          formatter: (params) =>
+            `R$ ${params.value.toLocaleString("pt-BR", {
+              minimumFractionDigits: 2,
+            })}`,
         },
       },
     ],

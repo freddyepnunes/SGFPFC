@@ -19,36 +19,53 @@ const style = {
 
 export default function DeletarDespesaModal() {
   const [open, setOpen] = useState(false); // Controla o estado do modal
-  const [despesaId, setDespesaId] = useState(""); // ID da despesa a ser excluída
+  const [despesaIds, setDespesaIds] = useState(""); // ID da despesa a ser excluída
 
   const handleOpen = () => setOpen(true); // Abre o modal
   const handleClose = () => setOpen(false); // Fecha o modal
 
   const handleDelete = async () => {
-    if (!despesaId || isNaN(despesaId)) {
-      alert("Por favor, insira um ID válido.");
+    if (!despesaIds) {
+      alert("Por favor, insira um ou mais IDs válidos separados por vírgula.");
       return;
     }
 
-    try {
-      const response = await fetch(
-        `http://localhost:5000/api/despesa/${despesaId}`,
-        {
-          method: "DELETE",
-        }
-      );
+    // Converte a string de IDs em um array
+    const ids = despesaIds.split(",").map((id) => id.trim());
 
-      if (response.ok) {
-        setDespesaId(""); // Limpa o campo de texto
-        handleClose(); // Fecha o modal
-        window.location.reload();
-      } else {
-        const errorText = await response.text();
-        alert(`Erro ao excluir a despesa: ${errorText}`);
+    try {
+      // Itera sobre os IDs e realiza a exclusão
+      for (const id of ids) {
+        if (isNaN(id)) {
+          alert(`ID inválido: ${id}`);
+          continue;
+        }
+
+        const response = await fetch(
+          `http://localhost:5000/api/despesa/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error(`Erro ao excluir a despesa ${id}: ${errorText}`);
+        } else {
+          console.log(`Despesa ${id} excluída com sucesso!`);
+        }
       }
+
+      setDespesaIds(""); // Limpa o campo de texto
+      handleClose(); // Fecha o modal
+      window.location.reload();
     } catch (error) {
-      alert(`Erro ao excluir a despesa: ${error.message}`);
+      alert(`Erro ao excluir as despesa: ${error.message}`);
     }
+  };
+
+  const handleClear = () => {
+    setDespesaIds(""); // Limpa o valor do ID
   };
 
   return (
@@ -90,8 +107,8 @@ export default function DeletarDespesaModal() {
                 <input
                   type="text"
                   className="input-text"
-                  value={despesaId}
-                  onChange={(e) => setDespesaId(e.target.value)} // Atualiza o ID da despesa
+                  value={despesaIds}
+                  onChange={(e) => setDespesaIds(e.target.value)} // Atualiza o ID da despesa
                   required
                 />
               </div>
@@ -101,9 +118,9 @@ export default function DeletarDespesaModal() {
             X
           </button>
           <button onClick={handleDelete} className="ExcluirDadosPag">
-            Excluir Despesa
+            Excluir Despesas
           </button>
-          <button onClick={handleClose} className="DelCancelarDadosPag">
+          <button onClick={handleClear} className="DelCancelarDadosPag">
             Cancelar Exclusão
           </button>
         </Box>

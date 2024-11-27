@@ -19,37 +19,53 @@ const style = {
 
 export default function DeletarReceitaModal() {
   const [open, setOpen] = useState(false); // Controla o estado do modal
-  const [receitaId, setReceitaId] = useState(""); // ID da despesa a ser excluída
+  const [receitaIds, setReceitaIds] = useState(""); // IDs das receitas a serem excluídas
 
   const handleOpen = () => setOpen(true); // Abre o modal
   const handleClose = () => setOpen(false); // Fecha o modal
 
   const handleDelete = async () => {
-    if (!receitaId || isNaN(receitaId)) {
-      alert("Por favor, insira um ID válido.");
+    if (!receitaIds) {
+      alert("Por favor, insira um ou mais IDs válidos separados por vírgula.");
       return;
     }
 
-    try {
-      const response = await fetch(
-        `http://localhost:5000/api/receita/${receitaId}`,
-        {
-          method: "DELETE",
-        }
-      );
+    // Converte a string de IDs em um array
+    const ids = receitaIds.split(",").map((id) => id.trim());
 
-      if (response.ok) {
-        console.log("Receita excluída com sucesso!");
-        setReceitaId(""); // Limpa o campo de texto
-        handleClose(); // Fecha o modal
-        window.location.reload();
-      } else {
-        const errorText = await response.text();
-        alert(`Erro ao excluir a receita: ${errorText}`);
+    try {
+      // Itera sobre os IDs e realiza a exclusão
+      for (const id of ids) {
+        if (isNaN(id)) {
+          alert(`ID inválido: ${id}`);
+          continue;
+        }
+
+        const response = await fetch(
+          `http://localhost:5000/api/receita/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error(`Erro ao excluir a receita ${id}: ${errorText}`);
+        } else {
+          console.log(`Receita ${id} excluída com sucesso!`);
+        }
       }
+
+      setReceitaIds(""); // Limpa o campo de texto
+      handleClose(); // Fecha o modal
+      window.location.reload();
     } catch (error) {
-      alert(`Erro ao excluir a receita: ${error.message}`);
+      alert(`Erro ao excluir as receitas: ${error.message}`);
     }
+  };
+
+  const handleClear = () => {
+    setReceitaIds(""); // Limpa o valor dos IDs
   };
 
   return (
@@ -86,13 +102,15 @@ export default function DeletarReceitaModal() {
             component="div"
           >
             <div className="modalIdReceita">
-              <div className="label">ID Receita</div>
+              <div className="label">
+                IDs das Receitas (separados por vírgula)
+              </div>
               <div>
                 <input
                   type="text"
                   className="input-text"
-                  value={receitaId}
-                  onChange={(e) => setReceitaId(e.target.value)} // Atualiza o ID da receita
+                  value={receitaIds}
+                  onChange={(e) => setReceitaIds(e.target.value)} // Atualiza o ID da receita
                   required
                 />
               </div>
@@ -102,9 +120,9 @@ export default function DeletarReceitaModal() {
             X
           </button>
           <button onClick={handleDelete} className="ExcluirDadosRec">
-            Excluir Receita
+            Excluir Receitas
           </button>
-          <button onClick={handleClose} className="DelCancelarDadosRec">
+          <button onClick={handleClear} className="DelCancelarDadosRec">
             Cancelar Exclusão
           </button>
         </Box>

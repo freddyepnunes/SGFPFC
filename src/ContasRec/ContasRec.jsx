@@ -1,7 +1,7 @@
 import React, { useState } from "react"; //Importe do pacote "react" com o nome de React
 import "./ContasRec.css"; //Importe do arquivo ContasRec.css para a formatação visual do arquivo ContasRec.jsx
 import "../SGF/SGF.css"; //Importe do visual SGF.css da pasta SGF
-import UMCLogo from "../Imagens/UMC.png"; //Importe de uma imagem com o nome de UMCLogo
+import SGFLogo from "../Imagens/10.png"; //Importe de uma imagem com o nome de UMCLogo
 import { Link } from "react-router-dom";
 import ContasRecGrid from "./ContasRecGrid.jsx";
 import AlterarReceitaModal from "./ModalAltContasRec.jsx"; // Ajuste o caminho conforme a localização do componente
@@ -63,15 +63,29 @@ const ContasRec = () => {
     }
   };
 
+  // Função para limpar todos os campos do formulário
+  const handleReset = () => {
+    setFormData({
+      banco: "",
+      dataEmissao: "",
+      planoConta: "",
+      tipoDocumento: "",
+      cliente: "",
+      valor: "",
+      descricao: "",
+    });
+  };
+
   return (
     //Função de return para retornar os componentes visuais e funcionais do nosso código
     <div>
       <div className="form-menu">
-        <img className="UMC_Logo" src={UMCLogo} alt="UMC Logo" />
+        <img className="SGF_Logo" src={SGFLogo} alt="SGF Logo" />
         <div className="Botoes">
           <Link to="/Home" className="link">
             <button type="button" className="btn btn1 btn-sep" id="button1">
-              <i className="fa-solid fa-house"></i>Home
+              <i className="fa-solid fa-house"></i>
+              <strong>Iniciar</strong>
               <div className="Indicador2"></div>
             </button>
           </Link>
@@ -81,7 +95,8 @@ const ContasRec = () => {
               className="btn btn5 btn-sep btn-icon5"
               id="button5"
             >
-              <i className="fa-solid fa-handshake"></i>Contas a Receber
+              <i className="fa-solid fa-handshake"></i>
+              <strong>Contas a Receber</strong>
               <div className="Indicador2"></div>
             </button>
           </Link>
@@ -91,7 +106,8 @@ const ContasRec = () => {
               className="btn btn6 btn-sep btn-icon6"
               id="button6"
             >
-              <i className="fa-solid fa-money-bill"></i>Contas a Pagar
+              <i className="fa-solid fa-money-bill"></i>
+              <strong>Contas a Pagar</strong>
               <div className="Indicador2"></div>
             </button>
           </Link>
@@ -197,6 +213,9 @@ const ContasRec = () => {
             required
           />
         </div>
+        <button type="button" className="BtnLimparCadRec" onClick={handleReset}>
+          <strong>Limpar Cadastro</strong>
+        </button>
         <div className="BcadRec">
           <button type="button" className="btncadRec" onClick={handleSubmit}>
             <strong>Cadastrar Receita</strong>

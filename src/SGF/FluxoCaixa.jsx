@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { AgCharts } from "ag-charts-react";
 
-function FinanceGraph({ selectedDocumentType, selectedMonth, selectedBank }) {
+function FinanceGraph({
+  selectedDocumentType,
+  selectedMonth,
+  selectedBank,
+  selectedPlanoConta,
+}) {
   const [chartData, setChartData] = useState([]);
 
   // Função para buscar dados das APIs de receita e despesa
@@ -40,7 +45,9 @@ function FinanceGraph({ selectedDocumentType, selectedMonth, selectedBank }) {
           (!selectedDocumentType || item.documento === selectedDocumentType) &&
           (!selectedMonth ||
             new Date(item.data).getMonth() === selectedMonth) &&
-          (!selectedBank || item.tipo_banco === selectedBank)
+          (!selectedBank || item.tipo_banco === selectedBank) &&
+          (!selectedPlanoConta ||
+            item.plano_conta_receita === selectedPlanoConta)
       )
       .forEach((item) => {
         const { formattedMonth, monthNumber } = extractMonthYear(item.data);
@@ -61,7 +68,8 @@ function FinanceGraph({ selectedDocumentType, selectedMonth, selectedBank }) {
           (!selectedDocumentType || item.documento === selectedDocumentType) &&
           (!selectedMonth ||
             new Date(item.data).getMonth() === selectedMonth) &&
-          (!selectedBank || item.tipo_banco === selectedBank)
+          (!selectedBank || item.tipo_banco === selectedBank) &&
+          (!selectedPlanoConta || item.plano_conta === selectedPlanoConta)
       )
       .forEach((item) => {
         const { formattedMonth, monthNumber } = extractMonthYear(item.data);
@@ -84,7 +92,7 @@ function FinanceGraph({ selectedDocumentType, selectedMonth, selectedBank }) {
 
   useEffect(() => {
     fetchData();
-  }, [selectedDocumentType, selectedMonth, selectedBank]);
+  }, [selectedDocumentType, selectedMonth, selectedBank, selectedPlanoConta]);
 
   const series = [
     {
@@ -122,12 +130,10 @@ function FinanceGraph({ selectedDocumentType, selectedMonth, selectedBank }) {
         type: "number",
         position: "left",
         label: {
-          formatter: (params) => {
-            return params.value.toLocaleString("pt-BR", {
-              minimumFractionDigits: 0,
-              maximumFractionDigits: 2,
-            });
-          },
+          formatter: (params) =>
+            `R$ ${params.value.toLocaleString("pt-BR", {
+              minimumFractionDigits: 2,
+            })}`,
         },
       },
     ],

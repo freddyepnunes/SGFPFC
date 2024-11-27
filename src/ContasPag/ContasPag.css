@@ -486,6 +486,31 @@
   white-space: nowrap;
 }
 
+.BtnLimparCadPag {
+  margin-left: 84rem;
+  margin-top: 8.2rem;
+  position: absolute;
+  border: none;
+  background-color: #8aa123;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+}
+
+.BtnLimparCadPag:hover {
+  background-color: #5a6918;
+}
+
+.BtnLimparCadPag:active {
+  background-color: #2f360c;
+  color: #ffffff;
+}
+
 @media (max-width: 1366px) {
   .LinhaCabConPag {
     width: 74.5rem;

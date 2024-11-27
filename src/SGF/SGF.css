@@ -21,11 +21,11 @@ body {
 }
 
 .form-menu img {
-  height: 4rem;
-  width: 6rem;
+  height: 7rem;
+  width: 7.5rem;
   border-radius: 5px;
-  margin-left: 3.65rem;
-  margin-top: 4.5rem;
+  margin-left: 2.8rem;
+  margin-top: 3.25rem;
   position: absolute;
 }
 
@@ -320,7 +320,7 @@ body {
   font-size: 18px;
   font-family: "Montserrat", sans-serif;
   margin-top: 20px;
-  margin-left: 25rem;
+  margin-left: 10rem;
   position: absolute;
 }
 
@@ -329,23 +329,23 @@ body {
   font-size: 18px;
   font-family: "Montserrat", sans-serif;
   margin-top: 20px;
-  margin-left: 60rem;
+  margin-left: 35rem;
   position: absolute;
 }
 
-.dropbtn {
-  background-color: #188063;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+.plantxt {
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 20px;
+  margin-left: 60rem;
+  position: absolute;
 }
 
 .dropdown {
   position: absolute;
   display: inline-block;
-  margin-left: 25rem;
+  margin-left: 10rem;
   width: 18rem;
   height: 30px;
   margin-top: 3rem;
@@ -355,49 +355,20 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border: none;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  border: none;
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-  border: none;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-  border: none;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-  border: none;
-}
-
-.dropbtn {
-  background-color: #4caf50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
 .dropdown3 {
+  position: absolute;
+  display: inline-block;
+  margin-left: 35rem;
+  width: 18rem;
+  height: 30px;
+  margin-top: 3rem;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.dropdown4 {
   position: absolute;
   display: inline-block;
   margin-left: 60rem;
@@ -408,39 +379,6 @@ body {
   border: none;
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
-}
-
-.dropdown3-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border: none;
-}
-
-.dropdown3-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  border: none;
-}
-
-.dropdown3-content a:hover {
-  background-color: #f1f1f1;
-  border: none;
-}
-
-.dropdown3:hover .dropdown2-content {
-  display: block;
-  border: none;
-}
-
-.dropdown3:hover .dropbtn {
-  background-color: #3e8e41;
-  border: none;
 }
 
 .quadrado2 {
@@ -624,7 +562,7 @@ body {
 .Valor1 {
   position: absolute;
   margin-top: -0.3rem;
-  margin-left: 22rem;
+  margin-left: 25.5rem;
   z-index: 1000;
   white-space: nowrap;
 }
@@ -638,7 +576,7 @@ body {
 .Valor2 {
   position: absolute;
   margin-top: -0.3rem;
-  margin-left: 22rem;
+  margin-left: 25.5rem;
   z-index: 1000;
   white-space: nowrap;
 }
@@ -652,7 +590,7 @@ body {
 .Valor3 {
   position: absolute;
   margin-top: -0.3rem;
-  margin-left: 22rem;
+  margin-left: 25.5rem;
   z-index: 1000;
   white-space: nowrap;
 }
@@ -664,18 +602,43 @@ body {
 }
 
 .receitastotaistxt .Valor1 {
-  margin-left: -7.5rem;
+  margin-left: -12rem;
   margin-top: -1.5rem;
 }
 
 .custostotaistxt .Valor2 {
-  margin-left: -5rem;
+  margin-left: -8.5rem;
   margin-top: -1.5rem;
 }
 
 .lucroliquidotxt .Valor3 {
-  margin-left: -8rem;
+  margin-left: -11rem;
   margin-top: -1.5rem;
+}
+
+.BtnLimparFiltros {
+  margin-left: 86rem;
+  margin-top: 2.8rem;
+  position: absolute;
+  border: none;
+  background-color: #c0392b;
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  height: 2rem;
+  width: 8rem;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+}
+
+.BtnLimparFiltros:hover {
+  background-color: #81271d;
+}
+
+.BtnLimparFiltros:active {
+  background-color: #4b1711;
+  color: #ffffff;
 }
 
 /* Responsividade para telas de resolução de 1366x768 píxels */

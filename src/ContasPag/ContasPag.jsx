@@ -1,4 +1,4 @@
-import React, { useState } from "react"; //Import do pacote react com o nome React
+import React, { useState, useEffect } from "react"; //Import do pacote react com o nome React
 import "./ContasPag.css"; //Importação do arquivo ContasPag.css que está na mesma página
 import "../SGF/SGF.css"; //Importação do arquivo SGF.css que está dentro da pasta SGF
 import SGFLogo from "../Imagens/10.png"; //Importação de imagem com o nome UMCLogo
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"; //Importe de Link do "react-router-dom"
 import ContasPagGrid from "./ContasPagGrid.jsx";
 import AlterarDespesaModal from "./ModalAltContasPag.jsx";
 import DeletarDespesaModal from "./ModalDelContasPag.jsx";
+import MensagemCadastro from "./ModalErroCadPag.jsx";
 
 const ContasPag = () => {
   // Estado para armazenar os valores do formulário
@@ -18,6 +19,9 @@ const ContasPag = () => {
     valor: "",
     descricao: "",
   });
+
+  const [message, setMessage] = useState(""); // Estado para mensagem
+  const [messageType, setMessageType] = useState(""); // Estado para o tipo de mensagem ("success" ou "error")
 
   // Atualiza os valores do estado ao digitar nas caixas de texto
   const handleChange = (e) => {
@@ -44,6 +48,10 @@ const ContasPag = () => {
       });
 
       if (response.ok) {
+        localStorage.setItem(
+          "successMessage",
+          "Despesa cadastrada com sucesso!"
+        );
         window.location.reload();
         setFormData({
           banco: "",
@@ -56,10 +64,12 @@ const ContasPag = () => {
         }); // Limpa o formulário
       } else {
         const errorText = await response.text();
-        alert(`Erro ao cadastrar a despesa: ${errorText}`);
+        setMessage(`Erro ao cadastrar a despesa: ${errorText}`);
+        setMessageType("error");
       }
     } catch (error) {
-      alert(`Erro ao cadastrar a despesa: ${error.message}`);
+      setMessage(`Erro ao cadastrar a despesa: ${error.message}`);
+      setMessageType("error");
     }
   };
 
@@ -75,6 +85,16 @@ const ContasPag = () => {
       descricao: "",
     });
   };
+
+  useEffect(() => {
+    // Verifica se há uma mensagem de sucesso no localStorage
+    const successMessage = localStorage.getItem("successMessage");
+    if (successMessage) {
+      setMessage(successMessage); // Define a mensagem no estado
+      setMessageType("success");
+      localStorage.removeItem("successMessage"); // Remove do localStorage
+    }
+  }, []);
 
   return (
     <div>
@@ -230,6 +250,11 @@ const ContasPag = () => {
       <div className="QuadroContaS">
         <ContasPagGrid />
       </div>
+      <MensagemCadastro
+        message={message}
+        onClose={() => setMessage("")}
+        type={messageType}
+      />
     </div>
   );
 };

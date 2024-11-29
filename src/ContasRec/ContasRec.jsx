@@ -1,4 +1,4 @@
-import React, { useState } from "react"; //Importe do pacote "react" com o nome de React
+import React, { useState, useEffect } from "react"; //Importe do pacote "react" com o nome de React
 import "./ContasRec.css"; //Importe do arquivo ContasRec.css para a formatação visual do arquivo ContasRec.jsx
 import "../SGF/SGF.css"; //Importe do visual SGF.css da pasta SGF
 import SGFLogo from "../Imagens/10.png"; //Importe de uma imagem com o nome de UMCLogo
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ContasRecGrid from "./ContasRecGrid.jsx";
 import AlterarReceitaModal from "./ModalAltContasRec.jsx"; // Ajuste o caminho conforme a localização do componente
 import DeletarReceitaModal from "./ModalDelContasRec.jsx";
+import MensagemCadastro from "./ModalErroCadRec.jsx";
 
 const ContasRec = () => {
   // Estado para armazenar os valores do formulário
@@ -18,6 +19,9 @@ const ContasRec = () => {
     valor: "",
     descricao: "",
   });
+
+  const [message, setMessage] = useState(""); // Estado para mensagem
+  const [messageType, setMessageType] = useState(""); // Estado para o tipo de mensagem ("success" ou "error")
 
   // Atualiza os valores do estado ao digitar nas caixas de texto
   const handleChange = (e) => {
@@ -44,6 +48,10 @@ const ContasRec = () => {
       });
 
       if (response.ok) {
+        localStorage.setItem(
+          "successMessage",
+          "Receita cadastrada com sucesso!"
+        );
         window.location.reload();
         setFormData({
           banco: "",
@@ -56,10 +64,12 @@ const ContasRec = () => {
         }); // Limpa o formulário
       } else {
         const errorText = await response.text();
-        alert(`Erro ao cadastrar a receita: ${errorText}`);
+        setMessage(`Erro ao cadastrar a receita: ${errorText}`);
+        setMessageType("error");
       }
     } catch (error) {
-      alert(`Erro ao cadastrar a receita: ${error.message}`);
+      setMessage(`Erro ao cadastrar a receita: ${error.message}`);
+      setMessageType("error");
     }
   };
 
@@ -75,6 +85,16 @@ const ContasRec = () => {
       descricao: "",
     });
   };
+
+  useEffect(() => {
+    // Verifica se há uma mensagem de sucesso no localStorage
+    const successMessage = localStorage.getItem("successMessage");
+    if (successMessage) {
+      setMessage(successMessage); // Define a mensagem no estado
+      setMessageType("success");
+      localStorage.removeItem("successMessage"); // Remove do localStorage
+    }
+  }, []);
 
   return (
     //Função de return para retornar os componentes visuais e funcionais do nosso código
@@ -227,6 +247,11 @@ const ContasRec = () => {
       <div className="QuadroContaS">
         <ContasRecGrid />
       </div>
+      <MensagemCadastro
+        message={message}
+        onClose={() => setMessage("")}
+        type={messageType}
+      />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -17,16 +17,36 @@ const style = {
   borderRadius: 2.5,
 };
 
+const messageStyle = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 300,
+  bgcolor: "white",
+  border: "2px solid #f44336",
+  borderRadius: 4,
+  boxShadow: 24,
+  p: 3,
+  textAlign: "center",
+};
+
 export default function DeletarReceitaModal() {
   const [open, setOpen] = useState(false); // Controla o estado do modal
   const [receitaIds, setReceitaIds] = useState(""); // IDs das receitas a serem excluídas
+  const [errorMessage, setErrorMessage] = useState(""); // Mensagem de erro
+  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false); // Controla o estado do modal de erro
 
   const handleOpen = () => setOpen(true); // Abre o modal
   const handleClose = () => setOpen(false); // Fecha o modal
+  const closeErrorModal = () => setIsErrorModalOpen(false); // Fecha o modal de erro
 
   const handleDelete = async () => {
     if (!receitaIds) {
-      alert("Por favor, insira um ou mais IDs válidos separados por vírgula.");
+      setErrorMessage(
+        "Por favor, insira um ou mais IDs válidos separados por vírgula."
+      );
+      setIsErrorModalOpen(true);
       return;
     }
 
@@ -37,7 +57,8 @@ export default function DeletarReceitaModal() {
       // Itera sobre os IDs e realiza a exclusão
       for (const id of ids) {
         if (isNaN(id)) {
-          alert(`ID inválido: ${id}`);
+          setErrorMessage(`ID inválido: ${id}`);
+          setIsErrorModalOpen(true);
           continue;
         }
 
@@ -60,13 +81,23 @@ export default function DeletarReceitaModal() {
       handleClose(); // Fecha o modal
       window.location.reload();
     } catch (error) {
-      alert(`Erro ao excluir as receitas: ${error.message}`);
+      setErrorMessage(`Erro ao excluir as receitas: ${error.message}`);
+      setIsErrorModalOpen(true);
     }
   };
 
   const handleClear = () => {
     setReceitaIds(""); // Limpa o valor dos IDs
   };
+
+  useEffect(() => {
+    if (isErrorModalOpen) {
+      const timer = setTimeout(() => {
+        closeErrorModal(); // Fecha o modal de erro automaticamente após 5 segundos
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [isErrorModalOpen]);
 
   return (
     <div>
@@ -102,9 +133,7 @@ export default function DeletarReceitaModal() {
             component="div"
           >
             <div className="modalIdReceita">
-              <div className="label">
-                IDs das Receitas (separados por vírgula)
-              </div>
+              <div className="label">IDs de Receitas</div>
               <div>
                 <input
                   type="text"
@@ -125,6 +154,26 @@ export default function DeletarReceitaModal() {
           <button onClick={handleClear} className="DelCancelarDadosRec">
             Cancelar Exclusão
           </button>
+        </Box>
+      </Modal>
+      <Modal
+        open={isErrorModalOpen}
+        onClose={closeErrorModal}
+        aria-labelledby="modal-error-title"
+        aria-describedby="modal-error-description"
+      >
+        <Box sx={messageStyle}>
+          <Typography
+            id="modal-error-title"
+            variant="h6"
+            component="h2"
+            color="#f44336"
+          >
+            Erro
+          </Typography>
+          <Typography id="modal-error-description" sx={{ mt: 2 }}>
+            {errorMessage}
+          </Typography>
         </Box>
       </Modal>
     </div>

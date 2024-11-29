@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"; // Importa React e hooks useState e useEffect
 import "./SGF.css"; // Importa o arquivo CSS para estilos da página
-import SGFLogo from "../Imagens/10.png"; // Importa o logo da UMC
+import SGFLogo from "../Imagens/10.png"; // Importa o logo do SGF
 import { Link } from "react-router-dom"; // Importa o componente Link para navegação entre páginas
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import FinanceGraph from "./FluxoCaixa";
@@ -11,7 +11,6 @@ import LucroLiquido from "./LucroLiquido";
 function SGF() {
   // Estados para armazenar os valores dos selects
   const [tipoDocumento, setTipoDocumento] = useState("");
-  const [mes, setMes] = useState("");
   const [banco, setBanco] = useState("");
   const [contasReceber, setContasReceber] = useState([]); // Inicializa a lista de contas a receber
   const [contasPagar, setContasPagar] = useState([]); // Inicializa a lista de contas a pagar
@@ -269,7 +268,6 @@ function SGF() {
             <strong>Fluxo de Caixa</strong>
             <FinanceGraph
               selectedDocumentType={tipoDocumento}
-              selectedMonth={mes}
               selectedBank={banco}
               selectedPlanoConta={planoConta}
             />
@@ -280,7 +278,6 @@ function SGF() {
             <strong>Saídas por Plano de Contas</strong>
             <SaidaPlano
               selectedDocumentType={tipoDocumento}
-              selectedMonth={mes}
               selectedBank={banco}
               selectedPlanoConta={planoConta}
             />
@@ -291,7 +288,6 @@ function SGF() {
             <strong>Entradas por Plano de Contas</strong>
             <EntradaPlano
               selectedDocumentType={tipoDocumento}
-              selectedMonth={mes}
               selectedBank={banco}
               selectedPlanoConta={planoConta}
             />
@@ -357,7 +353,6 @@ function SGF() {
             Lucro Líquido (Regime de Competência)
             <LucroLiquido
               selectedDocumentType={tipoDocumento}
-              selectedMonth={mes}
               selectedBank={banco}
               selectedPlanoConta={planoConta}
             />

@@ -6,16 +6,14 @@ CREATE TABLE usuario (
     senha VARCHAR(255) NOT NULL
 );
 
-
-
-
-
 Select * from usuario
 
 INSERT INTO usuario ( nome, email, senha) VALUES
 ('Raphael Ninonyia', 'raphael.ninonyia@gmail.com', 'senha123'),
 ('Freddye Pontes', 'freddye.pontes@gmail.com', 'senha456'),
 ('Pedro Santos', 'pedro.santos@gmail.com', 'senha789');
+
+
 
 
 CREATE TABLE receita (
@@ -30,144 +28,224 @@ CREATE TABLE receita (
     tipo_banco VARCHAR(45),
     FOREIGN KEY (User_idUser) REFERENCES usuario(id_usuario)  
 );
-	
-
-
 
 Select * from receita
 
-
 -- Janeiro
 INSERT INTO receita (data, valor, documento, cliente, plano_conta_receita, descricao, User_idUser, tipo_banco) VALUES
-('2024-01-01', 1200.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de rações', 1, 'ITAU'),
-('2024-01-05', 1800.50, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Serviço de banho e tosa', 2, 'NUBANK'),
-('2024-01-10', 900.75, 'Débito', 'Pedro Santos', 'Outras Receitas', 'Venda de acessórios', 3, 'SANTANDER'),
-('2024-01-15', 1600.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de medicamentos', 1, 'SANTANDER'),
-('2024-01-20', 2300.30, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Consultas veterinárias', 2, 'ITAU'),
-('2024-01-25', 1150.20, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de brinquedos', 3, 'NUBANK'),
-('2024-01-28', 950.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de ração premium', 1, 'SANTANDER'),
-('2024-01-30', 2000.10, 'Crédito', 'Fernanda Alves', 'Receita com Serviços', 'Serviço de hotel para pets', 2, 'NUBANK');
+('2024-01-01', 1500.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de ração premium', 1, 'ITAU'),
+('2024-01-02', 1800.50, 'Crédito', 'Maria Oliveira', 'Receita com Produtos', 'Venda de acessórios', 2, 'ITAU'),
+('2024-01-03', 900.75, 'Débito', 'Pedro Santos', 'Receita com Serviços', 'Consultas rápidas', 3, 'ITAU'),
+('2024-01-05', 1550.00, 'Fatura', 'Ana Costa', 'Outras Receitas', 'Venda de brinquedos', 1, 'NUBANK'),
+('2024-01-08', 1200.00, 'Transferência', 'Lucas Pereira', 'Receita com Produtos', 'Venda de medicamentos', 2, 'NUBANK'),
+('2024-01-09', 1450.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de brinquedos', 3, 'SANTANDER'),
+('2024-01-12', 1700.00, 'Crédito', 'Beatriz Souza', 'Receita com Serviços', 'Banho e tosa', 1, 'SANTANDER'),
+('2024-01-14', 900.50, 'Débito', 'Fernanda Alves', 'Outras Receitas', 'Venda de petiscos', 2, 'ITAU'),
+('2024-01-16', 1850.00, 'Fatura', 'João da Silva', 'Receita com Produtos', 'Venda de acessórios para cães', 3, 'NUBANK'),
+('2024-01-18', 2100.30, 'Transferência', 'Maria Oliveira', 'Receita com Serviços', 'Hospedagem para pets', 1, 'NUBANK'),
+('2024-01-20', 1000.00, 'Pix', 'Pedro Santos', 'Outras Receitas', 'Venda de ração especial', 2, 'ITAU'),
+('2024-01-22', 1350.00, 'Crédito', 'Ana Costa', 'Receita com Produtos', 'Venda de brinquedos para gatos', 3, 'ITAU'),
+('2024-01-25', 980.00, 'Débito', 'Lucas Pereira', 'Receita com Produtos', 'Venda de medicamentos para cães', 1, 'SANTANDER'),
+('2024-01-28', 1950.50, 'Fatura', 'Beatriz Souza', 'Receita com Serviços', 'Consulta veterinária', 2, 'SANTANDER'),
+('2024-01-30', 2150.10, 'Transferência', 'Carlos Lima', 'Outras Receitas', 'Venda de produtos para gatos', 3, 'ITAU');
 
 -- Fevereiro
 INSERT INTO receita (data, valor, documento, cliente, plano_conta_receita, descricao, User_idUser, tipo_banco) VALUES
-('2024-02-02', 1400.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de ração especial', 1, 'ITAU'),
-('2024-02-05', 1900.50, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Serviço de consulta médica', 2, 'NUBANK'),
-('2024-02-08', 1000.75, 'Débito', 'Pedro Santos', 'Outras Receitas', 'Venda de petiscos', 3, 'SANTANDER'),
-('2024-02-12', 1700.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de ração para cães', 1, 'SANTANDER'),
-('2024-02-15', 2400.30, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Serviço de banho para gatos', 2, 'ITAU'),
-('2024-02-18', 1250.20, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de produtos para gatos', 3, 'NUBANK'),
-('2024-02-21', 1050.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de brinquedos', 1, 'SANTANDER'),
-('2024-02-26', 2100.10, 'Crédito', 'Fernanda Alves', 'Receita com Serviços', 'Serviço de tosa', 2, 'NUBANK');
+('2024-02-01', 1450.00, 'Pix', 'João da Silva', 'Receita com Serviços', 'Banho e tosa', 1, 'ITAU'),
+('2024-02-02', 1700.00, 'Crédito', 'Maria Oliveira', 'Receita com Produtos', 'Venda de brinquedos', 2, 'NUBANK'),
+('2024-02-03', 950.00, 'Débito', 'Pedro Santos', 'Receita com Produtos', 'Venda de acessórios', 3, 'SANTANDER'),
+('2024-02-04', 1850.00, 'Fatura', 'Ana Costa', 'Outras Receitas', 'Venda de petiscos', 1, 'NUBANK'),
+('2024-02-06', 1100.00, 'Transferência', 'Lucas Pereira', 'Receita com Serviços', 'Consulta veterinária', 2, 'SANTANDER'),
+('2024-02-07', 1250.00, 'Pix', 'Beatriz Souza', 'Receita com Produtos', 'Venda de medicamentos', 3, 'ITAU'),
+('2024-02-08', 1750.50, 'Crédito', 'Carlos Lima', 'Receita com Produtos', 'Venda de brinquedos para cães', 1, 'NUBANK'),
+('2024-02-09', 1950.75, 'Débito', 'João da Silva', 'Receita com Serviços', 'Hospedagem para pets', 2, 'SANTANDER'),
+('2024-02-10', 1400.00, 'Fatura', 'Maria Oliveira', 'Outras Receitas', 'Venda de acessórios para gatos', 3, 'ITAU'),
+('2024-02-12', 1350.00, 'Transferência', 'Pedro Santos', 'Receita com Produtos', 'Venda de ração premium', 1, 'NUBANK'),
+('2024-02-15', 1550.50, 'Pix', 'Ana Costa', 'Receita com Serviços', 'Banho e tosa', 2, 'ITAU'),
+('2024-02-18', 1450.00, 'Crédito', 'Lucas Pereira', 'Receita com Produtos', 'Venda de medicamentos para gatos', 3, 'SANTANDER'),
+('2024-02-22', 1850.00, 'Débito', 'Beatriz Souza', 'Receita com Produtos', 'Venda de petiscos variados', 1, 'NUBANK'),
+('2024-02-26', 1200.00, 'Fatura', 'Carlos Lima', 'Receita com Serviços', 'Consulta de rotina', 2, 'SANTANDER'),
+('2024-02-28', 1050.00, 'Transferência', 'João da Silva', 'Outras Receitas', 'Venda de produtos diversos', 3, 'ITAU');
 
 -- Março
 INSERT INTO receita (data, valor, documento, cliente, plano_conta_receita, descricao, User_idUser, tipo_banco) VALUES
-('2024-03-01', 1250.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de ração premium', 1, 'ITAU'),
-('2024-03-06', 1700.50, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Serviço de tosa', 2, 'NUBANK'),
-('2024-03-10', 850.75, 'Débito', 'Pedro Santos', 'Outras Receitas', 'Venda de brinquedos', 3, 'SANTANDER'),
-('2024-03-12', 1550.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de ração especial', 1, 'SANTANDER'),
-('2024-03-16', 2350.30, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Serviço de consulta veterinária', 2, 'ITAU'),
-('2024-03-20', 1350.20, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de produtos para cães', 3, 'NUBANK'),
-('2024-03-25', 980.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de medicamentos', 1, 'SANTANDER'),
-('2024-03-28', 1850.10, 'Crédito', 'Fernanda Alves', 'Receita com Serviços', 'Serviço de hospedagem para pets', 2, 'NUBANK');
+('2024-03-01', 1650.00, 'Pix', 'Maria Oliveira', 'Receita com Serviços', 'Consultas veterinárias', 1, 'ITAU'),
+('2024-03-02', 1500.00, 'Crédito', 'Pedro Santos', 'Receita com Produtos', 'Venda de brinquedos', 2, 'NUBANK'),
+('2024-03-03', 1400.00, 'Débito', 'Ana Costa', 'Receita com Serviços', 'Hospedagem para pets', 3, 'SANTANDER'),
+('2024-03-05', 1850.50, 'Fatura', 'Lucas Pereira', 'Outras Receitas', 'Venda de medicamentos', 1, 'ITAU'),
+('2024-03-08', 1000.00, 'Transferência', 'Beatriz Souza', 'Receita com Produtos', 'Venda de petiscos variados', 2, 'NUBANK'),
+('2024-03-09', 1450.00, 'Pix', 'Carlos Lima', 'Receita com Serviços', 'Consulta de rotina', 3, 'SANTANDER'),
+('2024-03-10', 1700.00, 'Crédito', 'João da Silva', 'Receita com Produtos', 'Venda de brinquedos para cães', 1, 'NUBANK'),
+('2024-03-12', 950.00, 'Débito', 'Maria Oliveira', 'Receita com Serviços', 'Banho e tosa', 2, 'ITAU'),
+('2024-03-15', 1850.50, 'Fatura', 'Pedro Santos', 'Outras Receitas', 'Venda de acessórios', 3, 'NUBANK'),
+('2024-03-18', 1350.00, 'Transferência', 'Ana Costa', 'Receita com Produtos', 'Venda de ração especial', 1, 'SANTANDER'),
+('2024-03-20', 1650.50, 'Pix', 'Lucas Pereira', 'Receita com Serviços', 'Hospedagem para pets', 2, 'ITAU'),
+('2024-03-22', 1750.00, 'Crédito', 'Beatriz Souza', 'Receita com Produtos', 'Venda de medicamentos premium', 3, 'NUBANK'),
+('2024-03-25', 900.00, 'Débito', 'Carlos Lima', 'Receita com Serviços', 'Consulta de emergência', 1, 'SANTANDER'),
+('2024-03-27', 1550.50, 'Fatura', 'João da Silva', 'Outras Receitas', 'Venda de brinquedos variados', 2, 'ITAU'),
+('2024-03-29', 1250.00, 'Transferência', 'Maria Oliveira', 'Receita com Produtos', 'Venda de produtos para gatos', 3, 'NUBANK');
 
 -- Abril
 INSERT INTO receita (data, valor, documento, cliente, plano_conta_receita, descricao, User_idUser, tipo_banco) VALUES
-('2024-04-03', 1450.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de ração para cães', 1, 'ITAU'),
-('2024-04-05', 1850.50, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Serviço de banho e tosa', 2, 'NUBANK'),
-('2024-04-08', 1200.75, 'Débito', 'Pedro Santos', 'Outras Receitas', 'Venda de petiscos', 3, 'SANTANDER'),
-('2024-04-11', 1600.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de acessórios para gatos', 1, 'SANTANDER'),
-('2024-04-14', 2300.30, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Consultas veterinárias', 2, 'ITAU'),
-('2024-04-18', 1100.20, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de brinquedos para pets', 3, 'NUBANK'),
-('2024-04-22', 1050.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de ração premium', 1, 'SANTANDER'),
-('2024-04-27', 2000.10, 'Crédito', 'Fernanda Alves', 'Receita com Serviços', 'Serviço de tosa e hidratação', 2, 'NUBANK');
+('2024-04-01', 1450.00, 'Pix', 'João da Silva', 'Receita com Serviços', 'Consulta veterinária', 1, 'ITAU'),
+('2024-04-02', 1750.00, 'Crédito', 'Maria Oliveira', 'Receita com Produtos', 'Venda de brinquedos', 2, 'NUBANK'),
+('2024-04-03', 1200.00, 'Débito', 'Pedro Santos', 'Receita com Produtos', 'Venda de petiscos', 3, 'SANTANDER'),
+('2024-04-04', 1350.50, 'Fatura', 'Ana Costa', 'Outras Receitas', 'Venda de acessórios', 1, 'NUBANK'),
+('2024-04-06', 1550.00, 'Transferência', 'Lucas Pereira', 'Receita com Produtos', 'Venda de medicamentos', 2, 'ITAU'),
+('2024-04-07', 1800.00, 'Pix', 'Beatriz Souza', 'Receita com Serviços', 'Hospedagem para pets', 3, 'SANTANDER'),
+('2024-04-09', 1400.00, 'Crédito', 'Carlos Lima', 'Receita com Produtos', 'Venda de brinquedos para gatos', 1, 'NUBANK'),
+('2024-04-10', 1250.50, 'Débito', 'João da Silva', 'Receita com Serviços', 'Banho e tosa', 2, 'ITAU'),
+('2024-04-12', 950.00, 'Fatura', 'Maria Oliveira', 'Outras Receitas', 'Venda de acessórios variados', 3, 'SANTANDER'),
+('2024-04-15', 1750.00, 'Transferência', 'Pedro Santos', 'Receita com Produtos', 'Venda de ração premium', 1, 'ITAU'),
+('2024-04-18', 1950.50, 'Pix', 'Ana Costa', 'Receita com Serviços', 'Consulta de rotina', 2, 'NUBANK'),
+('2024-04-20', 1850.00, 'Crédito', 'Lucas Pereira', 'Receita com Produtos', 'Venda de brinquedos para cães', 3, 'SANTANDER'),
+('2024-04-22', 1200.00, 'Débito', 'Beatriz Souza', 'Receita com Serviços', 'Hospedagem para pets', 1, 'ITAU'),
+('2024-04-25', 1300.00, 'Fatura', 'Carlos Lima', 'Outras Receitas', 'Venda de medicamentos premium', 2, 'NUBANK'),
+('2024-04-28', 1050.00, 'Transferência', 'João da Silva', 'Receita com Produtos', 'Venda de produtos para gatos', 3, 'SANTANDER');
 
 -- Maio
 INSERT INTO receita (data, valor, documento, cliente, plano_conta_receita, descricao, User_idUser, tipo_banco) VALUES
-('2024-05-01', 1550.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de rações e petiscos', 1, 'ITAU'),
-('2024-05-03', 1750.50, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Serviço de hospedagem para pets', 2, 'NUBANK'),
-('2024-05-07', 950.75, 'Débito', 'Pedro Santos', 'Outras Receitas', 'Venda de brinquedos', 3, 'SANTANDER'),
-('2024-05-11', 1700.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de ração especial', 1, 'SANTANDER'),
-('2024-05-14', 2250.30, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Consultas veterinárias', 2, 'ITAU'),
-('2024-05-19', 1250.20, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de acessórios', 3, 'NUBANK'),
-('2024-05-23', 990.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de medicamentos', 1, 'SANTANDER'),
-('2024-05-29', 1900.10, 'Crédito', 'Fernanda Alves', 'Receita com Serviços', 'Serviço de banho para gatos', 2, 'NUBANK');
+('2024-05-01', 1500.00, 'Pix', 'Maria Oliveira', 'Receita com Produtos', 'Venda de brinquedos para cães', 1, 'NUBANK'),
+('2024-05-02', 1650.00, 'Crédito', 'Pedro Santos', 'Receita com Produtos', 'Venda de ração especial', 2, 'SANTANDER'),
+('2024-05-03', 1400.00, 'Débito', 'Ana Costa', 'Receita com Serviços', 'Consulta veterinária', 3, 'ITAU'),
+('2024-05-04', 950.00, 'Fatura', 'Lucas Pereira', 'Outras Receitas', 'Venda de acessórios variados', 1, 'NUBANK'),
+('2024-05-05', 1700.00, 'Transferência', 'Beatriz Souza', 'Receita com Produtos', 'Venda de medicamentos', 2, 'ITAU'),
+('2024-05-06', 1350.00, 'Pix', 'Carlos Lima', 'Receita com Serviços', 'Hospedagem para pets', 3, 'SANTANDER'),
+('2024-05-08', 1850.00, 'Crédito', 'João da Silva', 'Receita com Produtos', 'Venda de brinquedos', 1, 'ITAU'),
+('2024-05-10', 1550.50, 'Débito', 'Maria Oliveira', 'Receita com Produtos', 'Venda de produtos para gatos', 2, 'NUBANK'),
+('2024-05-12', 1950.00, 'Fatura', 'Pedro Santos', 'Receita com Serviços', 'Consulta de rotina', 3, 'SANTANDER'),
+('2024-05-15', 1450.00, 'Transferência', 'Ana Costa', 'Receita com Produtos', 'Venda de ração premium', 1, 'NUBANK'),
+('2024-05-17', 1800.00, 'Pix', 'Lucas Pereira', 'Receita com Serviços', 'Banho e tosa', 2, 'ITAU'),
+('2024-05-20', 1750.00, 'Crédito', 'Beatriz Souza', 'Outras Receitas', 'Venda de brinquedos variados', 3, 'SANTANDER'),
+('2024-05-22', 1250.00, 'Débito', 'Carlos Lima', 'Receita com Produtos', 'Venda de medicamentos premium', 1, 'ITAU'),
+('2024-05-25', 1300.00, 'Fatura', 'João da Silva', 'Receita com Serviços', 'Hospedagem para pets', 2, 'NUBANK'),
+('2024-05-28', 950.00, 'Transferência', 'Maria Oliveira', 'Outras Receitas', 'Venda de acessórios variados', 3, 'SANTANDER');
 
 -- Junho
 INSERT INTO receita (data, valor, documento, cliente, plano_conta_receita, descricao, User_idUser, tipo_banco) VALUES
-('2024-06-02', 1500.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de acessórios para cães', 1, 'ITAU'),
-('2024-06-05', 1950.50, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Serviço de consulta veterinária', 2, 'NUBANK'),
-('2024-06-07', 1000.75, 'Débito', 'Pedro Santos', 'Outras Receitas', 'Venda de produtos para gatos', 3, 'SANTANDER'),
-('2024-06-11', 1800.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de ração premium', 1, 'SANTANDER'),
-('2024-06-16', 2500.30, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Consultas veterinárias', 2, 'ITAU'),
-('2024-06-20', 1300.20, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de petiscos', 3, 'NUBANK'),
-('2024-06-25', 1050.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de brinquedos', 1, 'SANTANDER'),
-('2024-06-28', 2050.10, 'Crédito', 'Fernanda Alves', 'Receita com Serviços', 'Serviço de banho e tosa', 2, 'NUBANK');
+('2024-06-01', 1550.00, 'Pix', 'Pedro Santos', 'Receita com Serviços', 'Consulta de rotina', 1, 'NUBANK'),
+('2024-06-03', 1400.00, 'Crédito', 'Ana Costa', 'Receita com Produtos', 'Venda de brinquedos', 2, 'SANTANDER'),
+('2024-06-04', 1250.00, 'Débito', 'Lucas Pereira', 'Receita com Produtos', 'Venda de medicamentos', 3, 'ITAU'),
+('2024-06-06', 1100.00, 'Fatura', 'Beatriz Souza', 'Outras Receitas', 'Venda de petiscos', 1, 'NUBANK'),
+('2024-06-08', 1650.50, 'Transferência', 'Carlos Lima', 'Receita com Serviços', 'Hospedagem para pets', 2, 'ITAU'),
+('2024-06-10', 1950.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de ração especial', 3, 'SANTANDER'),
+('2024-06-12', 1350.00, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Banho e tosa', 1, 'ITAU'),
+('2024-06-15', 950.00, 'Débito', 'Pedro Santos', 'Receita com Produtos', 'Venda de acessórios', 2, 'NUBANK'),
+('2024-06-18', 1750.00, 'Fatura', 'Ana Costa', 'Outras Receitas', 'Venda de produtos diversos', 3, 'ITAU'),
+('2024-06-20', 1550.00, 'Transferência', 'Lucas Pereira', 'Receita com Produtos', 'Venda de brinquedos para gatos', 1, 'NUBANK'),
+('2024-06-22', 1850.50, 'Pix', 'Beatriz Souza', 'Receita com Serviços', 'Hospedagem para pets', 2, 'ITAU'),
+('2024-06-25', 1750.00, 'Crédito', 'Carlos Lima', 'Receita com Produtos', 'Venda de ração premium', 3, 'SANTANDER'),
+('2024-06-27', 1250.00, 'Débito', 'João da Silva', 'Receita com Produtos', 'Venda de medicamentos premium', 1, 'NUBANK'),
+('2024-06-29', 1050.00, 'Fatura', 'Maria Oliveira', 'Receita com Produtos', 'Venda de acessórios', 2, 'ITAU'),
+('2024-06-30', 1950.00, 'Transferência', 'Pedro Santos', 'Receita com Serviços', 'Consulta veterinária', 3, 'SANTANDER');
 
 -- Julho
 INSERT INTO receita (data, valor, documento, cliente, plano_conta_receita, descricao, User_idUser, tipo_banco) VALUES
-('2024-07-01', 1350.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de medicamentos', 1, 'ITAU'),
-('2024-07-05', 1850.50, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Serviço de hotel para pets', 2, 'NUBANK'),
-('2024-07-09', 1100.75, 'Débito', 'Pedro Santos', 'Outras Receitas', 'Venda de acessórios', 3, 'SANTANDER'),
-('2024-07-12', 1600.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de ração premium', 1, 'SANTANDER'),
-('2024-07-18', 2450.30, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Consultas veterinárias', 2, 'ITAU'),
-('2024-07-20', 1200.20, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de brinquedos', 3, 'NUBANK'),
-('2024-07-23', 1000.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de medicamentos', 1, 'SANTANDER'),
-('2024-07-29', 1950.10, 'Crédito', 'Fernanda Alves', 'Receita com Serviços', 'Serviço de banho e tosa', 2, 'NUBANK');
+('2024-07-01', 1550.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de ração premium', 1, 'NUBANK'),
+('2024-07-03', 1400.00, 'Crédito', 'Lucas Pereira', 'Receita com Produtos', 'Venda de brinquedos', 2, 'ITAU'),
+('2024-07-05', 1250.00, 'Débito', 'Beatriz Souza', 'Receita com Produtos', 'Venda de acessórios para cães', 3, 'SANTANDER'),
+('2024-07-07', 1800.50, 'Fatura', 'Carlos Lima', 'Receita com Serviços', 'Consulta veterinária', 1, 'ITAU'),
+('2024-07-09', 1500.00, 'Transferência', 'João da Silva', 'Outras Receitas', 'Venda de petiscos variados', 2, 'NUBANK'),
+('2024-07-11', 1950.00, 'Pix', 'Maria Oliveira', 'Receita com Serviços', 'Hospedagem para pets', 3, 'SANTANDER'),
+('2024-07-12', 1350.00, 'Crédito', 'Pedro Santos', 'Receita com Produtos', 'Venda de brinquedos premium', 1, 'ITAU'),
+('2024-07-14', 950.00, 'Débito', 'Ana Costa', 'Receita com Produtos', 'Venda de medicamentos', 2, 'NUBANK'),
+('2024-07-16', 1550.00, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Banho e tosa', 3, 'SANTANDER'),
+('2024-07-18', 1750.00, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de produtos para gatos', 1, 'ITAU'),
+('2024-07-20', 1400.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de acessórios para gatos', 2, 'NUBANK'),
+('2024-07-22', 1650.50, 'Crédito', 'João da Silva', 'Receita com Serviços', 'Consulta veterinária emergencial', 3, 'SANTANDER'),
+('2024-07-25', 1750.00, 'Débito', 'Maria Oliveira', 'Receita com Produtos', 'Venda de brinquedos', 1, 'ITAU'),
+('2024-07-27', 950.00, 'Fatura', 'Pedro Santos', 'Receita com Produtos', 'Venda de ração especial', 2, 'NUBANK'),
+('2024-07-30', 1850.00, 'Transferência', 'Ana Costa', 'Receita com Serviços', 'Hospedagem para pets', 3, 'SANTANDER');
 
 -- Agosto
 INSERT INTO receita (data, valor, documento, cliente, plano_conta_receita, descricao, User_idUser, tipo_banco) VALUES
-('2024-08-02', 1400.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de rações', 1, 'ITAU'),
-('2024-08-06', 1750.50, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Serviço de hotel para pets', 2, 'NUBANK'),
-('2024-08-10', 1050.75, 'Débito', 'Pedro Santos', 'Outras Receitas', 'Venda de brinquedos', 3, 'SANTANDER'),
-('2024-08-15', 1700.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de ração premium', 1, 'SANTANDER'),
-('2024-08-18', 2500.30, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Consultas veterinárias', 2, 'ITAU'),
-('2024-08-20', 1400.20, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de brinquedos', 3, 'NUBANK'),
-('2024-08-24', 1050.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de medicamentos', 1, 'SANTANDER'),
-('2024-08-28', 1850.10, 'Crédito', 'Fernanda Alves', 'Receita com Serviços', 'Serviço de banho e tosa', 2, 'NUBANK');
+('2024-08-01', 1500.00, 'Pix', 'Lucas Pereira', 'Receita com Serviços', 'Consulta veterinária', 1, 'ITAU'),
+('2024-08-03', 1750.50, 'Crédito', 'Beatriz Souza', 'Receita com Produtos', 'Venda de medicamentos', 2, 'SANTANDER'),
+('2024-08-05', 1250.00, 'Débito', 'Carlos Lima', 'Receita com Produtos', 'Venda de brinquedos para cães', 3, 'NUBANK'),
+('2024-08-06', 1550.00, 'Fatura', 'João da Silva', 'Receita com Serviços', 'Hospedagem para pets', 1, 'ITAU'),
+('2024-08-09', 950.00, 'Transferência', 'Maria Oliveira', 'Receita com Produtos', 'Venda de acessórios', 2, 'SANTANDER'),
+('2024-08-11', 1850.50, 'Pix', 'Pedro Santos', 'Receita com Produtos', 'Venda de petiscos', 3, 'NUBANK'),
+('2024-08-13', 1350.00, 'Crédito', 'Ana Costa', 'Receita com Produtos', 'Venda de produtos para gatos', 1, 'ITAU'),
+('2024-08-14', 950.00, 'Débito', 'Lucas Pereira', 'Outras Receitas', 'Venda de produtos diversos', 2, 'SANTANDER'),
+('2024-08-15', 1650.50, 'Fatura', 'Beatriz Souza', 'Receita com Serviços', 'Banho e tosa', 3, 'NUBANK'),
+('2024-08-18', 1400.00, 'Transferência', 'Carlos Lima', 'Receita com Produtos', 'Venda de brinquedos para gatos', 1, 'ITAU'),
+('2024-08-20', 1550.00, 'Pix', 'João da Silva', 'Receita com Serviços', 'Consulta veterinária', 2, 'NUBANK'),
+('2024-08-22', 1350.00, 'Crédito', 'Maria Oliveira', 'Receita com Produtos', 'Venda de acessórios premium', 3, 'SANTANDER'),
+('2024-08-25', 950.00, 'Débito', 'Pedro Santos', 'Receita com Serviços', 'Hospedagem para pets', 1, 'ITAU'),
+('2024-08-27', 1750.00, 'Fatura', 'Ana Costa', 'Outras Receitas', 'Venda de brinquedos variados', 2, 'SANTANDER'),
+('2024-08-30', 1250.00, 'Transferência', 'Lucas Pereira', 'Receita com Produtos', 'Venda de ração premium', 3, 'NUBANK');
 
 -- Setembro
 INSERT INTO receita (data, valor, documento, cliente, plano_conta_receita, descricao, User_idUser, tipo_banco) VALUES
-('2024-09-02', 1400.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de rações', 1, 'ITAU'),
-('2024-09-07', 1750.50, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Serviço de hotel para pets', 2, 'NUBANK'),
-('2024-09-10', 1050.75, 'Débito', 'Pedro Santos', 'Outras Receitas', 'Venda de brinquedos', 3, 'SANTANDER'),
-('2024-09-13', 1700.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de ração premium', 1, 'SANTANDER'),
-('2024-09-18', 2500.30, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Consultas veterinárias', 2, 'ITAU'),
-('2024-09-20', 1400.20, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de brinquedos', 3, 'NUBANK'),
-('2024-09-24', 1050.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de medicamentos', 1, 'SANTANDER'),
-('2024-09-28', 1850.10, 'Crédito', 'Fernanda Alves', 'Receita com Serviços', 'Serviço de banho e tosa', 2, 'NUBANK');
+('2024-09-01', 1350.00, 'Pix', 'Beatriz Souza', 'Receita com Produtos', 'Venda de brinquedos premium', 1, 'SANTANDER'),
+('2024-09-03', 950.00, 'Crédito', 'Carlos Lima', 'Receita com Serviços', 'Consulta de rotina', 2, 'ITAU'),
+('2024-09-05', 1750.00, 'Débito', 'João da Silva', 'Receita com Produtos', 'Venda de ração especial', 3, 'NUBANK'),
+('2024-09-06', 1500.00, 'Fatura', 'Maria Oliveira', 'Receita com Produtos', 'Venda de acessórios variados', 1, 'SANTANDER'),
+('2024-09-08', 1650.50, 'Transferência', 'Pedro Santos', 'Receita com Serviços', 'Hospedagem para pets', 2, 'NUBANK'),
+('2024-09-10', 1250.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de produtos para cães', 3, 'ITAU'),
+('2024-09-12', 1950.00, 'Crédito', 'Lucas Pereira', 'Outras Receitas', 'Venda de brinquedos variados', 1, 'SANTANDER'),
+('2024-09-14', 1400.00, 'Débito', 'Beatriz Souza', 'Receita com Produtos', 'Venda de medicamentos', 2, 'NUBANK'),
+('2024-09-16', 1550.00, 'Fatura', 'Carlos Lima', 'Receita com Serviços', 'Banho e tosa', 3, 'ITAU'),
+('2024-09-18', 1350.00, 'Transferência', 'João da Silva', 'Receita com Produtos', 'Venda de acessórios para gatos', 1, 'NUBANK'),
+('2024-09-20', 1500.00, 'Pix', 'Maria Oliveira', 'Receita com Serviços', 'Consulta veterinária emergencial', 2, 'SANTANDER'),
+('2024-09-22', 1400.00, 'Crédito', 'Pedro Santos', 'Receita com Produtos', 'Venda de ração premium', 3, 'ITAU'),
+('2024-09-25', 950.00, 'Débito', 'Ana Costa', 'Outras Receitas', 'Venda de petiscos variados', 1, 'SANTANDER'),
+('2024-09-27', 1750.00, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Hospedagem para pets', 2, 'NUBANK'),
+('2024-09-30', 1650.00, 'Transferência', 'Beatriz Souza', 'Receita com Produtos', 'Venda de brinquedos para cães', 3, 'ITAU');
 
 -- Outubro
 INSERT INTO receita (data, valor, documento, cliente, plano_conta_receita, descricao, User_idUser, tipo_banco) VALUES
-('2024-10-03', 1450.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de ração para cães', 1, 'ITAU'),
-('2024-10-05', 1850.50, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Serviço de banho e tosa', 2, 'NUBANK'),
-('2024-10-08', 1200.75, 'Débito', 'Pedro Santos', 'Outras Receitas', 'Venda de petiscos', 3, 'SANTANDER'),
-('2024-10-11', 1600.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de acessórios para gatos', 1, 'SANTANDER'),
-('2024-10-14', 2300.30, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Consultas veterinárias', 2, 'ITAU'),
-('2024-10-18', 1100.20, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de brinquedos para pets', 3, 'NUBANK'),
-('2024-10-22', 1050.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de ração premium', 1, 'SANTANDER'),
-('2024-10-27', 2000.10, 'Crédito', 'Fernanda Alves', 'Receita com Serviços', 'Serviço de tosa e hidratação', 2, 'NUBANK');
+('2024-10-01', 1450.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de brinquedos para cães', 1, 'ITAU'),
+('2024-10-03', 1500.00, 'Crédito', 'João da Silva', 'Receita com Serviços', 'Consulta veterinária', 2, 'NUBANK'),
+('2024-10-05', 1250.00, 'Débito', 'Maria Oliveira', 'Receita com Produtos', 'Venda de acessórios', 3, 'SANTANDER'),
+('2024-10-06', 1850.50, 'Fatura', 'Pedro Santos', 'Receita com Produtos', 'Venda de ração premium', 1, 'ITAU'),
+('2024-10-08', 1350.00, 'Transferência', 'Ana Costa', 'Receita com Serviços', 'Hospedagem para pets', 2, 'NUBANK'),
+('2024-10-10', 1950.00, 'Pix', 'Lucas Pereira', 'Receita com Produtos', 'Venda de medicamentos premium', 3, 'SANTANDER'),
+('2024-10-12', 1400.00, 'Crédito', 'Beatriz Souza', 'Receita com Produtos', 'Venda de brinquedos variados', 1, 'ITAU'),
+('2024-10-14', 1250.00, 'Débito', 'Carlos Lima', 'Receita com Produtos', 'Venda de produtos para gatos', 2, 'NUBANK'),
+('2024-10-16', 1650.50, 'Fatura', 'João da Silva', 'Receita com Serviços', 'Consulta veterinária emergencial', 3, 'SANTANDER'),
+('2024-10-18', 1550.00, 'Transferência', 'Maria Oliveira', 'Receita com Produtos', 'Venda de acessórios premium', 1, 'ITAU'),
+('2024-10-20', 1750.00, 'Pix', 'Pedro Santos', 'Receita com Produtos', 'Venda de brinquedos para cães', 2, 'NUBANK'),
+('2024-10-22', 1400.00, 'Crédito', 'Ana Costa', 'Receita com Produtos', 'Venda de ração especial', 3, 'SANTANDER'),
+('2024-10-24', 950.00, 'Débito', 'Lucas Pereira', 'Outras Receitas', 'Venda de petiscos', 1, 'ITAU'),
+('2024-10-26', 1500.00, 'Fatura', 'Beatriz Souza', 'Receita com Produtos', 'Venda de produtos para cães', 2, 'NUBANK'),
+('2024-10-28', 1250.00, 'Transferência', 'Carlos Lima', 'Receita com Serviços', 'Hospedagem para pets', 3, 'SANTANDER');
 
 -- Novembro
 INSERT INTO receita (data, valor, documento, cliente, plano_conta_receita, descricao, User_idUser, tipo_banco) VALUES
-('2024-11-02', 1400.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de rações', 1, 'ITAU'),
-('2024-11-05', 1750.50, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Serviço de hotel para pets', 2, 'NUBANK'),
-('2024-11-07', 950.75, 'Débito', 'Pedro Santos', 'Outras Receitas', 'Venda de brinquedos', 3, 'SANTANDER'),
-('2024-11-11', 1700.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de ração especial', 1, 'SANTANDER'),
-('2024-11-14', 2250.30, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Consultas veterinárias', 2, 'ITAU'),
-('2024-11-18', 1250.20, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de acessórios', 3, 'NUBANK'),
-('2024-11-22', 990.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de medicamentos', 1, 'SANTANDER'),
-('2024-11-29', 1900.10, 'Crédito', 'Fernanda Alves', 'Receita com Serviços', 'Serviço de banho para gatos', 2, 'NUBANK');
+('2024-11-01', 1450.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de acessórios variados', 1, 'ITAU'),
+('2024-11-03', 1500.00, 'Crédito', 'Maria Oliveira', 'Receita com Produtos', 'Venda de brinquedos', 2, 'NUBANK'),
+('2024-11-05', 1350.00, 'Débito', 'Pedro Santos', 'Receita com Serviços', 'Consulta veterinária', 3, 'SANTANDER'),
+('2024-11-06', 1850.00, 'Fatura', 'Ana Costa', 'Receita com Produtos', 'Venda de medicamentos premium', 1, 'NUBANK'),
+('2024-11-08', 1750.00, 'Transferência', 'Lucas Pereira', 'Receita com Serviços', 'Hospedagem para pets', 2, 'ITAU'),
+('2024-11-10', 1400.00, 'Pix', 'Beatriz Souza', 'Receita com Produtos', 'Venda de ração especial', 3, 'SANTANDER'),
+('2024-11-12', 1350.00, 'Crédito', 'Carlos Lima', 'Outras Receitas', 'Venda de produtos diversos', 1, 'NUBANK'),
+('2024-11-14', 1250.00, 'Débito', 'João da Silva', 'Receita com Produtos', 'Venda de brinquedos para gatos', 2, 'ITAU'),
+('2024-11-16', 1550.00, 'Fatura', 'Maria Oliveira', 'Receita com Serviços', 'Banho e tosa', 3, 'SANTANDER'),
+('2024-11-18', 1500.00, 'Transferência', 'Pedro Santos', 'Receita com Produtos', 'Venda de acessórios', 1, 'NUBANK'),
+('2024-11-20', 1650.50, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de ração premium', 2, 'ITAU'),
+('2024-11-22', 950.00, 'Crédito', 'Lucas Pereira', 'Outras Receitas', 'Venda de brinquedos variados', 3, 'SANTANDER'),
+('2024-11-24', 1400.00, 'Débito', 'Beatriz Souza', 'Receita com Produtos', 'Venda de medicamentos', 1, 'NUBANK'),
+('2024-11-26', 1750.00, 'Fatura', 'Carlos Lima', 'Receita com Serviços', 'Consulta veterinária', 2, 'ITAU'),
+('2024-11-28', 1500.00, 'Transferência', 'João da Silva', 'Receita com Produtos', 'Venda de brinquedos para cães', 3, 'SANTANDER');
 
 -- Dezembro
 INSERT INTO receita (data, valor, documento, cliente, plano_conta_receita, descricao, User_idUser, tipo_banco) VALUES
-('2024-12-01', 1250.00, 'Pix', 'João da Silva', 'Receita com Produtos', 'Venda de ração premium', 1, 'ITAU'),
-('2024-12-06', 1700.50, 'Crédito', 'Maria Oliveira', 'Receita com Serviços', 'Serviço de tosa', 2, 'NUBANK'),
-('2024-12-10', 850.75, 'Débito', 'Pedro Santos', 'Outras Receitas', 'Venda de brinquedos', 3, 'SANTANDER'),
-('2024-12-12', 1550.00, 'Pix', 'Ana Costa', 'Receita com Produtos', 'Venda de ração especial', 1, 'SANTANDER'),
-('2024-12-16', 2350.30, 'Fatura', 'Lucas Pereira', 'Receita com Serviços', 'Serviço de consulta veterinária', 2, 'ITAU'),
-('2024-12-20', 1350.20, 'Transferência', 'Beatriz Souza', 'Outras Receitas', 'Venda de produtos para cães', 3, 'NUBANK'),
-('2024-12-25', 980.00, 'Pix', 'Carlos Lima', 'Receita com Produtos', 'Venda de medicamentos', 1, 'SANTANDER'),
-('2024-12-28', 1850.10, 'Crédito', 'Fernanda Alves', 'Receita com Serviços', 'Serviço de hospedagem para pets', 2, 'NUBANK');
+('2024-12-01', 1500.00, 'Pix', 'Maria Oliveira', 'Receita com Serviços', 'Consulta veterinária emergencial', 1, 'ITAU'),
+('2024-12-03', 1650.00, 'Crédito', 'Pedro Santos', 'Receita com Produtos', 'Venda de brinquedos', 2, 'NUBANK'),
+('2024-12-05', 1750.00, 'Débito', 'Ana Costa', 'Receita com Produtos', 'Venda de ração premium', 3, 'SANTANDER'),
+('2024-12-06', 1850.50, 'Fatura', 'Lucas Pereira', 'Receita com Produtos', 'Venda de acessórios', 1, 'NUBANK'),
+('2024-12-08', 1350.00, 'Transferência', 'Beatriz Souza', 'Receita com Produtos', 'Venda de brinquedos variados', 2, 'ITAU'),
+('2024-12-10', 1500.00, 'Pix', 'Carlos Lima', 'Outras Receitas', 'Venda de produtos para gatos', 3, 'SANTANDER'),
+('2024-12-12', 1550.00, 'Crédito', 'João da Silva', 'Receita com Serviços', 'Hospedagem para pets', 1, 'NUBANK'),
+('2024-12-14', 1400.00, 'Débito', 'Maria Oliveira', 'Receita com Produtos', 'Venda de acessórios', 2, 'ITAU'),
+('2024-12-16', 1250.00, 'Fatura', 'Pedro Santos', 'Receita com Produtos', 'Venda de brinquedos para cães', 3, 'SANTANDER'),
+('2024-12-18', 1400.00, 'Transferência', 'Ana Costa', 'Receita com Serviços', 'Banho e tosa', 1, 'ITAU'),
+('2024-12-20', 1750.00, 'Pix', 'Lucas Pereira', 'Receita com Produtos', 'Venda de ração especial', 2, 'NUBANK'),
+('2024-12-22', 950.00, 'Crédito', 'Beatriz Souza', 'Receita com Produtos', 'Venda de brinquedos variados', 3, 'ITAU'),
+('2024-12-24', 1550.00, 'Débito', 'Carlos Lima', 'Receita com Produtos', 'Venda de acessórios premium', 1, 'SANTANDER'),
+('2024-12-26', 1950.00, 'Fatura', 'João da Silva', 'Receita com Serviços', 'Consulta veterinária', 2, 'NUBANK'),
+('2024-12-28', 1350.00, 'Transferência', 'Maria Oliveira', 'Receita com Produtos', 'Venda de brinquedos para gatos', 3, 'ITAU');
 
 
 
@@ -186,140 +264,220 @@ CREATE TABLE despesa (
     FOREIGN KEY (User_idUser) REFERENCES usuario(id_usuario)  
 );
 
-
-
 Select * from despesa
-
 
 -- Janeiro
 INSERT INTO despesa (data, valor, documento, fornecedor, plano_conta, descricao, User_idUser, tipo_banco) VALUES
 ('2024-01-02', 500.00, 'Pix', 'Distribuidora Alpha', 'Despesas com Ocupação', 'Aluguel da loja', 1, 'ITAU'),
-('2024-01-06', 300.75, 'Crédito', 'Serviços Beta', 'Despesas com Serviços', 'Manutenção de ar-condicionado', 2, 'NUBANK'),
-('2024-01-09', 150.50, 'Débito', 'Fornecedora Gamma', 'Despesas com Pessoal', 'Salário dos funcionários', 3, 'SANTANDER'),
-('2024-01-13', 600.00, 'Pix', 'Fornecedor Delta', 'Outras Despesas', 'Compra de suprimentos', 1, 'SANTANDER'),
-('2024-01-17', 450.40, 'Fatura', 'Prestador Epsilon', 'Impostos', 'Pagamento de impostos municipais', 2, 'ITAU'),
-('2024-01-20', 700.20, 'Transferência', 'Loja Zeta', 'Custos Variáveis', 'Compra de rações', 3, 'NUBANK'),
-('2024-01-24', 500.00, 'Pix', 'Distribuidora Eta', 'Despesas com Ocupação', 'Manutenção do imóvel', 1, 'SANTANDER'),
-('2024-01-28', 350.10, 'Crédito', 'Serviços Theta', 'Despesas com Serviços', 'Reparos no sistema elétrico', 2, 'NUBANK');
+('2024-01-03', 300.75, 'Crédito', 'Serviços Beta', 'Despesas com Serviços', 'Manutenção de ar-condicionado', 2, 'NUBANK'),
+('2024-01-05', 150.50, 'Débito', 'Fornecedora Gamma', 'Despesas com Pessoal', 'Salário dos funcionários', 3, 'SANTANDER'),
+('2024-01-07', 600.00, 'Pix', 'Fornecedor Delta', 'Outras Despesas', 'Compra de suprimentos', 1, 'SANTANDER'),
+('2024-01-10', 450.40, 'Fatura', 'Prestador Epsilon', 'Impostos', 'Pagamento de impostos municipais', 2, 'ITAU'),
+('2024-01-12', 700.20, 'Transferência', 'Loja Zeta', 'Custos Variáveis', 'Compra de rações', 3, 'NUBANK'),
+('2024-01-14', 500.00, 'Pix', 'Distribuidora Eta', 'Despesas com Ocupação', 'Manutenção do imóvel', 1, 'SANTANDER'),
+('2024-01-16', 350.10, 'Crédito', 'Serviços Theta', 'Despesas com Serviços', 'Reparos no sistema elétrico', 2, 'NUBANK'),
+('2024-01-18', 250.00, 'Débito', 'Fornecedor Omega', 'Despesas com Pessoal', 'Adiantamento salarial', 3, 'ITAU'),
+('2024-01-20', 800.00, 'Pix', 'Distribuidora Alpha', 'Outras Despesas', 'Compra de materiais de limpeza', 1, 'SANTANDER'),
+('2024-01-22', 600.40, 'Fatura', 'Prestador Epsilon', 'Impostos', 'Pagamento de tributos estaduais', 2, 'ITAU'),
+('2024-01-24', 750.20, 'Transferência', 'Loja Beta', 'Custos Variáveis', 'Compra de acessórios para pets', 3, 'NUBANK'),
+('2024-01-26', 550.00, 'Pix', 'Fornecedora Delta', 'Despesas com Ocupação', 'Reparos na infraestrutura', 1, 'SANTANDER'),
+('2024-01-28', 400.00, 'Crédito', 'Serviços Beta', 'Despesas com Serviços', 'Limpeza de ar-condicionado', 2, 'NUBANK'),
+('2024-01-30', 300.00, 'Débito', 'Distribuidora Zeta', 'Despesas com Pessoal', 'Compra de uniformes', 3, 'ITAU');
 
 -- Fevereiro
 INSERT INTO despesa (data, valor, documento, fornecedor, plano_conta, descricao, User_idUser, tipo_banco) VALUES
 ('2024-02-01', 550.00, 'Pix', 'Distribuidora Alpha', 'Despesas com Ocupação', 'Aluguel da loja', 1, 'ITAU'),
-('2024-02-03', 350.75, 'Crédito', 'Serviços Beta', 'Despesas com Serviços', 'Manutenção de sistema de informática', 2, 'NUBANK'),
-('2024-02-07', 180.50, 'Débito', 'Fornecedora Gamma', 'Despesas com Pessoal', 'Salário dos funcionários', 3, 'SANTANDER'),
-('2024-02-11', 620.00, 'Pix', 'Fornecedor Delta', 'Outras Despesas', 'Compra de materiais de escritório', 1, 'SANTANDER'),
-('2024-02-14', 470.40, 'Fatura', 'Prestador Epsilon', 'Impostos', 'Pagamento de impostos estaduais', 2, 'ITAU'),
-('2024-02-17', 760.20, 'Transferência', 'Loja Zeta', 'Custos Variáveis', 'Compra de ração para cães', 3, 'NUBANK'),
-('2024-02-20', 550.00, 'Pix', 'Distribuidora Eta', 'Despesas com Ocupação', 'Reparos no telhado', 1, 'SANTANDER'),
-('2024-02-24', 380.10, 'Crédito', 'Serviços Theta', 'Despesas com Serviços', 'Limpeza de caixas de água', 2, 'NUBANK');
+('2024-02-02', 350.75, 'Crédito', 'Serviços Beta', 'Despesas com Serviços', 'Manutenção de sistema de informática', 2, 'NUBANK'),
+('2024-02-04', 180.50, 'Débito', 'Fornecedora Gamma', 'Despesas com Pessoal', 'Salário dos funcionários', 3, 'SANTANDER'),
+('2024-02-06', 620.00, 'Pix', 'Fornecedor Delta', 'Outras Despesas', 'Compra de materiais de escritório', 1, 'SANTANDER'),
+('2024-02-08', 470.40, 'Fatura', 'Prestador Epsilon', 'Impostos', 'Pagamento de impostos estaduais', 2, 'ITAU'),
+('2024-02-10', 760.20, 'Transferência', 'Loja Zeta', 'Custos Variáveis', 'Compra de ração para cães', 3, 'NUBANK'),
+('2024-02-12', 550.00, 'Pix', 'Distribuidora Eta', 'Despesas com Ocupação', 'Reparos no telhado', 1, 'SANTANDER'),
+('2024-02-14', 380.10, 'Crédito', 'Serviços Theta', 'Despesas com Serviços', 'Limpeza de caixas de água', 2, 'NUBANK'),
+('2024-02-16', 190.00, 'Débito', 'Fornecedor Omega', 'Despesas com Pessoal', 'Adiantamento de férias', 3, 'ITAU'),
+('2024-02-18', 720.00, 'Pix', 'Distribuidora Gamma', 'Outras Despesas', 'Compra de equipamentos', 1, 'SANTANDER'),
+('2024-02-20', 560.40, 'Fatura', 'Prestador Epsilon', 'Impostos', 'Pagamento de taxas ambientais', 2, 'ITAU'),
+('2024-02-22', 850.20, 'Transferência', 'Loja Beta', 'Custos Variáveis', 'Compra de brinquedos para pets', 3, 'NUBANK'),
+('2024-02-24', 450.00, 'Pix', 'Fornecedora Delta', 'Despesas com Ocupação', 'Troca de telhas', 1, 'SANTANDER'),
+('2024-02-26', 420.00, 'Crédito', 'Serviços Beta', 'Despesas com Serviços', 'Serviço de limpeza externa', 2, 'NUBANK'),
+('2024-02-28', 350.00, 'Débito', 'Distribuidora Zeta', 'Despesas com Pessoal', 'Compra de EPIs', 3, 'ITAU');
 
 -- Março
 INSERT INTO despesa (data, valor, documento, fornecedor, plano_conta, descricao, User_idUser, tipo_banco) VALUES
-('2024-03-03', 1150.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
-('2024-03-06', 680.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Manutenção elétrica', 2, 'NUBANK'),
-('2024-03-09', 1400.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
-('2024-03-12', 500.00, 'Pix', 'Impostos Municipais', 'Impostos', 'Pagamento de IPTU', 1, 'SANTANDER'),
-('2024-03-15', 720.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
-('2024-03-19', 900.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza mensal da loja', 3, 'NUBANK'),
-('2024-03-22', 430.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas de água e luz', 1, 'SANTANDER'),
-('2024-03-28', 1200.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK');
+('2024-03-01', 1150.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
+('2024-03-03', 680.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Manutenção elétrica', 2, 'NUBANK'),
+('2024-03-05', 1400.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
+('2024-03-07', 500.00, 'Pix', 'Impostos Municipais', 'Impostos', 'Pagamento de IPTU', 1, 'SANTANDER'),
+('2024-03-09', 720.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
+('2024-03-11', 900.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza mensal da loja', 3, 'NUBANK'),
+('2024-03-13', 430.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas de água e luz', 1, 'SANTANDER'),
+('2024-03-15', 1200.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK'),
+('2024-03-18', 1250.00, 'Pix', 'Distribuidora Gamma', 'Despesas com Ocupação', 'Reparos no sistema hidráulico', 1, 'ITAU'),
+('2024-03-20', 650.40, 'Fatura', 'Prestador Theta', 'Impostos', 'Taxas anuais de licença', 2, 'SANTANDER'),
+('2024-03-22', 750.20, 'Transferência', 'Loja Alpha', 'Custos Variáveis', 'Compra de acessórios', 3, 'NUBANK'),
+('2024-03-24', 540.00, 'Pix', 'Fornecedora Beta', 'Despesas com Pessoal', 'Curso de capacitação', 1, 'ITAU'),
+('2024-03-26', 480.00, 'Crédito', 'Serviços Delta', 'Despesas com Serviços', 'Troca de piso', 2, 'NUBANK'),
+('2024-03-28', 400.00, 'Débito', 'Distribuidora Omega', 'Outras Despesas', 'Compra de ferramentas', 3, 'SANTANDER'),
+('2024-03-30', 250.00, 'Pix', 'Distribuidora Theta', 'Despesas com Ocupação', 'Reparos diversos', 1, 'ITAU');
 
 -- Abril
 INSERT INTO despesa (data, valor, documento, fornecedor, plano_conta, descricao, User_idUser, tipo_banco) VALUES
-('2024-04-02', 1170.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
-('2024-04-05', 700.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Troca de fiação elétrica', 2, 'NUBANK'),
-('2024-04-09', 1450.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
-('2024-04-12', 480.00, 'Pix', 'Impostos Estaduais', 'Impostos', 'Pagamento de ICMS', 1, 'SANTANDER'),
-('2024-04-14', 690.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
-('2024-04-18', 880.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza da loja', 3, 'NUBANK'),
-('2024-04-22', 450.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Pagamento das contas de água e luz', 1, 'SANTANDER'),
-('2024-04-26', 1300.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK');
+('2024-04-01', 1170.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
+('2024-04-03', 700.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Troca de fiação elétrica', 2, 'NUBANK'),
+('2024-04-05', 1450.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
+('2024-04-07', 480.00, 'Pix', 'Impostos Estaduais', 'Impostos', 'Pagamento de ICMS', 1, 'SANTANDER'),
+('2024-04-09', 690.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
+('2024-04-11', 880.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza da loja', 3, 'NUBANK'),
+('2024-04-13', 450.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas de água e luz', 1, 'SANTANDER'),
+('2024-04-15', 1300.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK'),
+('2024-04-17', 640.00, 'Pix', 'Distribuidora Beta', 'Despesas com Ocupação', 'Reparos estruturais', 1, 'ITAU'),
+('2024-04-19', 780.40, 'Fatura', 'Prestador Theta', 'Impostos', 'Taxas de regularização', 2, 'SANTANDER'),
+('2024-04-21', 960.20, 'Transferência', 'Loja Alpha', 'Custos Variáveis', 'Compra de brinquedos', 3, 'NUBANK'),
+('2024-04-23', 580.00, 'Pix', 'Fornecedora Delta', 'Despesas com Pessoal', 'Treinamento de equipe', 1, 'ITAU'),
+('2024-04-25', 520.00, 'Crédito', 'Serviços Omega', 'Despesas com Serviços', 'Reforma da fachada', 2, 'NUBANK'),
+('2024-04-27', 450.00, 'Débito', 'Distribuidora Theta', 'Outras Despesas', 'Compra de ferramentas', 3, 'SANTANDER'),
+('2024-04-29', 300.00, 'Pix', 'Distribuidora Gamma', 'Despesas com Ocupação', 'Manutenção do telhado', 1, 'ITAU');
 
 -- Maio
 INSERT INTO despesa (data, valor, documento, fornecedor, plano_conta, descricao, User_idUser, tipo_banco) VALUES
-('2024-05-03', 1120.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
-('2024-05-05', 720.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Reparo de circuitos', 2, 'NUBANK'),
-('2024-05-08', 1470.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
-('2024-05-12', 490.00, 'Pix', 'Impostos Federais', 'Impostos', 'Pagamento de IRPJ', 1, 'SANTANDER'),
-('2024-05-15', 730.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
-('2024-05-18', 910.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Serviço de limpeza mensal', 3, 'NUBANK'),
-('2024-05-20', 460.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Pagamento das contas de água e luz', 1, 'SANTANDER'),
-('2024-05-28', 1270.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK');
+('2024-05-01', 1120.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
+('2024-05-03', 720.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Reparo de circuitos', 2, 'NUBANK'),
+('2024-05-05', 1470.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
+('2024-05-07', 490.00, 'Pix', 'Impostos Federais', 'Impostos', 'Pagamento de IRPJ', 1, 'SANTANDER'),
+('2024-05-09', 730.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
+('2024-05-11', 910.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Serviço de limpeza mensal', 3, 'NUBANK'),
+('2024-05-13', 460.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas de água e luz', 1, 'SANTANDER'),
+('2024-05-15', 1270.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK'),
+('2024-05-17', 650.00, 'Pix', 'Distribuidora Delta', 'Despesas com Ocupação', 'Reformas gerais', 1, 'ITAU'),
+('2024-05-19', 830.40, 'Fatura', 'Prestador Theta', 'Impostos', 'Taxas anuais de operação', 2, 'SANTANDER'),
+('2024-05-21', 1020.20, 'Transferência', 'Loja Gamma', 'Custos Variáveis', 'Compra de brinquedos', 3, 'NUBANK'),
+('2024-05-23', 620.00, 'Pix', 'Fornecedor Beta', 'Despesas com Pessoal', 'Treinamento de equipe', 1, 'ITAU'),
+('2024-05-25', 580.00, 'Crédito', 'Serviços Omega', 'Despesas com Serviços', 'Troca de equipamentos', 2, 'NUBANK'),
+('2024-05-27', 490.00, 'Débito', 'Distribuidora Zeta', 'Outras Despesas', 'Compra de ferramentas', 3, 'SANTANDER'),
+('2024-05-29', 300.00, 'Pix', 'Distribuidora Alpha', 'Despesas com Ocupação', 'Manutenção do piso', 1, 'ITAU');
 
 -- Junho
 INSERT INTO despesa (data, valor, documento, fornecedor, plano_conta, descricao, User_idUser, tipo_banco) VALUES
-('2024-06-02', 1200.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
-('2024-06-06', 750.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Manutenção elétrica', 2, 'NUBANK'),
-('2024-06-09', 1490.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
-('2024-06-12', 450.00, 'Pix', 'Impostos Municipais', 'Impostos', 'Pagamento de ISS', 1, 'SANTANDER'),
-('2024-06-15', 760.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
-('2024-06-19', 920.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza mensal da loja', 3, 'NUBANK'),
-('2024-06-22', 420.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas de água e luz', 1, 'SANTANDER'),
-('2024-06-28', 1330.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK');
+('2024-06-01', 1200.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
+('2024-06-03', 750.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Manutenção elétrica', 2, 'NUBANK'),
+('2024-06-05', 1490.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
+('2024-06-07', 450.00, 'Pix', 'Impostos Municipais', 'Impostos', 'Pagamento de ISS', 1, 'SANTANDER'),
+('2024-06-09', 760.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
+('2024-06-11', 920.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza mensal da loja', 3, 'NUBANK'),
+('2024-06-13', 420.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas de água e luz', 1, 'SANTANDER'),
+('2024-06-15', 1330.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK'),
+('2024-06-17', 670.00, 'Pix', 'Distribuidora Delta', 'Despesas com Ocupação', 'Reparos hidráulicos', 1, 'ITAU'),
+('2024-06-19', 860.40, 'Fatura', 'Prestador Beta', 'Impostos', 'Taxas anuais de licença', 2, 'SANTANDER'),
+('2024-06-21', 1040.20, 'Transferência', 'Loja Omega', 'Custos Variáveis', 'Compra de brinquedos', 3, 'NUBANK'),
+('2024-06-23', 650.00, 'Pix', 'Fornecedor Gamma', 'Despesas com Pessoal', 'Curso de capacitação', 1, 'ITAU'),
+('2024-06-25', 580.00, 'Crédito', 'Serviços Delta', 'Despesas com Serviços', 'Instalação elétrica', 2, 'NUBANK'),
+('2024-06-27', 490.00, 'Débito', 'Distribuidora Zeta', 'Outras Despesas', 'Compra de ferramentas', 3, 'SANTANDER'),
+('2024-06-29', 300.00, 'Pix', 'Distribuidora Alpha', 'Despesas com Ocupação', 'Manutenção do telhado', 1, 'ITAU');
 
 -- Julho
 INSERT INTO despesa (data, valor, documento, fornecedor, plano_conta, descricao, User_idUser, tipo_banco) VALUES
-('2024-07-01', 1190.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
-('2024-07-04', 710.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Troca de disjuntores', 2, 'NUBANK'),
-('2024-07-09', 1550.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
-('2024-07-12', 460.00, 'Pix', 'Impostos Estaduais', 'Impostos', 'Pagamento de ICMS', 1, 'SANTANDER'),
-('2024-07-14', 780.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
-('2024-07-18', 890.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza da loja', 3, 'NUBANK'),
-('2024-07-20', 470.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Pagamento das contas de água e luz', 1, 'SANTANDER'),
-('2024-07-28', 1350.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK');
+('2024-07-01', 1185.75, 'Pix', 'Distribuidora Alpha', 'Despesas com Ocupação', 'Pagamento de aluguel e limpeza externa', 1, 'ITAU'),
+('2024-07-04', 750.40, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Troca de tomadas e manutenção', 2, 'NUBANK'),
+('2024-07-06', 1650.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários e horas extras', 3, 'SANTANDER'),
+('2024-07-08', 480.00, 'Pix', 'Impostos Municipais', 'Impostos', 'Taxa de coleta de lixo', 1, 'SANTANDER'),
+('2024-07-11', 720.50, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de ração premium para estoque', 2, 'ITAU'),
+('2024-07-13', 935.20, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza profunda na área de estoque', 3, 'NUBANK'),
+('2024-07-15', 420.30, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas atrasadas de energia elétrica', 1, 'SANTANDER'),
+('2024-07-17', 1280.40, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de brinquedos para pets', 2, 'NUBANK'),
+('2024-07-19', 600.90, 'Débito', 'Fornecedor Beta', 'Outras Despesas', 'Reparos urgentes no sistema hidráulico', 3, 'ITAU'),
+('2024-07-21', 350.70, 'Pix', 'Prestador Alpha', 'Despesas com Pessoal', 'Contratação de serviços temporários', 1, 'NUBANK'),
+('2024-07-23', 400.80, 'Fatura', 'Serviços Gamma', 'Despesas com Serviços', 'Desinsetização do prédio', 2, 'SANTANDER'),
+('2024-07-25', 980.30, 'Transferência', 'Distribuidora Zeta', 'Custos Variáveis', 'Compra emergencial de rações', 3, 'ITAU'),
+('2024-07-27', 700.00, 'Pix', 'Impostos Estaduais', 'Impostos', 'Ajuste de ICMS atrasado', 1, 'SANTANDER'),
+('2024-07-29', 600.50, 'Crédito', 'Distribuidora Alpha', 'Despesas com Ocupação', 'Manutenção do telhado', 2, 'NUBANK'),
+('2024-07-31', 380.20, 'Débito', 'Fornecedor Theta', 'Outras Despesas', 'Compra de itens para confraternização', 3, 'ITAU');
 
 -- Agosto
 INSERT INTO despesa (data, valor, documento, fornecedor, plano_conta, descricao, User_idUser, tipo_banco) VALUES
-('2024-08-03', 1220.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
-('2024-08-05', 730.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Reparo de sistemas elétricos', 2, 'NUBANK'),
-('2024-08-09', 1600.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
-('2024-08-12', 480.00, 'Pix', 'Impostos Federais', 'Impostos', 'Pagamento de PIS/COFINS', 1, 'SANTANDER'),
-('2024-08-15', 790.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
-('2024-08-18', 950.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza da loja', 3, 'NUBANK'),
-('2024-08-21', 500.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas de água e luz', 1, 'SANTANDER'),
-('2024-08-28', 1400.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK');
+('2024-08-02', 1225.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
+('2024-08-05', 830.70, 'Crédito', 'Serviços Delta', 'Despesas com Serviços', 'Manutenção no sistema de câmeras', 2, 'NUBANK'),
+('2024-08-07', 1480.50, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', '13º salário adiantado', 3, 'SANTANDER'),
+('2024-08-09', 390.00, 'Pix', 'Impostos Federais', 'Impostos', 'Taxa de fiscalização sanitária', 1, 'SANTANDER'),
+('2024-08-12', 870.90, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de ração para cães e gatos', 2, 'ITAU'),
+('2024-08-14', 915.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza das vitrines', 3, 'NUBANK'),
+('2024-08-16', 505.30, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Pagamentos de contas de energia elétrica', 1, 'SANTANDER'),
+('2024-08-18', 1350.40, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de brinquedos e coleiras', 2, 'NUBANK'),
+('2024-08-20', 450.00, 'Débito', 'Fornecedor Alpha', 'Outras Despesas', 'Reparos no sistema de ventilação', 3, 'ITAU'),
+('2024-08-23', 320.80, 'Pix', 'Prestador Beta', 'Despesas com Pessoal', 'Pagamento de autônomo para eventos', 1, 'NUBANK'),
+('2024-08-25', 780.50, 'Fatura', 'Serviços Gamma', 'Despesas com Serviços', 'Pintura de áreas externas', 2, 'SANTANDER'),
+('2024-08-27', 960.20, 'Transferência', 'Distribuidora Delta', 'Custos Variáveis', 'Compra emergencial de medicamentos', 3, 'ITAU'),
+('2024-08-29', 640.30, 'Pix', 'Impostos Municipais', 'Impostos', 'Pagamento de ISS', 1, 'SANTANDER'),
+('2024-08-30', 500.70, 'Crédito', 'Distribuidora Alpha', 'Despesas com Ocupação', 'Reformas no piso da entrada', 2, 'NUBANK'),
+('2024-08-31', 400.00, 'Débito', 'Fornecedor Zeta', 'Outras Despesas', 'Compra de decoração sazonal', 3, 'ITAU');
 
 -- Setembro
 INSERT INTO despesa (data, valor, documento, fornecedor, plano_conta, descricao, User_idUser, tipo_banco) VALUES
-('2024-09-03', 1200.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
-('2024-09-06', 750.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Manutenção elétrica', 2, 'NUBANK'),
-('2024-09-09', 1500.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
-('2024-09-12', 450.00, 'Pix', 'Impostos Municipais', 'Impostos', 'Pagamento de IPTU', 1, 'SANTANDER'),
-('2024-09-15', 600.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
-('2024-09-18', 850.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza mensal da loja', 3, 'NUBANK'),
-('2024-09-22', 400.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas de água e luz', 1, 'SANTANDER'),
-('2024-09-27', 1300.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK');
+('2024-09-01', 1200.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel e manutenção da loja matriz', 1, 'ITAU'),
+('2024-09-03', 745.50, 'Crédito', 'Serviços Beta', 'Despesas com Serviços', 'Troca de lâmpadas LED', 2, 'NUBANK'),
+('2024-09-05', 1600.80, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Pagamentos atrasados', 3, 'SANTANDER'),
+('2024-09-07', 410.30, 'Pix', 'Impostos Estaduais', 'Impostos', 'Recolhimento de taxas estaduais', 1, 'SANTANDER'),
+('2024-09-10', 790.50, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de ração a granel', 2, 'ITAU'),
+('2024-09-12', 860.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza semanal de corredores', 3, 'NUBANK'),
+('2024-09-14', 450.90, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas atrasadas de água', 1, 'SANTANDER'),
+('2024-09-16', 1400.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de acessórios para pets', 2, 'NUBANK'),
+('2024-09-18', 400.00, 'Débito', 'Fornecedor Beta', 'Outras Despesas', 'Compra de armários para o estoque', 3, 'ITAU'),
+('2024-09-20', 350.00, 'Pix', 'Prestador Gamma', 'Despesas com Pessoal', 'Pagamento de diárias temporárias', 1, 'NUBANK'),
+('2024-09-23', 750.30, 'Fatura', 'Serviços Alpha', 'Despesas com Serviços', 'Reparos na fachada', 2, 'SANTANDER'),
+('2024-09-25', 870.20, 'Transferência', 'Distribuidora Delta', 'Custos Variáveis', 'Compra de remédios para pets', 3, 'ITAU'),
+('2024-09-27', 540.30, 'Pix', 'Impostos Federais', 'Impostos', 'Ajustes de ISS', 1, 'SANTANDER'),
+('2024-09-29', 500.50, 'Crédito', 'Distribuidora Alpha', 'Despesas com Ocupação', 'Reforma de divisórias', 2, 'NUBANK'),
+('2024-09-30', 390.00, 'Débito', 'Fornecedor Zeta', 'Outras Despesas', 'Compra de itens promocionais', 3, 'ITAU');
 
 -- Outubro
 INSERT INTO despesa (data, valor, documento, fornecedor, plano_conta, descricao, User_idUser, tipo_banco) VALUES
-('2024-10-02', 1100.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
-('2024-10-05', 800.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Manutenção elétrica', 2, 'NUBANK'),
-('2024-10-09', 1600.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
-('2024-10-12', 400.00, 'Pix', 'Impostos Estaduais', 'Impostos', 'Pagamento de ICMS', 1, 'SANTANDER'),
-('2024-10-14', 650.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
-('2024-10-18', 950.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza da loja', 3, 'NUBANK'),
-('2024-10-22', 450.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Pagamento das contas de água e luz', 1, 'SANTANDER'),
-('2024-10-26', 1450.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK');
+('2024-10-01', 1195.60, 'Pix', 'Distribuidora Alpha', 'Despesas com Ocupação', 'Pagamento de aluguel e reparos externos', 1, 'ITAU'),
+('2024-10-03', 845.40, 'Crédito', 'Serviços Beta', 'Despesas com Serviços', 'Troca de equipamentos de segurança', 2, 'NUBANK'),
+('2024-10-05', 1750.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Adiantamento de férias', 3, 'SANTANDER'),
+('2024-10-08', 490.20, 'Pix', 'Impostos Estaduais', 'Impostos', 'Taxa anual de operação', 1, 'SANTANDER'),
+('2024-10-10', 920.75, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações e brinquedos', 2, 'ITAU'),
+('2024-10-12', 970.10, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza após reforma', 3, 'NUBANK'),
+('2024-10-14', 450.90, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas atrasadas de água e luz', 1, 'SANTANDER'),
+('2024-10-16', 1480.30, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de acessórios de alta demanda', 2, 'NUBANK'),
+('2024-10-18', 550.00, 'Débito', 'Fornecedor Gamma', 'Outras Despesas', 'Troca de equipamentos para estoque', 3, 'ITAU'),
+('2024-10-20', 360.00, 'Pix', 'Prestador Beta', 'Despesas com Pessoal', 'Serviços temporários para evento', 1, 'NUBANK'),
+('2024-10-22', 780.30, 'Fatura', 'Serviços Delta', 'Despesas com Serviços', 'Manutenção de ar-condicionado', 2, 'SANTANDER'),
+('2024-10-24', 920.00, 'Transferência', 'Distribuidora Delta', 'Custos Variáveis', 'Compra emergencial de remédios', 3, 'ITAU'),
+('2024-10-26', 620.50, 'Pix', 'Impostos Municipais', 'Impostos', 'Recolhimento de ISS', 1, 'SANTANDER'),
+('2024-10-28', 520.30, 'Crédito', 'Distribuidora Alpha', 'Despesas com Ocupação', 'Reparos no estacionamento', 2, 'NUBANK'),
+('2024-10-30', 430.20, 'Débito', 'Fornecedor Theta', 'Outras Despesas', 'Compra de itens para confraternização de equipe', 3, 'ITAU');
 
 -- Novembro
 INSERT INTO despesa (data, valor, documento, fornecedor, plano_conta, descricao, User_idUser, tipo_banco) VALUES
-('2024-11-01', 1200.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
-('2024-11-05', 850.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Troca de fiação elétrica', 2, 'NUBANK'),
-('2024-11-08', 1550.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
-('2024-11-10', 450.00, 'Pix', 'Impostos Federais', 'Impostos', 'Pagamento de IRPJ', 1, 'SANTANDER'),
-('2024-11-13', 750.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
-('2024-11-17', 900.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Serviço de limpeza mensal', 3, 'NUBANK'),
-('2024-11-20', 500.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Pagamento das contas de água e luz', 1, 'SANTANDER'),
-('2024-11-25', 1350.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK');
+('2024-11-02', 1250.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel mensal e manutenção', 1, 'ITAU'),
+('2024-11-04', 760.40, 'Crédito', 'Serviços Beta', 'Despesas com Serviços', 'Troca de filtros de ar', 2, 'NUBANK'),
+('2024-11-06', 1690.50, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários e adicionais', 3, 'SANTANDER'),
+('2024-11-08', 480.90, 'Pix', 'Impostos Federais', 'Impostos', 'Pagamento de IRPJ atrasado', 1, 'SANTANDER'),
+('2024-11-10', 910.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de ração para gatos', 2, 'ITAU'),
+('2024-11-12', 1040.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza de vitrines e áreas externas', 3, 'NUBANK'),
+('2024-11-14', 500.50, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Pagamentos de contas atrasadas de energia elétrica', 1, 'SANTANDER'),
+('2024-11-16', 1530.75, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de acessórios de final de ano', 2, 'NUBANK'),
+('2024-11-18', 620.00, 'Débito', 'Fornecedor Gamma', 'Outras Despesas', 'Reparos emergenciais no estoque', 3, 'ITAU'),
+('2024-11-20', 380.40, 'Pix', 'Prestador Delta', 'Despesas com Pessoal', 'Pagamento de diárias para evento local', 1, 'NUBANK'),
+('2024-11-22', 800.90, 'Fatura', 'Serviços Theta', 'Despesas com Serviços', 'Pintura de áreas internas', 2, 'SANTANDER'),
+('2024-11-24', 940.10, 'Transferência', 'Distribuidora Omega', 'Custos Variáveis', 'Compra de coleiras personalizadas', 3, 'ITAU'),
+('2024-11-26', 670.50, 'Pix', 'Impostos Estaduais', 'Impostos', 'Ajustes de ICMS e taxas administrativas', 1, 'SANTANDER'),
+('2024-11-28', 540.20, 'Crédito', 'Distribuidora Alpha', 'Despesas com Ocupação', 'Manutenção de sistemas hidráulicos', 2, 'NUBANK'),
+('2024-11-30', 450.00, 'Débito', 'Fornecedor Zeta', 'Outras Despesas', 'Compra de brindes para clientes', 3, 'ITAU');
 
 -- Dezembro
 INSERT INTO despesa (data, valor, documento, fornecedor, plano_conta, descricao, User_idUser, tipo_banco) VALUES
-('2024-12-03', 1300.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel da loja matriz', 1, 'ITAU'),
-('2024-12-06', 900.00, 'Crédito', 'Serviços Elétricos LTDA', 'Despesas com Serviços', 'Revisão da instalação elétrica', 2, 'NUBANK'),
-('2024-12-09', 1600.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Salários dos funcionários', 3, 'SANTANDER'),
-('2024-12-12', 500.00, 'Pix', 'Impostos Municipais', 'Impostos', 'Pagamento de ISS', 1, 'SANTANDER'),
-('2024-12-15', 800.00, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de rações', 2, 'ITAU'),
-('2024-12-19', 1000.00, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza do final do ano', 3, 'NUBANK'),
-('2024-12-22', 550.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas de água e luz', 1, 'SANTANDER'),
-('2024-12-28', 1500.00, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de medicamentos', 2, 'NUBANK');
- 
+('2024-12-01', 1380.00, 'Pix', 'Aluguel Centro', 'Despesas com Ocupação', 'Aluguel e manutenção do mês de dezembro', 1, 'ITAU'),
+('2024-12-03', 890.30, 'Crédito', 'Serviços Beta', 'Despesas com Serviços', 'Troca de sistema de ventilação', 2, 'NUBANK'),
+('2024-12-05', 1800.00, 'Débito', 'Folha de Pagamento', 'Despesas com Pessoal', 'Pagamentos de 13º e bonificação', 3, 'SANTANDER'),
+('2024-12-07', 530.20, 'Pix', 'Impostos Municipais', 'Impostos', 'Taxa de coleta de lixo e ISS', 1, 'SANTANDER'),
+('2024-12-09', 870.90, 'Fatura', 'Distribuidora Pet', 'Custos Variáveis', 'Compra de brinquedos e rações', 2, 'ITAU'),
+('2024-12-11', 1095.50, 'Transferência', 'Serviços de Limpeza', 'Despesas com Serviços', 'Limpeza de final de ano', 3, 'NUBANK'),
+('2024-12-13', 580.00, 'Pix', 'Agua e Luz', 'Despesas com Ocupação', 'Contas de energia elétrica e água', 1, 'SANTANDER'),
+('2024-12-15', 1650.40, 'Crédito', 'Distribuidora Pet', 'Custos Variáveis', 'Estoque de remédios e rações', 2, 'NUBANK'),
+('2024-12-17', 720.50, 'Débito', 'Fornecedor Gamma', 'Outras Despesas', 'Compra de prateleiras para estoque', 3, 'ITAU'),
+('2024-12-19', 400.30, 'Pix', 'Prestador Alpha', 'Despesas com Pessoal', 'Serviços temporários para festas', 1, 'NUBANK'),
+('2024-12-21', 850.40, 'Fatura', 'Serviços Delta', 'Despesas com Serviços', 'Decoração natalina do local', 2, 'SANTANDER'),
+('2024-12-23', 1050.30, 'Transferência', 'Distribuidora Zeta', 'Custos Variáveis', 'Compra emergencial de medicamentos', 3, 'ITAU'),
+('2024-12-26', 690.10, 'Pix', 'Impostos Federais', 'Impostos', 'Recolhimento de ISS', 1, 'SANTANDER'),
+('2024-12-28', 570.30, 'Crédito', 'Distribuidora Alpha', 'Despesas com Ocupação', 'Reparos no estacionamento', 2, 'NUBANK'),
+('2024-12-30', 450.00, 'Débito', 'Fornecedor Theta', 'Outras Despesas', 'Compra de itens para confraternização', 3, 'ITAU');

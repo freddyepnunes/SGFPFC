@@ -109,7 +109,7 @@ app.post("/api/login", (req, res) => {
 
   const db = connectDB(); // Conecta ao banco de dados SQLite
 
-  const query = `SELECT id_usuario FROM usuario WHERE email = ? AND senha = ?`;
+  const query = `SELECT id_usuario, nome FROM usuario WHERE email = ? AND senha = ?`;
 
   db.get(query, [email, senha], (err, row) => {
     if (err) {
@@ -121,7 +121,7 @@ app.post("/api/login", (req, res) => {
     if (!row) {
       res.status(404).json({ error: "E-mail ou senha incorretos." });
     } else {
-      res.status(200).json({ id_usuario: row.id_usuario }); // Retorna o id_usuario ao frontend
+      res.status(200).json({ id_usuario: row.id_usuario, nome: row.nome }); // Retorna o id_usuario ao frontend
     }
 
     db.close(); // Fecha a conexão

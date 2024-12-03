@@ -45,9 +45,10 @@ const Login = () => {
         throw new Error(data.error || "E-mail ou senha incorretos.");
       }
 
-      // Armazena o id_usuario retornado pelo servidor
-      if (data.id_usuario) {
-        localStorage.setItem("id_usuario", data.id_usuario); // Armazena o id_usuario no localStorage
+      // Armazena o id_usuario e nome retornados pelo servidor
+      if (data.id_usuario && data.nome) {
+        localStorage.setItem("id_usuario", data.id_usuario);
+        localStorage.setItem("nome_usuario", data.nome);
       }
 
       setErrorMessage(""); // Limpa a mensagem de erro

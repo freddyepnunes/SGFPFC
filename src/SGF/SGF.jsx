@@ -17,6 +17,7 @@ function SGF() {
   const [planoConta, setPlanoConta] = useState("");
   const [bancos, setBancos] = useState([]); // Estado para armazenar os bancos únicos
   const [planoContas, setPlanoContas] = useState([]); // Estado para armazenar planos combinados
+  const [nomeUsuario, setNomeUsuario] = useState(""); // Estado para armazenar o nome do usuário
 
   // Função para buscar dados de uma API
   const fetchData = async (url, setData) => {
@@ -73,6 +74,14 @@ function SGF() {
     );
     setPlanoContas(planosUnicos);
   }, [contasReceber, contasPagar]);
+
+  // Recupera o nome do usuário do localStorage quando o componente é montado
+  useEffect(() => {
+    const nome = localStorage.getItem("nome_usuario");
+    if (nome) {
+      setNomeUsuario(nome);
+    }
+  }, []);
 
   // Calcula a soma total das contas a receber
   const somaTotalRec = contasReceber.reduce(
@@ -199,7 +208,7 @@ function SGF() {
 
       <div className="Cabeçalho">
         <div className="LinhaCab"></div>
-        <div className="BemVindo">Bem Vindo SGF</div>
+        <div className="BemVindo">{`Olá, ${nomeUsuario}. Bem-vindo ao SGF.`}</div>
         <Link to="/Login" className="link">
           <button type="button" className="Sair" id="btnSair">
             Sair

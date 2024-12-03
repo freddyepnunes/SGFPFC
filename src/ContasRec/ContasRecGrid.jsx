@@ -18,7 +18,20 @@ const ContasRecGrid = () => {
       sortable: true,
       filter: true,
     },
-    { field: "data", headerName: "Data", sortable: true, filter: true },
+    {
+      field: "data",
+      headerName: "Data",
+      sortable: true,
+      filter: true,
+      valueFormatter: (params) => {
+        if (!params.value) return "";
+        const dateParts = params.value.split("-");
+        const day = dateParts[2];
+        const month = dateParts[1];
+        const year = dateParts[0];
+        return `${day}/${month}/${year}`;
+      },
+    },
     { field: "cliente", headerName: "Cliente", sortable: true, filter: true },
     {
       field: "documento",
@@ -44,7 +57,6 @@ const ContasRecGrid = () => {
       sortable: true,
       filter: true,
       valueFormatter: (params) => {
-        // Formata o valor como moeda
         return params.value.toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
@@ -65,6 +77,56 @@ const ContasRecGrid = () => {
   };
 
   const gridRef = useRef();
+
+  const localeText = {
+    // Tradução geral
+    page: "Página",
+    more: "Mais",
+    to: "até",
+    of: "de",
+    next: "Próximo",
+    last: "Último",
+    first: "Primeiro",
+    previous: "Anterior",
+    loadingOoo: "Carregando...",
+
+    // Botões de filtros
+    selectAll: "Selecionar Todos",
+    searchOoo: "Procurar...",
+    blanks: "Vazios",
+
+    // Botões de filtros de texto
+    filterOoo: "Filtrar...",
+    applyFilter: "Aplicar Filtro...",
+
+    // Filtros numéricos e de texto
+    equals: "Igual",
+    notEqual: "Diferente",
+    lessThan: "Menor que",
+    greaterThan: "Maior que",
+    lessThanOrEqual: "Menor ou igual a",
+    greaterThanOrEqual: "Maior ou igual a",
+    inRange: "No intervalo",
+    contains: "Contém",
+    notContains: "Não contém",
+    startsWith: "Começa com",
+    endsWith: "Termina com",
+    blank: "Em branco",
+    notBlank: "Não em branco",
+    before: "Antes",
+    after: "Depois",
+
+    // Outras configurações de filtro
+    noRowsToShow: "Nenhuma linha para mostrar",
+    andCondition: "E",
+    orCondition: "OU",
+
+    // Outros textos gerais
+    copy: "Copiar",
+    ctrlC: "Ctrl+C",
+    paste: "Colar",
+    ctrlV: "Ctrl+V",
+  };
 
   // Função para buscar os dados da API
   useEffect(() => {
@@ -91,6 +153,7 @@ const ContasRecGrid = () => {
         rowData={rowData}
         columnDefs={colDefs}
         defaultColDef={defaultColDef}
+        localeText={localeText}
       />
     </div>
   );

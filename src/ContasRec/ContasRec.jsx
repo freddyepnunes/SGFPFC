@@ -244,7 +244,7 @@ const ContasRec = () => {
         <AlterarReceitaModal />
         <DeletarReceitaModal />
       </div>
-      <div className="QuadroContaS">
+      <div className="QuadroContas">
         <ContasRecGrid />
       </div>
       <MensagemCadastro

@@ -2,12 +2,25 @@ import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { useMediaQuery } from "@mui/material"; // Importando useMediaQuery
 import "./ContasRec.css";
+
+export default function DeletarReceitaModal() {
+  const [open, setOpen] = useState(false); // Controla o estado do modal
+  const [receitaIds, setReceitaIds] = useState(""); // IDs das receitas a serem excluídas
+  const [errorMessage, setErrorMessage] = useState(""); // Mensagem de erro
+  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false); // Controla o estado do modal de erro
+
+  const handleOpen = () => setOpen(true); // Abre o modal
+  const handleClose = () => setOpen(false); // Fecha o modal
+  const closeErrorModal = () => setIsErrorModalOpen(false); // Fecha o modal de erro
+
+  const isSmallScreen = useMediaQuery("(max-width: 1366px)");
 
 const style = {
   position: "absolute",
-  top: "50%",
-  left: "50%",
+  top: isSmallScreen ? "35%" : "50%",
+  left: isSmallScreen ? "35%" : "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
   height: 300,
@@ -19,8 +32,8 @@ const style = {
 
 const messageStyle = {
   position: "absolute",
-  top: "50%",
-  left: "50%",
+  top: isSmallScreen ? "35%" : "50%",
+  left: isSmallScreen ? "35%" : "50%",
   transform: "translate(-50%, -50%)",
   width: 300,
   bgcolor: "white",
@@ -30,16 +43,6 @@ const messageStyle = {
   p: 3,
   textAlign: "center",
 };
-
-export default function DeletarReceitaModal() {
-  const [open, setOpen] = useState(false); // Controla o estado do modal
-  const [receitaIds, setReceitaIds] = useState(""); // IDs das receitas a serem excluídas
-  const [errorMessage, setErrorMessage] = useState(""); // Mensagem de erro
-  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false); // Controla o estado do modal de erro
-
-  const handleOpen = () => setOpen(true); // Abre o modal
-  const handleClose = () => setOpen(false); // Fecha o modal
-  const closeErrorModal = () => setIsErrorModalOpen(false); // Fecha o modal de erro
 
   const handleDelete = async () => {
     if (!receitaIds) {

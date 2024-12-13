@@ -72,8 +72,6 @@ function SaidaPlano({
 
   // Opções do gráfico com tooltip formatado
   const options = {
-    width: 700, // Largura específica
-    height: 420, // Altura específica
     data: chartData, // Dados processados para o gráfico
     series: [
       {
@@ -104,7 +102,17 @@ function SaidaPlano({
   };
 
   // Renderizando o gráfico
-  return <AgCharts options={options} />;
+  return (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          marginTop: 10,
+        }}
+      >
+        <AgCharts options={options} />
+      </div>
+    );
 }
 
 export default SaidaPlano;

@@ -2,34 +2,8 @@ import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { useMediaQuery } from "@mui/material"; // Importando useMediaQuery
 import "./ContasPag.css";
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  height: 300,
-  bgcolor: "#e2e2e2",
-  border: "2px solid #000",
-  p: 4,
-  borderRadius: 2.5,
-};
-
-const messageStyle = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 300,
-  bgcolor: "white",
-  border: "2px solid #f44336",
-  borderRadius: 4,
-  boxShadow: 24,
-  p: 3,
-  textAlign: "center",
-};
 
 export default function DeletarDespesaModal() {
   const [open, setOpen] = useState(false); // Controla o estado do modal
@@ -40,6 +14,35 @@ export default function DeletarDespesaModal() {
   const handleOpen = () => setOpen(true); // Abre o modal
   const handleClose = () => setOpen(false); // Fecha o modal
   const closeErrorModal = () => setIsErrorModalOpen(false); // Fecha o modal de erro
+
+  const isSmallScreen = useMediaQuery("(max-width: 1366px)");
+
+  const style = {
+    position: "absolute",
+    top: isSmallScreen ? "35%" : "50%",
+    left: isSmallScreen ? "35%" : "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    height: 300,
+    bgcolor: "#e2e2e2",
+    border: "2px solid #000",
+    p: 4,
+    borderRadius: 2.5,
+  };
+
+  const messageStyle = {
+    position: "absolute",
+    top: isSmallScreen ? "35%" : "50%",
+    left: isSmallScreen ? "35%" : "50%",
+    transform: "translate(-50%, -50%)",
+    width: 300,
+    bgcolor: "white",
+    border: "2px solid #f44336",
+    borderRadius: 4,
+    boxShadow: 24,
+    p: 3,
+    textAlign: "center",
+  };
 
   const handleDelete = async () => {
     if (!despesaIds) {

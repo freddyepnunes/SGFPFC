@@ -2,20 +2,8 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { useMediaQuery } from "@mui/material"; // Importando useMediaQuery
 import "./ContasPag.css";
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 600,
-  height: 500,
-  bgcolor: "#e2e2e2",
-  border: "2px solid #000",
-  p: 4,
-  borderRadius: 2.5,
-};
 
 export default function AlterarDespesaModal() {
   const [open, setOpen] = useState(false); // Controla o estado do modal
@@ -41,6 +29,21 @@ export default function AlterarDespesaModal() {
       valor: "",
       descricao: "",
     });
+  };
+
+  const isSmallScreen = useMediaQuery("(max-width: 1366px)");
+
+  const style = {
+    position: "absolute",
+    top: isSmallScreen ? "35%" : "50%",
+    left: isSmallScreen ? "35%" : "50%",
+    transform: "translate(-50%, -50%)",
+    width: 600,
+    height: 500,
+    bgcolor: "#e2e2e2",
+    border: "2px solid #000",
+    p: 4,
+    borderRadius: 2.5,
   };
 
   const handleOpen = () => setOpen(true);

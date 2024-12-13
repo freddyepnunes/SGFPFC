@@ -182,20 +182,6 @@ body {
   background-color: #e2e2e2;
 }
 
-.btnCab {
-  background-color: #188063;
-  height: 2rem;
-  width: 2.5rem;
-  top: 0.4rem;
-  margin-left: 11.875rem;
-  border: none;
-  border-radius: 0.46875rem;
-  color: #ffffff;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
 .BemVindo {
   color: #000000;
   font-size: 20px;
@@ -219,15 +205,6 @@ body {
   border-radius: 0.3125rem;
   border: none;
   font-family: "Montserrat", sans-serif;
-}
-
-.btnCab:hover {
-  background-color: #0c7e68;
-}
-
-.btnCab:active {
-  background-color: #ffffff;
-  color: #0ca293;
 }
 
 .Sair:active {
@@ -382,7 +359,7 @@ body {
 }
 
 .quadrado2 {
-  height: 1160px;
+  height: 1060px;
   width: 103.5rem;
   background-color: #ebebeb;
   border: none;
@@ -422,7 +399,7 @@ body {
 
 .gf2 {
   width: 48rem;
-  height: 500px;
+  height: 400px;
   background-color: white;
   border-radius: 10px;
   margin-left: 30px;
@@ -441,7 +418,7 @@ body {
 
 .gf3 {
   width: 48.25rem;
-  height: 500px;
+  height: 400px;
   background-color: white;
   border-radius: 10px;
   margin-left: 53rem;
@@ -465,7 +442,7 @@ body {
   border: none;
   border-radius: 10px;
   margin-left: 13.5rem;
-  margin-top: 93.7rem;
+  margin-top: 87.7rem;
   margin-bottom: 2rem;
   position: absolute;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
@@ -643,163 +620,11 @@ body {
 
 /* Responsividade para telas de resolução de 1366x768 píxels */
 @media (max-width: 1366px) {
-  .form-menu {
-    margin-top: -2rem;
-    margin-left: -1rem;
-    position: fixed;
-    background-color: #002945;
-    height: 265rem;
-    width: 12.5rem;
-    z-index: 2;
-  }
-
   .form-menu img {
-    height: 3.5rem;
+    height: 6rem;
     width: 6rem;
     margin-left: 3.7rem;
-    margin-top: 4.5rem;
-    position: absolute;
-  }
-
-  .btn {
-    position: relative;
-    padding: 0.625rem 1.25rem;
-    cursor: pointer;
-    border: 0.0625rem solid transparent;
-    font-size: 0.75rem;
-    font-family: "Montserrat", sans-serif;
-    background: none;
-    color: #ffffff;
-    margin: 0.3125rem 0.1875rem;
-    display: inline-block;
-    width: 12.3125rem;
-    height: 2.5rem;
-    text-align: left;
-    top: 10.875rem;
-    transition: none;
-  }
-
-  .btn:hover {
-    background-color: #0f0f3a;
-    color: #f0f0f0;
-  }
-
-  .btn:active {
-    color: #272727;
-    background-color: #ffffff;
-    transition: 0s ease-in-out;
-    border: none;
-    transform: translateY(0);
-  }
-
-  .btn:active .Indicador2 {
-    margin-top: -0.29rem;
-    margin-left: -1.4375rem;
-    background-color: #272727;
-  }
-
-  /* Alterável */
-  .Indicador {
-    margin-top: -26rem;
-    height: 2.5rem;
-    width: 0.1875rem;
-    background-color: #ffffff;
-  }
-
-  .btn:hover .Indicador2 {
-    background-color: #bdbdbd;
-    display: block;
-  }
-
-  .Indicador2 {
-    margin-top: -0.35rem;
-    margin-left: -1.5rem;
-    transform: translateY(-50%);
-    height: 2.5rem;
-    width: 0.1875rem;
-    display: none;
-  }
-
-  .btn3:hover .Indicador2 {
-    margin-left: -8.8rem;
-    margin-top: 2.5rem;
-  }
-
-  .btn4:hover .Indicador2 {
-    margin-left: -9.2rem;
-    margin-top: 2.5rem;
-  }
-
-  .btn8:hover .Indicador2 {
-    margin-left: -10.3rem;
-    margin-top: 2.5rem;
-  }
-
-  .btn.btn3 {
-    padding: 0.625rem 1.25rem;
-  }
-
-  .btn i.fa-house {
-    margin-right: 1.25rem;
-  }
-
-  .btn i.fa-chart-simple {
-    margin-right: 1.4375rem;
-  }
-
-  .btn i.fa-user-group {
-    margin-right: 1.2rem;
-  }
-
-  .btn3 {
-    align-items: center;
-    display: flex;
-  }
-
-  .btn i.fa-coins {
-    margin-right: 1.35625rem;
-  }
-
-  .btn4 {
-    align-items: center;
-    display: flex;
-  }
-
-  .btn i.fa-handshake {
-    margin-right: 1.2rem;
-  }
-
-  .btn i.fa-money-bill {
-    margin-right: 1.25625rem;
-  }
-
-  .btn i.fa-wallet {
-    margin-right: 1.3125rem;
-  }
-
-  .btn i.fa-square-check {
-    margin-right: 1.40625rem;
-  }
-
-  .btn8 {
-    align-items: center;
-    display: flex;
-  }
-
-  .btn i.fa-file-invoice {
-    margin-right: 1.5rem;
-  }
-
-  .btn i.fa-gear {
-    margin-right: 1.325rem;
-  }
-
-  .btn i.fa-book {
-    margin-right: 1.4375rem;
-  }
-
-  .btn i.fa-phone {
-    margin-right: 1.3125rem;
+    margin-top: 3.5rem;
   }
 
   .Cabeçalho {
@@ -808,577 +633,198 @@ body {
 
   .LinhaCab {
     height: 0.0625rem;
-    width: 75.2rem;
+    width: 71.2rem;
     margin-top: 2.5rem;
     margin-left: 10rem;
     background-color: #e2e2e2;
   }
 
-  .BemVindo {
-    color: #000000;
-    font-size: 20px;
-    margin-top: -2rem;
-    margin-left: 13.5rem;
-    position: relative;
-    white-space: nowrap;
-  }
-
   .Sair {
-    background-color: transparent;
-    border: none;
-    margin-top: -1.65rem;
-    margin-left: 81rem;
-    font-size: 0.9375rem;
-    color: #757575;
-    position: absolute;
-    cursor: pointer;
-    width: 2.5rem;
-    height: 1.875rem;
-    border-radius: 0.3125rem;
-    border: none;
-    font-family: "Montserrat", sans-serif;
-  }
-
-  .btnCab:hover {
-    background-color: #0c7e68;
-  }
-
-  .btnCab:active {
-    background-color: #ffffff;
-    color: #0ca293;
-  }
-
-  .Sair:active {
-    background-color: #e9e9e9;
-  }
-
-  .Card {
-    position: absolute;
+    margin-left: 77rem;
   }
 
   .Forma1 {
-    background-color: #205f68;
+    background-color: #27ae60;
     margin-top: 3.5rem;
     margin-left: 13.5625rem;
-    position: absolute;
-    text-align: center;
-    width: 22rem;
-    height: 7.5rem;
-    border-radius: 0.46875rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+    width: 21rem;
   }
 
   .Forma2 {
-    background-color: #f18824;
+    background-color: #c0392b;
     margin-top: 3.5rem;
-    margin-left: 38rem;
-    position: absolute;
-    width: 22rem;
-    height: 7.5rem;
-    border-radius: 0.46875rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+    margin-left: 36.5rem;
+    width: 21rem;
   }
 
   .Forma3 {
-    background-color: #116114;
+    background-color: #2980b9;
     margin-top: 3.5rem;
-    margin-left: 62.5rem;
-    position: absolute;
-    width: 22rem;
-    height: 7.5rem;
-    border-radius: 0.46875rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-  }
-
-  .Forma3 p {
-    font-size: 0.85rem;
-    top: 0.375rem;
-    right: 1.4375rem;
-    text-align: center;
-    color: #ffffff;
-    position: absolute;
-    font-family: "Montserrat", sans-serif;
+    margin-left: 59.5rem;
+    width: 21rem;
   }
 
   .Forma1 p {
-    font-size: 0.85rem;
-    top: 0.375rem;
-    margin: lef;
     right: 1.4375rem;
-    text-align: center;
-    color: #ffffff;
-    position: absolute;
-    font-family: "Montserrat", sans-serif;
   }
 
   .Forma2 p {
-    font-size: 0.85rem;
-    top: 0.375rem;
     right: 1.4375rem;
-    text-align: right;
-    color: #ffffff;
-    position: absolute;
-    font-family: "Montserrat", sans-serif;
+  }
+
+  .Forma3 p {
+    right: 1.4375rem;
   }
 
   .quadrado1 {
     height: 7rem;
-    width: 71rem;
-    background-color: #ebebeb;
-    border: none;
-    border-radius: 10px;
-    margin-left: 13.5rem;
-    margin-top: 12rem;
-    position: absolute;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+    width: 67rem;
   }
 
   .tipodocumentotxt {
-    color: rgb(0, 0, 0);
-    font-size: 18px;
-    font-family: "Montserrat", sans-serif;
     margin-top: 20px;
     margin-left: 35px;
-    position: absolute;
   }
 
   .banctxt {
-    color: rgb(0, 0, 0);
-    font-size: 18px;
-    font-family: "Montserrat", sans-serif;
     margin-top: 20px;
-    margin-left: 45rem;
-    position: absolute;
+    margin-left: 22.5rem;
   }
 
-  .btnBuscar {
-    border: none;
-    background-color: #188063;
-    color: white;
-    border-radius: 4px;
-    font-size: 13px;
-    height: 2rem;
-    width: 6rem;
-    font-family: "Montserrat", sans-serif;
-    margin-left: 62rem;
-    margin-top: 45px;
-    position: absolute;
-  }
-  .btnBuscar:hover {
-    background-color: #188063;
-  }
-
-  .btnBuscar:active {
-    background-color: white;
-    color: #188063;
-  }
-
-  .dropbtn {
-    background-color: #188063;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+  .plantxt{
+    margin-top: 20px;
+    margin-left: 40rem;
   }
 
   .dropdown {
-    position: absolute;
-    display: inline-block;
     margin-left: 2rem;
-    width: 13rem;
+    width: 15rem;
     height: 30px;
-    margin-top: 3rem;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    font-family: "Montserrat", sans-serif;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border: none;
-  }
-
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border: none;
-  }
-
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
-    border: none;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-    border: none;
-  }
-
-  .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-    border: none;
-  }
-
-  .dropbtn {
-    background-color: #4caf50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-
-  .dropdown2 {
-    position: absolute;
-    display: inline-block;
-    margin-left: 23.5rem;
-    width: 13rem;
-    height: 30px;
-    margin-top: 3rem;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    font-family: "Montserrat", sans-serif;
-  }
-
-  .dropdown2-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border: none;
-  }
-
-  .dropdown2-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border: none;
-  }
-
-  .dropdown2-content a:hover {
-    background-color: #f1f1f1;
-    border: none;
-  }
-
-  .dropdown2:hover .dropdown2-content {
-    display: block;
-    border: none;
-  }
-
-  .dropdown2:hover .dropbtn {
-    background-color: #3e8e41;
-    border: none;
-  }
-
-  .dropbtn {
-    background-color: #4caf50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
   }
 
   .dropdown3 {
-    position: absolute;
-    display: inline-block;
-    margin-left: 45rem;
+    margin-left: 22.5rem;
     width: 13rem;
     height: 30px;
-    margin-top: 3rem;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    font-family: "Montserrat", sans-serif;
   }
 
-  .dropdown3-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border: none;
+  .dropdown4 {
+    margin-left: 40rem;
+    width: 13rem;
+    height: 30px;
   }
 
-  .dropdown3-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border: none;
-  }
-
-  .dropdown3-content a:hover {
-    background-color: #f1f1f1;
-    border: none;
-  }
-
-  .dropdown3:hover .dropdown2-content {
-    display: block;
-    border: none;
-  }
-
-  .dropdown3:hover .dropbtn {
-    background-color: #3e8e41;
-    border: none;
+  .BtnLimparFiltros {
+    margin-left: 56rem;
+    margin-top: 2.8rem;
   }
 
   .quadrado2 {
-    height: 1160px;
-    width: 71rem;
-    background-color: #ebebeb;
-    border: none;
-    border-radius: 10px;
-    margin-left: 13.5rem;
-    margin-top: 20.1rem;
-    position: absolute;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-  }
-
-  .VisaoFinanceiratxt {
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 30px;
-    font-family: "Montserrat", sans-serif;
-    margin-top: 35px;
+    height: 1030px;
+    width: 67rem;
   }
 
   .gf1 {
-    width: 67.5rem;
+    width: 63.5rem;
     height: 500px;
-    background-color: white;
-    border-radius: 10px;
-    margin-left: 30px;
-    margin-top: 30px;
-    position: absolute;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-  }
-
-  .FluxodeCaixatxt {
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    font-family: "Montserrat", sans-serif;
-    margin-top: 30px;
   }
 
   .gf2 {
-    width: 32rem;
-    height: 500px;
-    background-color: white;
-    border-radius: 10px;
-    margin-left: 30px;
-    margin-top: 560px;
-    position: absolute;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-  }
-
-  .saidaplanocontatxt {
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    font-family: "Montserrat", sans-serif;
-    margin-top: 30px;
+    width: 31rem;
+    height: 370px;
   }
 
   .gf3 {
-    width: 32rem;
-    height: 500px;
-    background-color: white;
-    border-radius: 10px;
-    margin-left: 37.3rem;
-    margin-top: 560px;
-    position: absolute;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-  }
-
-  .entradaplanocontatxt {
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    font-family: "Montserrat", sans-serif;
-    margin-top: 30px;
+    width: 31rem;
+    height: 370px;
+    margin-left: 34.5rem;
   }
 
   .quadrado3 {
     height: 52rem;
-    width: 71rem;
-    background-color: #ebebeb;
-    border: none;
-    border-radius: 10px;
-    margin-left: 13.5rem;
-    margin-top: 93.7rem;
-    margin-bottom: 2rem;
-    position: absolute;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-  }
-
-  .VisaoEconomicatxt {
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 35px;
-    font-family: "Montserrat", sans-serif;
-    margin-top: 35px;
+    width: 67rem;
+    margin-top: 85.7rem;
   }
 
   .gf10 {
-    width: 21rem;
-    height: 150px;
-    background-color: #205f68;
-    border-radius: 10px;
-    margin-left: 2rem;
+    background-color: #27ae60;
     margin-top: 550px;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-    position: absolute;
-  }
-
-  .receitastotaistxt {
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    font-family: "Montserrat", sans-serif;
-    margin-left: 11rem;
-    margin-top: 25px;
+    width: 20rem;
+    height: 8rem;
   }
 
   .gf11 {
-    width: 21rem;
-    height: 150px;
-    background-color: #f18824;
-    border-radius: 10px;
-    margin-left: 25.3rem;
+    background-color: #c0392b;
     margin-top: 550px;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-    position: absolute;
-    text-align: center;
-  }
-
-  .custostotaistxt {
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    font-weight: 600;
-    font-family: "Montserrat", sans-serif;
-    margin-left: 11rem;
-    margin-top: 25px;
+    margin-left: 23.7rem;
+    width: 20rem;
+    height: 8rem;
   }
 
   .gf12 {
-    width: 21rem;
-    height: 150px;
-    background-color: rgb(13, 121, 88);
-    border-radius: 10px;
-    margin-left: 48.5rem;
+    background-color: #2980b9;
     margin-top: 550px;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-    position: absolute;
+    margin-left: 45.3rem;
+    width: 20rem;
+    height: 8rem;
+  }
+
+  .receitastotaistxt {
+    font-size: 18px;
+    margin-left: 10rem;
+  }
+
+  .custostotaistxt {
+    font-size: 18px;
+    margin-left: 10rem;
   }
 
   .lucroliquidotxt {
-    color: rgb(255, 255, 255);
     font-size: 18px;
-    font-weight: 600;
-    font-family: "Montserrat", sans-serif;
-    margin-left: 12rem;
-    margin-top: 25px;
+    margin-left: 11rem;
   }
 
   .gf13 {
-    width: 67.5rem;
+    width: 63.5rem;
     height: 500px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    margin-left: 30px;
-    margin-top: 10px;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-    position: absolute;
   }
-
-  .lucroregimecomptxt {
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    font-family: "Montserrat", sans-serif;
-    margin-top: 30px;
-  }
-
-  .entradaplanotxt {
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    font-family: "Montserrat", sans-serif;
-    margin-top: 45px;
-  }
-
-  .saidaplanotxt {
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    font-family: "Montserrat", sans-serif;
-    margin-top: 45px;
-  }
-
-  .lucriliquidotxt {
-    color: white;
-    font-size: 14px;
-    font-family: "Montserrat", sans-serif;
-    margin-left: 105px;
-    margin-top: 20px;
-  }
-
+  
   .Valor1 {
-    position: absolute;
-    margin-top: -0.3rem;
-    margin-left: 17rem;
-    z-index: 1000;
-    white-space: nowrap;
+    margin-left: 19.5rem;
+    margin-top: 0.5rem;
   }
 
   .Valor1 p {
-    color: #ffffff;
-    font-size: 40px;
-    font-weight: 700;
+    font-size: 38px;
   }
 
   .Valor2 {
-    position: absolute;
-    margin-top: -0.3rem;
-    margin-left: 17rem;
-    z-index: 1000;
-    white-space: nowrap;
+    margin-left: 19.5rem;
+    margin-top: 0.5rem;
   }
 
   .Valor2 p {
-    color: #ffffff;
-    font-size: 40px;
-    font-weight: 700;
+    font-size: 38px;
   }
 
   .Valor3 {
-    position: absolute;
-    margin-top: -0.3rem;
-    margin-left: 17rem;
-    z-index: 1000;
-    white-space: nowrap;
+    margin-left: 19.5rem;
+    margin-top: 0.5rem;
   }
 
   .Valor3 p {
-    color: #ffffff;
-    font-size: 40px;
-    font-weight: 700;
+    font-size: 38px;
+  }
+
+  .gf10 .Valor1{
+    margin-left: -8rem;
+  }
+
+  .gf11 .Valor2{
+    margin-left: -7.8rem;
+  }
+
+  .gf12 .Valor3{
+    margin-left: -8.8rem;
   }
 }

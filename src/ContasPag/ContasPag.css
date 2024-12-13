@@ -511,60 +511,45 @@
   color: #ffffff;
 }
 
-@media (max-width: 1366px) {
+@media screen and (max-width: 1366px) {
+  .ContasPagar {
+    margin-top: 0.5rem;
+  }
+
   .LinhaCabConPag {
-    width: 74.5rem;
+    margin-top: 2.5rem;
   }
 
   .diretorioPag {
     margin-top: 3.5rem;
-    margin-left: 12.47rem;
-  }
-
-  .diretorioItemPag {
-    margin: 0 0.5625rem;
-    font-size: 15px;
-  }
-
-  .diretorioItemPag:nth-child(1) {
-    cursor: pointer;
-  }
-
-  .diretorioItemPag:nth-child(3) {
-    cursor: pointer;
-  }
-
-  .diretorioItemPag a {
-    text-decoration: none;
-    color: inherit;
   }
 
   .CadastroContas {
-    position: absolute;
-    margin-left: 13rem;
-    margin-top: 6rem;
-    background-color: #e2e2e2;
-    width: 71rem;
-    height: 17rem;
-    border-radius: 10px;
-    font-size: 17px;
-    font-family: "Montserrat", sans-serif;
+    margin-top: 5.5rem;
+    width: 67.5rem;
+    height: 15rem;
+  }
+
+  .banco {
+    margin-top: 0.8rem;
   }
 
   .banco .input-text {
-    width: 13rem;
+    width: 12.5rem;
   }
 
   .DataEmissao {
-    margin-left: 19rem;
+    margin-top: 0.8rem;
+    margin-left: 18.5rem;
   }
 
   .DataEmissao .input-text {
-    width: 13rem;
+    width: 12.5rem;
   }
 
   .plancontapag {
-    margin-left: 36rem;
+    margin-left: 35rem;
+    margin-top: 0.8rem;
   }
 
   #plancontapag-dropbox {
@@ -572,62 +557,74 @@
   }
 
   .tipodocpag {
-    margin-left: 53.5rem;
-    margin-top: 1.5rem;
-    position: absolute;
+    margin-left: 52rem;
+    margin-top: 0.8rem;
   }
 
   #tipodocpag-dropbox {
     width: 13rem;
   }
 
+  .fornpag {
+    margin-top: 5.5rem;
+    margin-left: 2rem;
+    position: absolute;
+  }
+
   .fornpag .input-text {
-    width: 30rem;
+    width: 29rem;
   }
 
   .valor {
-    margin-left: 36rem;
+    margin-top: 5.5rem;
+    margin-left: 35rem;
   }
 
   .valor .input-text {
     width: 13rem;
   }
 
+  .desc {
+    margin-top: 10.3rem;
+    margin-left: 2rem;
+  }
+
   .desc .input-text {
-    width: 47rem;
+    width: 46rem;
   }
 
   .btnCadPag {
-    margin-left: 57rem;
-    margin-top: 8rem;
-    position: absolute;
-    border: none;
-    background-color: #0ca293;
-    color: white;
-    border-radius: 4px;
-    font-size: 18px;
-    height: 2rem;
-    width: 7rem;
-    font-family: "Montserrat", sans-serif;
+    margin-left: 54.5rem;
+    margin-top: 5.4rem;
+    width: 8.5rem;
   }
 
-  .btnCadPag:hover {
-    background-color: #0c7e68;
+  .BtnLimparCadPag {
+    margin-left: 54.5rem;
+    margin-top: 7.6rem;
+    width: 8.5rem;
   }
 
-  .btnCadPag:active {
-    background-color: white;
-    color: #0ca293;
+  .btnAltPag {
+    margin-left: 54.5rem;
+    margin-top: 9.8rem;
+    width: 8.5rem;
+  }
+
+  .btnDelPag {
+    margin-left: 54.5rem;
+    margin-top: 12rem;
+    width: 8.5rem;
+  }
+
+  .modal-backdrop {
+    margin-top: -10%;
+    margin-left: -14%;
   }
 
   .QuadroContaS {
-    position: absolute;
-    margin-left: 13rem;
-    margin-top: 24rem;
-    background-color: #e2e2e2;
-    width: 71rem;
-    height: 25rem;
-    border-radius: 10px;
-    line-height: 1.5;
+    width: 67.5rem;
+    height: 23rem;
+    margin-top: 22rem;
   }
 }

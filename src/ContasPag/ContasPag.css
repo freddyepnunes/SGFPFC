@@ -456,7 +456,7 @@
 }
 
 .ExcluirDadosPag {
-  margin-top: 9rem;
+  margin-top: 21.5rem;
   position: absolute;
   border: none;
   background-color: #2311c2;
@@ -509,6 +509,22 @@
 .BtnLimparCadPag:active {
   background-color: #2f360c;
   color: #ffffff;
+}
+
+.modalPlanoConta .input-text,
+.modalTipoDocRec .input-text{
+  border: none;
+  width: 10rem;
+  height: 1.75rem;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+
+.readOnly {
+  background-color: #d7d7d7;
 }
 
 @media screen and (max-width: 1366px) {

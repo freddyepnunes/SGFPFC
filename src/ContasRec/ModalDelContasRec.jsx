@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -6,101 +6,115 @@ import { useMediaQuery } from "@mui/material"; // Importando useMediaQuery
 import "./ContasRec.css";
 
 export default function DeletarReceitaModal() {
-  const [open, setOpen] = useState(false); // Controla o estado do modal
-  const [receitaIds, setReceitaIds] = useState(""); // IDs das receitas a serem excluídas
-  const [errorMessage, setErrorMessage] = useState(""); // Mensagem de erro
-  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false); // Controla o estado do modal de erro
-
-  const handleOpen = () => setOpen(true); // Abre o modal
-  const handleClose = () => setOpen(false); // Fecha o modal
-  const closeErrorModal = () => setIsErrorModalOpen(false); // Fecha o modal de erro
+  const [open, setOpen] = useState(false); // Controle do modal
+  const [formData, setFormData] = useState({
+    idReceita: "",
+    banco: "",
+    dataEmissao: "",
+    planoConta: "",
+    tipoDocumento: "",
+    cliente: "",
+    valor: "",
+    descricao: "",
+  });
 
   const isSmallScreen = useMediaQuery("(max-width: 1366px)");
 
-const style = {
-  position: "absolute",
-  top: isSmallScreen ? "35%" : "50%",
-  left: isSmallScreen ? "35%" : "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  height: 300,
-  bgcolor: "#e2e2e2",
-  border: "2px solid #000",
-  p: 4,
-  borderRadius: 2.5,
-};
+  const style = {
+    position: "absolute",
+    top: isSmallScreen ? "35%" : "50%",
+    left: isSmallScreen ? "35%" : "50%",
+    transform: "translate(-50%, -50%)",
+    width: 600,
+    height: 500,
+    bgcolor: "#e2e2e2",
+    border: "2px solid #000",
+    p: 4,
+    borderRadius: 2.5,
+  };
 
-const messageStyle = {
-  position: "absolute",
-  top: isSmallScreen ? "35%" : "50%",
-  left: isSmallScreen ? "35%" : "50%",
-  transform: "translate(-50%, -50%)",
-  width: 300,
-  bgcolor: "white",
-  border: "2px solid #f44336",
-  borderRadius: 4,
-  boxShadow: 24,
-  p: 3,
-  textAlign: "center",
-};
+  // Abre e fecha o modal
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
+  // Função para buscar os dados pelo ID ao pressionar Enter
+  const handleSearch = async (e) => {
+    if (e.key === "Enter") {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/api/receita/${formData.idReceita}`
+        );
+        if (!response.ok) {
+          throw new Error("Receita não encontrada.");
+        }
+        const data = await response.json();
+        setFormData({
+          idReceita: data.id_receita,
+          banco: data.tipo_banco,
+          dataEmissao: data.data,
+          planoConta: data.plano_conta_receita,
+          tipoDocumento: data.documento,
+          cliente: data.cliente,
+          valor: data.valor,
+          descricao: data.descricao,
+        });
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+  };
+
+  // Função para deletar a receita
   const handleDelete = async () => {
-    if (!receitaIds) {
-      setErrorMessage(
-        "Por favor, insira um ou mais IDs válidos separados por vírgula."
-      );
-      setIsErrorModalOpen(true);
+    if (!formData.idReceita) {
+      alert("Por favor, insira o ID da receita.");
       return;
     }
 
-    // Converte a string de IDs em um array
-    const ids = receitaIds.split(",").map((id) => id.trim());
-
     try {
-      // Itera sobre os IDs e realiza a exclusão
-      for (const id of ids) {
-        if (isNaN(id)) {
-          setErrorMessage(`ID inválido: ${id}`);
-          setIsErrorModalOpen(true);
-          continue;
+      const response = await fetch(
+        `http://localhost:5000/api/receita/${formData.idReceita}`,
+        {
+          method: "DELETE",
         }
+      );
 
-        const response = await fetch(
-          `http://localhost:5000/api/receita/${id}`,
-          {
-            method: "DELETE",
-          }
-        );
-
-        if (!response.ok) {
-          const errorText = await response.text();
-          console.error(`Erro ao excluir a receita ${id}: ${errorText}`);
-        } else {
-          console.log(`Receita ${id} excluída com sucesso!`);
-        }
+      if (response.ok) {
+        alert("Receita excluída com sucesso!");
+        setFormData({
+          idReceita: "",
+          banco: "",
+          dataEmissao: "",
+          planoConta: "",
+          tipoDocumento: "",
+          cliente: "",
+          valor: "",
+          descricao: "",
+        });
+        handleClose();
+        window.location.reload();
+      } else {
+        const errorText = await response.text();
+        alert(`Erro ao excluir a receita: ${errorText}`);
       }
-
-      setReceitaIds(""); // Limpa o campo de texto
-      handleClose(); // Fecha o modal
-      window.location.reload();
     } catch (error) {
-      setErrorMessage(`Erro ao excluir as receitas: ${error.message}`);
-      setIsErrorModalOpen(true);
+      console.error("Erro ao excluir a receita:", error);
+      alert("Erro ao excluir a receita.");
     }
   };
 
-  const handleClear = () => {
-    setReceitaIds(""); // Limpa o valor dos IDs
+  const handleCancel = () => {
+    setFormData({
+      idReceita: "",
+      banco: "",
+      dataEmissao: "",
+      planoConta: "",
+      tipoDocumento: "",
+      cliente: "",
+      valor: "",
+      descricao: "",
+    });
   };
-
-  useEffect(() => {
-    if (isErrorModalOpen) {
-      const timer = setTimeout(() => {
-        closeErrorModal(); // Fecha o modal de erro automaticamente após 5 segundos
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [isErrorModalOpen]);
 
   return (
     <div>
@@ -109,12 +123,11 @@ const messageStyle = {
           type="button"
           className="btnDelRec"
           id="btnDelRec"
-          onClick={handleOpen} // Chama handleOpen ao clicar
+          onClick={handleOpen}
         >
           <strong>Excluir Receita</strong>
         </button>
       </div>
-
       <Modal
         open={open}
         onClose={handleClose}
@@ -126,57 +139,110 @@ const messageStyle = {
             id="modal-modal-title"
             variant="h6"
             component="h2"
-            sx={{ ml: 13 }}
+            sx={{ ml: 25 }}
           >
             Excluir Receita
           </Typography>
-          <Typography
-            id="modal-modal-description"
-            sx={{ mt: 2 }}
-            component="div"
-          >
-            <div className="modalIdReceita">
-              <div className="label">IDs de Receitas</div>
-              <div>
-                <input
-                  type="text"
-                  className="input-text"
-                  value={receitaIds}
-                  onChange={(e) => setReceitaIds(e.target.value)} // Atualiza o ID da receita
-                  required
-                />
-              </div>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            <div className="modalIdRec">
+              <div className="label">ID Receita</div>
+              <input
+                type="text"
+                name="idReceita"
+                value={formData.idReceita}
+                onChange={(e) =>
+                  setFormData({ ...formData, idReceita: e.target.value })
+                }
+                onKeyDown={handleSearch}
+                className="input-text"
+                required
+              />
+            </div>
+            <div className="modalBanco">
+              <div className="label">Banco</div>
+              <input
+                type="text"
+                name="banco"
+                value={formData.banco}
+                readOnly
+                className="input-text readOnly"
+              />
+            </div>
+            <div className="modalDataEmissaO">
+              <div className="label">Data Emissão</div>
+              <input
+                type="date"
+                name="dataEmissao"
+                value={formData.dataEmissao}
+                readOnly
+                className="input-text readOnly"
+              />
+            </div>
+            <div className="modalPlanoConta">
+              <div className="label">Plano de Conta</div>
+              <input
+                type="text"
+                name="planoConta"
+                value={formData.planoConta}
+                readOnly
+                className="input-text readOnly"
+              />
+            </div>
+            <div className="modalTipoDocRec">
+              <div className="label">Tipo de Documento</div>
+              <input
+                type="text"
+                name="tipoDocumento"
+                value={formData.tipoDocumento}
+                readOnly
+                className="input-text readOnly"
+              />
+            </div>
+            <div className="modalCliente">
+              <div className="label">Cliente</div>
+              <input
+                type="text"
+                name="cliente"
+                value={formData.cliente}
+                readOnly
+                className="input-text readOnly"
+              />
+            </div>
+            <div className="modalValoR">
+              <div className="label">Valor (R$)</div>
+              <input
+                type="text"
+                name="valor"
+                value={formData.valor}
+                readOnly
+                className="input-text readOnly"
+              />
+            </div>
+            <div className="modalDescricao">
+              <div className="label">Descrição</div>
+              <input
+                type="text"
+                name="descricao"
+                value={formData.descricao}
+                readOnly
+                className="input-text readOnly"
+              />
             </div>
           </Typography>
-          <button onClick={handleClose} className="DelFecharModalRec">
+          <button onClick={handleClose} className="FecharModalRec">
             X
           </button>
           <button onClick={handleDelete} className="ExcluirDadosRec">
-            Excluir Receitas
+            Excluir Receita
           </button>
-          <button onClick={handleClear} className="DelCancelarDadosRec">
+          <button
+            onClick={() => {
+              handleCancel();
+            }}
+            className="CancelarDadosRec"
+          >
             Cancelar Exclusão
           </button>
-        </Box>
-      </Modal>
-      <Modal
-        open={isErrorModalOpen}
-        onClose={closeErrorModal}
-        aria-labelledby="modal-error-title"
-        aria-describedby="modal-error-description"
-      >
-        <Box sx={messageStyle}>
-          <Typography
-            id="modal-error-title"
-            variant="h6"
-            component="h2"
-            color="#f44336"
-          >
-            Erro
-          </Typography>
-          <Typography id="modal-error-description" sx={{ mt: 2 }}>
-            {errorMessage}
-          </Typography>
         </Box>
       </Modal>
     </div>
